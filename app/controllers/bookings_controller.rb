@@ -1,39 +1,37 @@
+
 class BookingsController < ApplicationController
-	def new
-		@booking = Booking.new
-		@activity = Activity.find(params[:activity_id])
+
+  def show
+    @booking = Booking.find(params[:id])
     # authorize @booking
-	end
+  end
 
-	def create
-	@booking = Booking.new(booking_params)
-	@activity = Activity.find(params[:activity_id])
-	@booking.activity = @activity
-	@booking.price = @activity.price
-
-    # @booking.user = current_user
+  def new
+    @booking = Booking.new
+    @activity = Activity.find(params[:activity_id])
     # authorize @booking
-    # if @booking.save
-    #   redirect_to activity_booking_path(@activity, @booking) # confirmation: + email + sms?
-    # else
-    #   render :new
-    # end
-	end
+  end
 
-	def show
-	@booking = Booking.find(params[:id])
+  def create
+    @booking = Booking.new
+    @activity = Activity.find(params[:activity_id]) 
+    @booking.activity = @activity
+    @booking.price = @activity.price
+    @booking.provider = @activity.provider
+    @booking.user = current_user
     # authorize @booking
-	end
+    #if @booking.save
+    #redirect_to ???? WHERE DO WE WANT TO REDIRECT??????? activity_booking_path(@activity, @booking) # confirmation: + email + sms?
+  #else
+  render :new
+  # end
+  end
 
-	def destroy
-	@booking = Booking.find(params[:id])
-	@booking.destroy
-	end
+  def destroy
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  end
 
-private
 
-	def booking_params
-	params.require(:booking).permit(:date_check_in, :date_check_out)
-	end
 
 end
