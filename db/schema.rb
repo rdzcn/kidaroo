@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226150115) do
+ActiveRecord::Schema.define(version: 20180226174253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20180226150115) do
     t.bigint "provider_id"
     t.string "address"
     t.string "photos"
-    t.date "start_date"
-    t.date "end_date"
     t.string "category"
     t.integer "age_group"
     t.datetime "created_at", null: false
@@ -34,15 +32,26 @@ ActiveRecord::Schema.define(version: 20180226150115) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "amount_cents", default: 0, null: false
     t.string "state"
     t.string "activities_sku"
     t.jsonb "payment"
-    t.index ["activity_id"], name: "index_bookings_on_activity_id"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "booking_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_events_on_activity_id"
+    t.index ["booking_id"], name: "index_events_on_booking_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -88,6 +97,9 @@ ActiveRecord::Schema.define(version: 20180226150115) do
   end
 
   add_foreign_key "activities", "providers"
+  add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
+  add_foreign_key "events", "activities"
+  add_foreign_key "events", "bookings"
   add_foreign_key "reviews", "bookings"
 end
