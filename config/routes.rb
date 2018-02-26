@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-
-  get 'bookings/create'
-
-  get 'bookings/show'
-
-  get 'bookings/destroy'
-
-  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users do
+    resources :bookings, only: [:show, :create, :update]
+  end
+
+  resources :activities do
+    resources :reviews, only: [:create] #for new _form partial ==> look for ajax in rails lecture
+  end
+
+
+  resources :providers, only: [:new, :create, :update, :destroy]
+
 end
