@@ -1,23 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+	resources :events, only: [:show] do
+		resources :bookings, only: [:new, :create]
+	end
+	resources :bookings, only: [:update]
 
-  devise_for :users
-
-  get '/dashboard', to: 'users#dashboard'
-
-
-  resources :activities do
-    resources :events, only: [:new, :create]
-  end
-
-  resources :events, only: [:show] do
-    resources :bookings, only: [:new, :create, :update]
-  end
-
-  resources :bookings, only: [:show] do
-    resources :reviews, only: [:new, :create]
-  end
-
-    resources :providers, only: [:new, :create, :update, :destroy]
-
+	resources :bookings, only: [:show] do
+		resources :reviews, only: [:new, :create]
+	end
 end
+

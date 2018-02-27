@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :activities
   has_many :bookings
   has_many :events, through: :bookings
   has_many :reviews, through: :bookings
