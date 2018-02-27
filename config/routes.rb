@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users do
-    resources :bookings, only: [:show, :create, :update]
-  end
+  devise_for :users
 
   resources :activities do
-    resources :reviews, only: [:create] #for new _form partial ==> look for ajax in rails lecture
+    resources :events, only: [:new, :create]
   end
 
+  resources :events, only: [:show] do
+    resources :bookings, only: [:new, :create, :update]
+  end
 
-  resources :providers, only: [:new, :create, :update, :destroy]
+  resources :bookings, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
+
+    resources :providers, only: [:new, :create, :update, :destroy]
 
 end
