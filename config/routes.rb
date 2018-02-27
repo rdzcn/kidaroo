@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+
   devise_for :users
+
+  get '/dashboard', to: 'users#dashboard'
+
 
   resources :activities do
     resources :events, only: [:new, :create]
