@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: { customer: 0, provider: 1 }
   has_many :bookings
   has_many :events, through: :bookings
   has_many :reviews, through: :bookings
