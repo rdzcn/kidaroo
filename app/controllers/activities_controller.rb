@@ -41,6 +41,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    @activity.destroy
+    redirect_to activities_path
   end
 
   private
@@ -52,6 +54,4 @@ class ActivitiesController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:id])
   end
-
-
 end
