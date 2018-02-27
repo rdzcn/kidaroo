@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/dashboard/edit', to: 'users#edit'
   resources :users
+  resources :activities
 
 	resources :events, only: [:show] do
 		resources :bookings, only: [:new, :create]

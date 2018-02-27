@@ -1,1 +1,3 @@
-<p> <%= @activities %></p>
+<p> <% @activities.each do |activity| %></p>
+<%= activity.title %> <br>
+<% end %>

@@ -1,9 +1,12 @@
 <h1>Hallo</h1>
 <%= @user.first_name %> <br>
 <%= @user.email %> <br>
-<%= @bookings %> <br>
-<%= @activities %>
-
+<% @bookings.each do |booking| %>
+<%= link_to booking.event.activity.title, '#' %>
+<% end %><br>
+<% @activities.each do |activity| %>
+<%= link_to activity.title, '#' %>
+<% end %>
 
  <div class="dashboard-buttons" style="text-align:center;">
 

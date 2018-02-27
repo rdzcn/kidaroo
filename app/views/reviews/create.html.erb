@@ -1,0 +1,23 @@
+<%= form_for @review do |f| %>
+
+  <p>
+    <%= f.label :stars, 'Rating', class: 'indent' %>
+    <div class= "rating">
+      1 &#9734;<%= f.radio_button :stars, '1' %>
+      2 &#9734;<%= f.radio_button :stars, '2' %>
+      3 &#9734;<%= f.radio_button :stars, '3' %>
+      4 &#9734;<%= f.radio_button :stars, '4' %>
+      5 &#9734;<%= f.radio_button :stars, '5' %>
+    </div>
+  </p>
+   <p>
+    <%= f.label :stars, 'Rating', class: 'indent' %>
+    <div class= "rating">
+      1 &#9734;<%= f.radio_button :stars, '1' %>
+      2 &#9734;<%= f.radio_button :stars, '2' %>
+      3 &#9734;<%= f.radio_button :stars, '3' %>
+      4 &#9734;<%= f.radio_button :stars, '4' %>
+      5 &#9734;<%= f.radio_button :stars, '5' %>
+    </div>
+  </p>
+  <% end %>
