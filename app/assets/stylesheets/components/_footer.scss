@@ -1,14 +1,19 @@
 .footer {
-  background: #FCF582;
+  background: $yellow;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  height: 250px;
-  padding: 0px 50px;
+  height: 260px;
+  padding: 0px 120px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   color: rgba(0,0,0,0.3);
   position: fixed;
   width: 100vw;
   bottom: 0;
+  h3 {
+    font-size: 20px;
+  }
   a:hover {
     text-decoration: none;
   }
@@ -16,9 +21,11 @@
     color: rgba(0,0,0,0.3);
   }
 }
+
+
 .footer-links {
-  // display: flex;
-  display: inline;
+  display: flex;
+  // display: inline;
   align-items: center;
 }
 .footer-links a {
@@ -41,4 +48,7 @@
   width: 50%;
   display: inline;
 }
-
+.p-stonger {
+  font-weight: bold;
+  font-size: 22px;
+}
