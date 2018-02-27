@@ -3,6 +3,10 @@
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
 // 3. You can override them below!
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400');
+$base-font: 'Roboto', sans-serif;
+$header-font: 'Montserrat', sans-serif;
+
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
@@ -23,3 +27,6 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+
+
+
