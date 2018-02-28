@@ -1,3 +1,10 @@
     <% content_for(:navbar_class, "navbar-home") %>
     <%= render 'shared/banner' %>
 
+    <%= form_tag(activities_path, method: "get") do %>
+    <%= text_field_tag(:category, nil, placeholder: 'category') %>
+    <%= text_field_tag(:title, nil, placeholder: 'title') %>
+    <%= text_field_tag(:address, nil, placeholder: 'address') %>
+    <%= text_field_tag(:age_group, nil, placeholder: 'age group') %>
+    <%= submit_tag("Search") %>
+    <% end %>
