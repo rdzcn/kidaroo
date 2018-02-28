@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227115406) do
+ActiveRecord::Schema.define(version: 20180227164943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20180227115406) do
     t.string "sku"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string "attachinariable_type"
+    t.bigint "attachinariable_id"
+    t.string "scope"
+    t.string "public_id"
+    t.string "version"
+    t.integer "width"
+    t.integer "height"
+    t.string "format"
+    t.string "resource_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+    t.index ["attachinariable_type", "attachinariable_id"], name: "index_attachinary_files_attachinariable"
   end
 
   create_table "bookings", force: :cascade do |t|

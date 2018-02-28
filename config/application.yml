@@ -1,3 +1,6 @@
 development:
   STRIPE_PUBLISHABLE_KEY: "pk_test_Ddcr7FQbOh3eq4UY7ynDuOp6"
   STRIPE_SECRET_KEY: "sk_test_bs7kVzzrNKCzoYRcdIoc2bqc"
+
+  CLOUDINARY_URL: "cloudinary://716967834119596:PJ2G9EmcZRMZxunS7H2YTTQoldg@annamariapl"
+
