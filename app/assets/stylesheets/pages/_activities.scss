@@ -7,58 +7,61 @@
   grid-column-gap: 10px;
   grid-template-columns: 7fr 5fr;
   grid-template-rows: 50%;
+    justify-items: center;
+    #map {
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        height: 100vh !important;
+        flex: 0 0 450px;
+    height: 100vh;
+    position: sticky !important; /* !important to override Gmaps inline CSS */
+    top: 0 !important;
+    }
+    .index-search {
+        grid-row-gap: 10px;
+        display: subgrid;
+        justify-self: stretch;
 
-  justify-items: center;
-  #map {
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    height: 100vh !important;
-  }
-  .index-search {
-    grid-row-gap: 10px;
-    display: subgrid;
-    justify-self: stretch;
-    .index-search-result {
-      border-radius: 3px;
-      display: grid;
-      grid-column-gap: 16px;
-      padding: 16px 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      height: 230px;
-      margin-bottom: 20px;
-      justify-self: stretch;
-      justify-items: stretch;
-      grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr  ;
-      grid-template-areas:
-      "image image title title title"
-      "image image address address button"
-      "image image description description description "
-      "image image price . review";
-      .result-button {
-        justify-self: center;
-        align-self: center;
-        img {
-          border-radius: 18%;
-          box-shadow: 0 0 5px rgba(0,0,0,0.3);
-        }
-      }
-      .result-title {
-        align-self: center;
-        a {
-          color: black;
-          font-size:25px;
-          opacity: 0.7;
-          font-weight: bold;
-          &:hover {
-            color: rgb(74,119,47);
-          }
-        }
-      }
-      .result-description {
-        align-self: start;
-        a {
-          padding-bottom: 5px;
-
+        .index-search-result {
+            border-radius: 3px;
+            display: grid;
+            grid-column-gap: 16px;
+            padding: 16px 16px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            height: 230px;
+            margin-bottom: 20px;
+            justify-self: stretch;
+            justify-items: stretch;
+            grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr  ;
+            grid-template-areas:
+            "image image title title title"
+            "image image address address button"
+            "image image description description description "
+            "image image price . review";
+            .result-button {
+                justify-self: center;
+                align-self: center;
+                img {
+                    border-radius: 18%;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+                }
+            }
+            .result-title {
+                align-self: center;
+                a {
+                    color: black;
+                    font-size:25px;
+                    opacity: 0.7;
+                    font-weight: bold;
+                    &:hover {
+                        color: rgb(74,119,47);
+                    }
+                }
+            }
+            .result-description {
+                align-self: start;
+                a {
+                  padding-bottom: 5px;
         }
       }
       .result-review {
