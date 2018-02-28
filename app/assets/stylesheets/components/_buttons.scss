@@ -1,0 +1,69 @@
+// bootstrap customised
+
+.search-button {
+    padding: 0 20px;
+    input[type="submit"] {
+      padding: 5px 20px;
+      font-family: Raleway;
+      font-size: 20px;
+      color: white;
+      background: #4A772F;
+      border-radius: 4px;
+      width: 150px;
+      border: none;
+      box-shadow: 0 0 10px rgba(52,188,4,0.2)
+    }
+  }
+
+.btn-primary{
+	border-radius: 40px;
+	padding-right: 20px;
+	padding-left: 20px;
+	height: 50px;
+	font-size: 20px;
+}
+
+
+.btn-medium {
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #999999;
+}
+
+.btn-yellow {
+  color: $orange;
+  border: 1px solid $orange;
+  padding: 10px 40px;
+  text-align: center;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+.btn-yellow:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: $orange;
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
