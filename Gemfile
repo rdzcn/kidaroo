@@ -26,6 +26,7 @@ gem "geocoder"
 gem 'faker'
 gem 'money-rails'
 gem 'stripe'
+gem "geocoder"
 
 
 gem 'pundit'

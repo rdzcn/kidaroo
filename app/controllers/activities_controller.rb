@@ -2,8 +2,17 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit]
 
   def index
-    @activities = Activity.all
-  end
+    @activities = Activity.where.not(latitude: nil, longitude: nil)
+
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/activities/map_box", locals: { activity: activity }) }
+      }
+    end
+end
+
 
   def new
     @activity = Activity.new
