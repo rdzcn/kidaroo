@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h2>When motherfucker?</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%=  simple_form_for [@activity, @event] do |f|%>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+
+        <%= f.button :submit, "Submit", class: "btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

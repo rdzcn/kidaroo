@@ -1,0 +1,26 @@
+<h3><%= @activity.title %></h3>
+<h4><%= @activity.description %></h4>
+<% @activity.photos.each do |photo| %>
+<%= cl_image_tag photo.path %>
+<% end %>
+
+<% past = @events.select { |event| event.start_date < Date.today} %>
+<% future = @events.select { |event| event.start_date > Date.today} %>
+<p>Past Events</p>
+<% if past.empty? %>
+<p> ------------------ </p>
+<% else %>
+<% past.each do |event| %>
+<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
+<% end %>
+<% end %>
+
+<p>Upcoming Events</p>
+<% if future.empty? %>
+<p> ------------------ </p>
+<% else %>
+<% future.each do |event| %>
+<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
+<% end %>
+<% end %>
+
