@@ -9,10 +9,11 @@
     <p><%= link_to "#{activity.title}", activity_path(activity) %></p>
   </div>
   <div class="result-location">
+  <span class="fas fa-map-marker">
     <p><%= activity.address.truncate(25) %></p>
   </div>
   <div class="result-description">
-    <p><%= activity.description%></p> 
+    <p><%= activity.description%></p>
     <!-- .truncate(25) -->
   </div>
   <div class="btn btn-primary">
@@ -21,7 +22,8 @@
   </div>
 
   <div class="result-price">
-    <p>Price <%= activity.price_cents %></p>
+    <span class="fas fa-euro-sign">
+    <p><%= activity.price %></p>
   </div>
 
 </div>
