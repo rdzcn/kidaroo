@@ -76,12 +76,30 @@
             padding: 16px 16px;
         }
     }
-    .result-price {
-        align-self: center;
-        p {
-            font-size: 18px;
-                        // font-weight: bold;
-                    }
+   
+
+            .result-location {
+              p {
+                display:inherit;
+              }
+            }
+            .result-review {
+                justify-self: center;
+                align-self: center;
+                border-radius: 50%;
+                p {
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding: 16px 16px;
+                }
+            }
+            .result-price {
+                align-self: center;
+                p {
+                    font-size: 18px;
+                    display:inherit;
+                    // font-weight: bold;
+
                 }
             }
         }
