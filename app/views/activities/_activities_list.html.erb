@@ -15,10 +15,16 @@
     <p><%= activity.description%></p> 
     <!-- .truncate(25) -->
   </div>
+  <div class="btn btn-primary">
+    <p><%= link_to "Show more", activity_path(activity) %></p>
 
-<!--   <div class="result-price">
+  </div>
+
+  <div class="result-price">
     <p>Price <%= activity.price_cents %></p>
-  </div> -->
+  </div>
 
 </div>
 <% end %>
+
+
