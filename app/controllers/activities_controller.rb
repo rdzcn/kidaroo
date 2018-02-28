@@ -56,3 +56,5 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 end
+
+

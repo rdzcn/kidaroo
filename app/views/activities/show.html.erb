@@ -1,21 +1,60 @@
-<h3><%= @activity.title %></h3>
-<h4><%= @activity.description %></h4>
+<div class="wrapper-activity-show">
+	<div class="activity-header">
+		<div class="activity-title">
+		  <h1><%= @activity.title %></h1>
+		</div>
+		<div class="activity-age-group">
+			<h3><%= @activity.age_group %></h3>
+		</div>
+		<div class="activity-description">
+			<p><%= @activity.description %></p>
+		</div>
+		<div class="activity-photo">
+			<%= cl_image_tag @activity.photos.first.path %>
+		</div>
+	</div>
+
+	<div class="activity-events">
+		<div class="activity-events-date">
+
+		</div>
+		<div class="activity-events-details">
+
+		</div>
+		<div class="activity-events-capacity">
+
+		</div>
+		<div class="activity-events-book">
+
+		</div>
+	</div>
+
+	<div class="activity-provider-event">
+		<div class="activity-provider-address">
+
+		</div>
+		<div class="activity-provider-name">
+
+		</div>
+		<div class="activity-event-map">
+
+		</div>
+	</div>
+	<div class="activity-review">
+
+	</div>
+</div>
+
+
+
+<h1><%= @activity.title %></h1>
+<p><%= @activity.description %></p>
 <% @activity.photos.each do |photo| %>
 <%= cl_image_tag photo.path %>
 <% end %>
 
-<% past = @events.select { |event| event.start_date < Date.today} %>
 <% future = @events.select { |event| event.start_date > Date.today} %>
-<p>Past Events</p>
-<% if past.empty? %>
-<p> ------------------ </p>
-<% else %>
-<% past.each do |event| %>
-<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
-<% end %>
-<% end %>
 
-<p>Upcoming Events</p>
 <% if future.empty? %>
 <p> ------------------ </p>
 <% else %>
