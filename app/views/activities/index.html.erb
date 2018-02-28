@@ -1,3 +1,10 @@
-<p> <% @activities.each do |activity| %></p>
-<%= activity.title %> <br>
-<% end %>
+<div class="wrapper-index">
+	<div class="index-search">
+		<%= render 'activities_list', activities: @activities%>
+	</div>
+	<div
+	id="map"
+	data-markers="<%= @markers.to_json %>"
+	></div>
+</div>
+
