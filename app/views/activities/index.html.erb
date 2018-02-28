@@ -1,3 +1,14 @@
+<p> <% @activities.each do |activity| %></p>
+  <% act = activity.events.where("start_date > ?", Date.today) %>
+  <% act.each do |ac| %>
+    <%= link_to ac.activity.title, activity_path(ac.activity) %> <br>
+    <p> <%= ac.activity.category %> </p><br>
+  <p> <%= ac.activity.address %> </p><br>
+  <% end %>
+<% end %>
+
+
+
 <div class="wrapper-index">
 	<div class="index-search">
 		<%= render 'activities_list', activities: @activities%>
