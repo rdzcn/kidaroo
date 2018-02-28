@@ -1,5 +1,4 @@
-<div class="wrapper-index">
-<div class="index-search">
+
 <% @activities.each do |activity| %>
 <div class="index-search-result">
   <% if activity.photos.first %>
@@ -15,12 +14,15 @@
   <div class="result-description">
     <p><%= activity.description.truncate(140) %></p>
   </div>
+  <div class="btn btn-primary">
+    <p><%= link_to "Show more", activity_path(activity) %></p>
 
-<!--   <div class="result-price">
+  </div>
+
+  <div class="result-price">
     <p>Price <%= activity.price_cents %></p>
-  </div> -->
+  </div>
 
 </div>
 <% end %>
-</div>
-</div>
+

@@ -30,11 +30,11 @@
             grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
             grid-template-rows: 1fr 1fr 1fr  ;
             grid-template-areas:
-            "image image title title avatar"
-            "image image address address avatar"
+            "image image title title title"
+            "image image address address button"
             "image image description description description "
             "image image price . review";
-            .result-avatar {
+            .result-button {
                 justify-self: center;
                 align-self: center;
                 img {
@@ -108,8 +108,8 @@
     grid-area: description;
     font-size: 15px;
 }
-.result-avatar {
-    grid-area: avatar;
+.show-button {
+    grid-area: button;
 }
 .result-address {
     grid-area: address;
