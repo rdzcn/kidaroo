@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @events = @activity.events
    #authorize @activity
    #if @activity.latitude && @activity.longitude
    # @markers = [{
@@ -21,10 +22,10 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.provider = current_user
+    @activity.user = current_user
     #authorize @activity
     if @activity.save
-      redirect_to activity_path(@activity)
+      redirect_to  new_activity_event_path(@activity)
     else
       render :new
     end
@@ -48,7 +49,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :price, :adress, :photos [], :category, :age_group)
+    params.require(:activity).permit(:title, :description, :price, :address, :category, :age_group, photos: [])
   end
 
   def set_activity

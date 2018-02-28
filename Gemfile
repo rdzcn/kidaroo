@@ -28,7 +28,6 @@ gem 'money-rails'
 gem 'stripe'
 
 
-
 gem 'pundit'
 
 group :development do

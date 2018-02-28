@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h2>Add an activity</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%=  simple_form_for @activity do |f|%>
+        <%= f.input :title, label: false, placeholder: "Title" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.input :category, label: false, placeholder: "Category" %>
+        <%= f.input :age_group, label: false, placeholder: "Age Group" %>
+        <%= f.input :address, label: false, placeholder: "Address" %>
+        <%= f.input :price_cents, label: false, placeholder: "Price" %>
+        <%= f.input :photos, as: :attachinary %>
+        <%= f.button :submit, "Submit", class: "btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
