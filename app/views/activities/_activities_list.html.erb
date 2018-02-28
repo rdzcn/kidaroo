@@ -1,5 +1,4 @@
-<div class="wrapper-index">
-<div class="index-search">
+
 <% @activities.each do |activity| %>
 <div class="index-search-result">
   <% if activity.photos.first %>
@@ -13,7 +12,8 @@
     <p><%= activity.address.truncate(25) %></p>
   </div>
   <div class="result-description">
-    <p><%= activity.description.truncate(140) %></p>
+    <p><%= activity.description%></p> 
+    <!-- .truncate(25) -->
   </div>
 
 <!--   <div class="result-price">
@@ -22,5 +22,3 @@
 
 </div>
 <% end %>
-</div>
-</div>
