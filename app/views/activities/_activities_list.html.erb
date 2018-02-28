@@ -12,7 +12,8 @@
     <p><%= activity.address.truncate(25) %></p>
   </div>
   <div class="result-description">
-    <p><%= activity.description.truncate(140) %></p>
+    <p><%= activity.description%></p> 
+    <!-- .truncate(25) -->
   </div>
   <div class="btn btn-primary">
     <p><%= link_to "Show more", activity_path(activity) %></p>
@@ -25,4 +26,5 @@
 
 </div>
 <% end %>
+
 
