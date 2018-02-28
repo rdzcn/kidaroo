@@ -1,16 +1,18 @@
+// this footer is not being used == > footer_stealed
+
 .footer {
-  background: $yellow;
+  background: $yellow; // $light-gray ?
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  height: 260px;
+  height: 300px;
   padding: 0px 120px;
   padding-top: 40px;
   padding-bottom: 40px;
-  color: rgba(0,0,0,0.3);
-  position: fixed;
+  color:  black;
+  position: absolute;
   width: 100vw;
-  bottom: 0;
+  // bottom: 0;
   h3 {
     font-size: 20px;
   }
@@ -18,8 +20,17 @@
     text-decoration: none;
   }
   a {
-    color: rgba(0,0,0,0.3);
+    // color: rgba(0,0,0,0.3);
+    color: black;
   }
+}
+
+.footer-newsletter {
+
+  p {
+    padding: 100px;
+  }
+
 }
 
 
@@ -42,11 +53,15 @@
   color: #D23333;
 }
 
-/// overriding bootstrap ///
+/// form ///
 
 .form-control {
-  width: 50%;
+  width: 70%;
+  height: 50px;
   display: inline;
+  padding-right: 10px;
+  font-size: 20px;
+  font-weight: lighter;
 }
 .p-stonger {
   font-weight: bold;

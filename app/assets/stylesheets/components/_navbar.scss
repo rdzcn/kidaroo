@@ -3,7 +3,7 @@
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: $yellow;
   transition: all 0.3s ease;
-  height: 70px;
+  height: 100px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 70px;
 }
 
 /* User Avatar */
@@ -74,4 +74,17 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: white;
+    // font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+  }
 }

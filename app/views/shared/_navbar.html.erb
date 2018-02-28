@@ -1,7 +1,7 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "logo.png", height: 70 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -32,7 +32,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link btn-yellow text-center" %>
     <% end %>
   </div>
 
