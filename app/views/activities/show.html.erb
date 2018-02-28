@@ -15,18 +15,25 @@
 	</div>
 
 	<div class="activity-events">
-		<div class="activity-events-date">
-
-		</div>
-		<div class="activity-events-details">
-
-		</div>
-		<div class="activity-events-capacity">
-
-		</div>
-		<div class="activity-events-book">
-
-		</div>
+		<table>
+			<tr>
+				<th>Dates</th>
+				<th>Details</th>
+				<th>Free spots</th>
+				<th>Price</th>
+				<th>Book</th>
+			</tr>
+			<% @activity.events.each do |event| %>
+			<tr>
+				<td><%= event.start_date %> - <%= event.end_date %></td>
+				<td><%= @activity.description %></td>
+				<td><%= rand(3..9) %> </td>
+				<td><%= @activity.price %></td>
+				<td><button><% link_to "Book", event_bookings_path(event) %></button></td>
+				<% raise %>
+			</tr>
+			<% end %>
+		</table>
 	</div>
 
 	<div class="activity-provider-event">
@@ -44,22 +51,3 @@
 
 	</div>
 </div>
-
-
-
-<h1><%= @activity.title %></h1>
-<p><%= @activity.description %></p>
-<% @activity.photos.each do |photo| %>
-<%= cl_image_tag photo.path %>
-<% end %>
-
-<% future = @events.select { |event| event.start_date > Date.today} %>
-
-<% if future.empty? %>
-<p> ------------------ </p>
-<% else %>
-<% future.each do |event| %>
-<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
-<% end %>
-<% end %>
-

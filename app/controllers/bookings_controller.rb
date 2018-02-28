@@ -14,17 +14,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new
-    @activity = Activity.find(params[:activity_id]) 
-    @booking.activity = @activity
-    @booking.price = @activity.price
-    @booking.provider = @activity.provider
+    @activity = Event.find(params[:activity_id])
+    @booking.event = @event
+    @booking.price = @event.price
     @booking.user = current_user
     # authorize @booking
-    #if @booking.save
-    #redirect_to ???? WHERE DO WE WANT TO REDIRECT??????? activity_booking_path(@activity, @booking) # confirmation: + email + sms?
-  #else
-  render :new
-  # end
   end
 
   def destroy
