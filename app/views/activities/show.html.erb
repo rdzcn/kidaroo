@@ -1,26 +1,52 @@
-<h3><%= @activity.title %></h3>
-<h4><%= @activity.description %></h4>
-<% @activity.photos.each do |photo| %>
-<%= cl_image_tag photo.path %>
-<% end %>
+<div class="wrapper-activity-show">
+	<div class="activity-header">
+		<div class="activity-title">
+		  <h1><%= @activity.title %></h1>
+		</div>
+		<div class="activity-age-group">
+			<h3><%= @activity.age_group %></h3>
+		</div>
+		<div class="activity-description">
+			<p><%= @activity.description %></p>
+		</div>
+		<div class="activity-photo">
+			<%= cl_image_tag @activity.photos.first.path %>
+		</div>
+	</div>
 
-<% past = @events.select { |event| event.start_date < Date.today} %>
-<% future = @events.select { |event| event.start_date > Date.today} %>
-<p>Past Events</p>
-<% if past.empty? %>
-<p> ------------------ </p>
-<% else %>
-<% past.each do |event| %>
-<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
-<% end %>
-<% end %>
+	<div class="activity-events">
+		<table>
+			<tr>
+				<th>Dates</th>
+				<th>Details</th>
+				<th>Free spots</th>
+				<th>Price</th>
+				<th>Book</th>
+			</tr>
+			<% @activity.events.each do |event| %>
+			<tr>
+				<td><%= event.start_date %> - <%= event.end_date %></td>
+				<td><%= @activity.description %></td>
+				<td><%= rand(3..9) %> </td>
+				<td><%= @activity.price %></td>
+				<td><button><%= link_to "Book", new_event_booking_path(event) %></button></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
 
-<p>Upcoming Events</p>
-<% if future.empty? %>
-<p> ------------------ </p>
-<% else %>
-<% future.each do |event| %>
-<p>starts at:<%= event.start_date %>, ends at:<%= event.end_date %></p>
-<% end %>
-<% end %>
+	<div class="activity-provider-event">
+		<div class="activity-provider-address">
 
+		</div>
+		<div class="activity-provider-name">
+
+		</div>
+		<div class="activity-event-map">
+
+		</div>
+	</div>
+	<div class="activity-review">
+
+	</div>
+</div>

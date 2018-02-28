@@ -69,3 +69,5 @@ end
     @activity = Activity.find(params[:id])
   end
 end
+
+

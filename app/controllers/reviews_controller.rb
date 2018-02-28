@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.booking = Booking.where(:id params[:booking_id])
+    @review.booking = Booking.where(id: params[:booking_id])
     if @review.save
       redirect_to dashboard_path
     else
