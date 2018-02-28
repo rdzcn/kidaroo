@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new
-    @activity = Event.find(params[:activity_id])
+    @event = Event.find(params[:event_id])
     @booking.event = @event
     @booking.price = @event.price
     @booking.user = current_user
