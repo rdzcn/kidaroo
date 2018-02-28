@@ -29,7 +29,7 @@
 				<td><%= @activity.description %></td>
 				<td><%= rand(3..9) %> </td>
 				<td><%= @activity.price %></td>
-				<td><button><% link_to "Book", event_bookings_path(event) %></button></td>
+				<td><button><%= link_to "Book", new_event_booking_path(event) %></button></td>
 			</tr>
 			<% end %>
 		</table>

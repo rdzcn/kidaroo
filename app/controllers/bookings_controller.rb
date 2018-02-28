@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @activity = Activity.find(params[:activity_id])
+    @event = Event.find(params[:event_id])
     # authorize @booking
   end
 
