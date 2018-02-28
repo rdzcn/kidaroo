@@ -12,11 +12,16 @@
     #map {
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
         height: 100vh !important;
+        flex: 0 0 450px;
+    height: 100vh;
+    position: sticky !important; /* !important to override Gmaps inline CSS */
+    top: 0 !important;
     }
     .index-search {
         grid-row-gap: 10px;
         display: subgrid;
         justify-self: stretch;
+
         .index-search-result {
             border-radius: 3px;
             display: grid;
