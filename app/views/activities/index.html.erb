@@ -6,3 +6,16 @@
   <p> <%= ac.activity.address %> </p><br>
   <% end %>
 <% end %>
+
+
+
+<div class="wrapper-index">
+	<div class="index-search">
+		<%= render 'activities_list', activities: @activities%>
+	</div>
+	<div
+	id="map"
+	data-markers="<%= @markers.to_json %>"
+	></div>
+</div>
+

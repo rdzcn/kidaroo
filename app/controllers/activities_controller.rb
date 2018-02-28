@@ -7,7 +7,16 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where("address ILIKE ?", params[:address]) unless params[:address].blank?
     @activities = @activities.where(age_group: params[:age_group]) unless params[:age_group].blank?
     @activities = @activities.where("title ILIKE ?", params[:title]) unless params[:title].blank?
-  end
+   
+    @activities = Activity.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/activities/map_box", locals: { activity: activity }) }
+      }
+    end
+end
 
   def new
     @activity = Activity.new
