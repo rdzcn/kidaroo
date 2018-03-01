@@ -115,6 +115,7 @@
             align-self: center;
             p {
                 font-size: 18px;
+                display:inherit;
                         // font-weight: bold;
                     }
                 }
@@ -147,6 +148,11 @@
 .result-description {
     grid-area: description;
     font-size: 15px;
+}
+.result-location {
+  p {
+    display:inherit;
+  }
 }
 .show-button {
     grid-area: button;
