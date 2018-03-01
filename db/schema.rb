@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20180228120033) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+
+
   create_table "attachinary_files", force: :cascade do |t|
     t.string "attachinariable_type"
     t.bigint "attachinariable_id"
@@ -60,6 +62,8 @@ ActiveRecord::Schema.define(version: 20180228120033) do
     t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
+
+  
 
   create_table "dates", force: :cascade do |t|
     t.date "start_date"
