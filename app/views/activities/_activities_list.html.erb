@@ -8,21 +8,16 @@
   </div>
   <% end %>
   <div class="result-title">
-    <p><%= link_to "#{activity.title}", activity_path(activity) %></p>
+    <p><%= link_to activity.title.truncate(30), activity_path(activity) %></p>
   </div>
   <div class="result-location">
     <span class="fas fa-map-marker">
-      <p><%= activity.address.truncate(25) %></p>
+      <p><%= activity.address.truncate(17) %></p>
     </div>
     <div class="result-description">
-      <p><%= activity.description%></p>
+      <p><%= activity.description.truncate(179)%></p>
       <!-- .truncate(25) -->
     </div>
-    <div class="btn btn-primary">
-      <p><%= link_to "Show more", activity_path(activity) %></p>
-
-    </div>
-
     <div class="result-price">
       <span class="fas fa-euro-sign">
         <p><%= activity.price %></p>
