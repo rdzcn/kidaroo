@@ -1,13 +1,54 @@
     <% content_for(:navbar_class, "navbar-home") %>
     <%= render 'shared/banner' %>
 
-    <%= form_tag(activities_path, method: "get") do %>
-    <%= text_field_tag(:category, nil, placeholder: 'category') %>
-    <%= text_field_tag(:title, nil, placeholder: 'title') %>
-    <%= text_field_tag(:address, nil, placeholder: 'address') %>
-    <%= text_field_tag(:age_group, nil, placeholder: 'age group') %>
-    <%= submit_tag("Search") %>
-    <% end %>
+<div class="wrapper-filters">
+    <div class="nl-blurred">
+    	<div class="container demo-1">
+    		<div class="main clearfix">
+    			<%= form_tag(activities_path, method: "get", class: "nl-form", id: "") do %>
+    			I am searching for <br>
+    			<select id="category">
+    				<option value="1" selected>any kind of activity</option>
+    				<option value="2">sport activity</option>
+    				<option value="3">learning challanges</option>
+    				<option value="4">art activity</option>
+    				<option value="2">some inspiration</option>
+    			</select>
+    			<br /> for my kid <br>
+    			<select id="age_group">
+    				<option value="1" selected>who is a toddler</option>
+    				<option value="2">who is kindergarten age</option>
+    				<option value="3">who is a school kid</option>
+    				<option value="4">who is a teenager</option>
+    				<option value="5">and our whole family</option>
+    			</select>
+    			<br />
+    			<select id="address">
+    				<option value="1" selected>anywhere in Berlin</option>
+    				<option value="1">in Kreuzberg</option>
+    				<option value="2">in Friedrishein</option>
+    				<option value="3">in Charlottenburg</option>
+    				<option value="4">in Prenzlauerberg</option>
+    				<option value="5">in Mitte</option>
+    				<option value="6">in Stegliez</option>
+    				<option value="7">in Wilmersdorf</option>
+    			</select>
+    			<%#= text_field_tag(:title, nil, placeholder: 'title') %>
+    			<br><%= submit_tag "find activity", class: "nl-submit" %> <%= image_tag "spaceman-right.svg", height: 70 %>
+    			<% end %>
+
+    		</div>
+    	</div>
+    </div>
+</div>
+
+    <%#= form_tag(activities_path, method: "get") do %>
+    <%#= text_field_tag(:category, nil, placeholder: 'category') %>
+    <%#= text_field_tag(:title, nil, placeholder: 'title') %>
+    <%#= text_field_tag(:address, nil, placeholder: 'address') %>
+    <%#= text_field_tag(:age_group, nil, placeholder: 'age group') %>
+    <%#= submit_tag("Search") %>
+    <%# end %>
 
     <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
     <% results = JSON.parse(content) %>
@@ -35,5 +76,6 @@
         <% end %>
       </ul>
     </div>
+
 
 
