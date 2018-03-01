@@ -2,11 +2,72 @@
 <%= @user.first_name %><br>
 <%= @user.email %> <br>
 <%= @user.role %> <br>
+
 <% if @bookings %>
+<h3>Past Events</h3>
 <% @bookings.each do |booking| %>
-<%= link_to booking.event.activity.title, activty_path(booking.event.activity) %>
-<% end %><br>
-<% end %><br>
+    <% book = booking.events.where("start_date < ?", Date.today) %>
+      <% book.each do |boo| %>
+        <div class="index-search-result">
+        <% if booking.activity.photos.first %>
+          <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path booking.activity.photos.first.path, width: 200, height: 150, crop: :fit %>');">
+          </div>
+        <% end %>
+        <div class="result-title">
+          <p><%= link_to "#{booking.activity.title}", activity_path(booking.activity) %></p>
+        </div>
+        <div class="result-location">
+          <span class="fas fa-map-marker">
+            <p><%= booking.activity.address.truncate(25) %></p>
+          </div>
+          <div class="result-description">
+            <p><%= booking.activity.description%></p>
+            <!-- .truncate(25) -->
+          </div>
+          <div class="btn btn-primary">
+            <p><%= link_to "Show more", activity_path(booking.activity) %></p>
+          </div>
+          <div class="result-price">
+            <span class="fas fa-euro-sign">
+              <p><%= booking.activity.price %></p>
+            </div>
+          </div>
+      <% end %>
+   <% end %>
+   <h3>Upcoming Events</h3>
+  <% @bookings.each do |booking| %>
+    <% book = booking.events.where("start_date > ?", Date.today) %>
+       <% book.each do |boo| %>
+        <div class="index-search-result">
+        <% if booking.activity.photos.first %>
+          <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path booking.activity.photos.first.path, width: 200, height: 150, crop: :fit %>');">
+          </div>
+        <% end %>
+        <div class="result-title">
+          <p><%= link_to "#{booking.activity.title}", activity_path(booking.activity) %></p>
+        </div>
+        <div class="result-location">
+          <span class="fas fa-map-marker">
+            <p><%= booking.activity.address.truncate(25) %></p>
+          </div>
+          <div class="result-description">
+            <p><%= booking.activity.description%></p>
+            <!-- .truncate(25) -->
+          </div>
+          <div class="btn btn-primary">
+            <p><%= link_to "Show more", activity_path(booking.activity) %></p>
+          </div>
+          <div class="result-price">
+            <span class="fas fa-euro-sign">
+              <p><%= booking.activity.price %></p>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+<% end %>
+
+
+
 
 
 <% if @activities %>
