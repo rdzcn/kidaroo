@@ -1,5 +1,7 @@
 
 <% @activities.each do |activity| %>
+<% act = activity.events.where("start_date > ?", Date.today) %>
+<% act.each do |ac| %>
 <div class="index-search-result">
   <% if activity.photos.first %>
   <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path activity.photos.first.path, width: 200, height: 150, crop: :fit %>');">
@@ -9,24 +11,25 @@
     <p><%= link_to "#{activity.title}", activity_path(activity) %></p>
   </div>
   <div class="result-location">
-  <span class="fas fa-map-marker">
-    <p><%= activity.address.truncate(25) %></p>
-  </div>
-  <div class="result-description">
-    <p><%= activity.description%></p>
-    <!-- .truncate(25) -->
-  </div>
-  <div class="btn btn-primary">
-    <p><%= link_to "Show more", activity_path(activity) %></p>
+    <span class="fas fa-map-marker">
+      <p><%= activity.address.truncate(25) %></p>
+    </div>
+    <div class="result-description">
+      <p><%= activity.description%></p>
+      <!-- .truncate(25) -->
+    </div>
+    <div class="btn btn-primary">
+      <p><%= link_to "Show more", activity_path(activity) %></p>
 
-  </div>
+    </div>
 
-  <div class="result-price">
-    <span class="fas fa-euro-sign">
-    <p><%= activity.price %></p>
-  </div>
+    <div class="result-price">
+      <span class="fas fa-euro-sign">
+        <p><%= activity.price %></p>
+      </div>
 
-</div>
-<% end %>
+    </div>
+    <% end %>
+    <% end %>
 
 
