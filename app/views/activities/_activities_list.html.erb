@@ -11,7 +11,8 @@
       </div>
       <div class="result-location">
         <span class="fas fa-map-marker">
-        <p><%= ac.activity.address.truncate(17) %></p>
+          <p><%= ac.activity.address.truncate(17) %></p>
+        </span>
       </div>
       <div class="result-description">
         <p><%= ac.activity.description.truncate(179)%></p>
@@ -20,7 +21,9 @@
       <div class="result-price">
         <span class="fas fa-euro-sign">
           <p><%= ac.activity.price %></p>
+        </span>
       </div>
+    </div>
   <% end %>
 <% end %>
 
