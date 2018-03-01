@@ -10,6 +10,9 @@ class ActivitiesController < ApplicationController
     addr = params[:address].split(' ') unless params[:address].blank?
     @activities = @activities.where((["address ILIKE ?"] * addr.size).join(' OR '), *addr.map { |address| "%#{address}%" }) unless addr.blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil)
+
+    #Activity.select("activity.*").joins(:events).where("events.start_date > ?", Date.today)
+
     @markers = @activities.map do |activity|
       {
         lat: activity.latitude,
