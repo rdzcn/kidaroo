@@ -7,8 +7,8 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where("address ILIKE ?", params[:address]) unless params[:address].blank?
     @activities = @activities.where(age_group: params[:age_group]) unless params[:age_group].blank?
     @activities = @activities.where("title ILIKE ?", params[:title]) unless params[:title].blank?
-   
-    @activities = Activity.where.not(latitude: nil, longitude: nil)
+
+    @activities = @activities.where.not(latitude: nil, longitude: nil)
     @markers = @activities.map do |activity|
       {
         lat: activity.latitude,
