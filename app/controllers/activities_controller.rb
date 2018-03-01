@@ -4,10 +4,12 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     @activities = @activities.where(category: params[:category]) unless params[:category].blank?
-    @activities = @activities.where("address ILIKE ?", params[:address]) unless params[:address].blank?
     @activities = @activities.where(age_group: params[:age_group]) unless params[:age_group].blank?
-    @activities = @activities.where("title ILIKE ?", params[:title]) unless params[:title].blank?
-   
+    # @activities = @activities.where("title ILIKE ?", "%#{params[:title]}%") unless params[:title].blank?
+    titles = params[:title].split(' ')
+    @activities = @activities.where((["title ILIKE ?"] * titles.size).join(' OR '), *titles.map { |title| "%#{title}%" }) unless params[:title].blank?
+    addr = params[:address].split(' ')
+    @activities = @activities.where((["address ILIKE ?"] * addr.size).join(' OR '), *addr.map { |address| "%#{address}%" }) unless params[:address].blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil)
     @markers = @activities.map do |activity|
       {

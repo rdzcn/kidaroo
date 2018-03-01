@@ -1,10 +1,10 @@
 <div class="wrapper-activity-show">
 	<div class="activity-header">
 		<div class="activity-title">
-		  <h1><%= @activity.title %></h1>
+			<h1><%= @activity.title %></h1>
 		</div>
 		<div class="activity-age-group">
-			<h3><%= @activity.age_group %></h3>
+			<h3>Age group: <%= @activity.age_group %>+</h3>
 		</div>
 		<div class="activity-description">
 			<p><%= @activity.description %></p>
@@ -15,38 +15,44 @@
 	</div>
 
 	<div class="activity-events">
-		<table>
-			<tr>
-				<th>Dates</th>
-				<th>Details</th>
-				<th>Free spots</th>
-				<th>Price</th>
-				<th>Book</th>
-			</tr>
-			<% @activity.events.each do |event| %>
-			<tr>
-				<td><%= event.start_date %> - <%= event.end_date %></td>
-				<td><%= @activity.description %></td>
-				<td><%= rand(3..9) %> </td>
-				<td><%= @activity.price %></td>
-				<td><button><%= link_to "Book", new_event_booking_path(event) %></button></td>
-			</tr>
-			<% end %>
-		</table>
+		<div class="activity-events-header">
+			<div class="activity-events-header-date">
+				<h4>Dates</h4>
+			</div>
+			<div class="activity-events-header-details">
+				<h4>Details</h4>
+			</div>
+			<div class="activity-events-header-button">
+
+			</div>
+		</div>
+		<% @activity.events.each do |event| %>
+		<div class="activity-events-body">
+			<div class="activity-events-body-date">
+				<p><%= event.start_date %> - <%= event.end_date %></p>
+			</div>
+			<div class="activity-events-body-details">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, fugiat odit dolores voluptate tenetur debitis inventore itaque aspernatur veniam hic.</p>
+			</div>
+			<div class="activity-events-body-button">
+				<button><%= link_to "BOOK", new_event_booking_path(event) %></button>
+			</div>
+		</div>
+		<% end %>
 	</div>
 
 	<div class="activity-provider-event">
-		<div class="activity-provider-address">
-
-		</div>
 		<div class="activity-provider-name">
-
+			<h2><%= @activity.user.first_name %></h2>
+		</div>
+		<div class="activity-provider-address">
+			<address><%= @activity.user.address %></address>
 		</div>
 		<div class="activity-event-map">
-
+			<p>Awesome map appears here</p>
 		</div>
 	</div>
 	<div class="activity-review">
-
+		<p>Be the first one to leave a review</p>
 	</div>
 </div>

@@ -1,0 +1,58 @@
+.wrapper-activity-show {
+	height: 100vh;
+	width: 70%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 2fr 2fr 1fr;
+	.activity-header {
+		display: grid;
+		align-items: stretch;
+		grid-template-rows: 1fr 3fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+		"title age"
+		"description photo";
+		.activity-title {
+			grid-area: title;
+			border: 2px solid red;
+			align-self: center;
+		}
+		.activity-age-group {
+			grid-area: age;
+			border: 2px solid blue;
+			align-self: center;
+			justify-self: end;
+		}
+		.activity-description {
+			grid-area: description;
+			border: 2px solid green;
+		}
+		.activity-photo {
+			grid-area: photo;
+			border: 2px solid yellow;
+			justify-self: end;
+		}
+	}
+	.activity-events {
+		margin-top: 50px;
+		background: $navy;
+		padding: 8px 8px;
+		display: grid;
+		grid-template-rows: 20% 80%;
+
+		.activity-events-header {
+			display: grid;
+			grid-template-columns: 1fr 3fr 1fr;
+		}
+		.activity-events-body {
+			padding: 16px 0;
+			display: grid;
+			justify-items: start;
+			align-items: start;
+			grid-template-columns: 1fr 3fr 1fr;
+			.activity-events-body-button {
+				justify-self: center;
+			}
+		}
+	}
+}

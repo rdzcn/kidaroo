@@ -42,12 +42,40 @@
     </div>
 </div>
 
+    <%#= form_tag(activities_path, method: "get") do %>
+    <%#= text_field_tag(:category, nil, placeholder: 'category') %>
+    <%#= text_field_tag(:title, nil, placeholder: 'title') %>
+    <%#= text_field_tag(:address, nil, placeholder: 'address') %>
+    <%#= text_field_tag(:age_group, nil, placeholder: 'age group') %>
+    <%#= submit_tag("Search") %>
+    <%# end %>
 
-
-
-
-
-
+    <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+    <% results = JSON.parse(content) %>
+    <h5>The weather in Berlin for the next 3 days</h5>
+    <div class="wrapper-weather">
+      <!-- comment la -->
+      <ul style='list-unstyled'>
+        <% results["daily"]["data"][0..2].each do |item| %>
+        <li class="weather-box">
+          <p>
+            <%= Time.at(item["time"]).day %>.<%= Time.at(item["time"]).month %>.<%= Time.at(item["time"]).year %>
+          </p>
+          <% if item["icon"] == "partly_cloudy-day" %>
+          <%= image_tag "cloud.jpg", height: 35  %>
+          <% elsif item["icon"] == "partly-cloudy-night" %>
+          <%= image_tag "cloud.jpg", height: 35  %>
+          <% elsif item["icon"] == "clear-day" %>
+          <%= image_tag "sun.jpg", height: 35  %>
+          <% else %>
+          <%= image_tag "snow.jpg", height: 35  %>
+          <% end %>
+          <p><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
+          <p><%= item["summary"] %></p>
+        </li>
+        <% end %>
+      </ul>
+    </div>
 
 
 
