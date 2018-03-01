@@ -3,7 +3,7 @@
   text-align: center;
   height: calc(100vh-300px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-image: url("postman-hero.svg");
+  background-image: asset-url("postman-hero.svg");
   // background-size: cover !important;
   // background-size: 100% auto;
   background-size: cover !important;
