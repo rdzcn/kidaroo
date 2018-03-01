@@ -1,26 +1,26 @@
 <% @activities.each do |activity| %>
   <% act = activity.events.where("start_date > ?", Date.today) %>
   <% act.each do |ac| %>
-    <%= link_to activity_path(activity) do %>
+    <%= link_to activity_path(ac.activity) do %>
       <div class="index-search-result">
-        <% if activity.photos.first %>
+        <% if ac.activity.photos.first %>
           <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path ac.activity.photos.first.path, width: 200, height: 150, crop: :fit %>');">
           </div>
         <% end %>
         <div class="result-title">
-          <p><%= activity.title.truncate(30) %></p>
+          <p><%= ac.activity.title.truncate(30) %></p>
         </div>
         <div class="result-location">
           <span class="fas fa-map-marker">
-            <p><%= activity.address.truncate(17) %></p>
+            <p><%= ac.activity.address.truncate(17) %></p>
           </span>
         </div>
         <div class="result-description">
-          <p><%= activity.description.truncate(179)%></p>
+          <p><%= ac.activity.description.truncate(179)%></p>
         </div>
         <div class="result-price">
           <span class="fas fa-euro-sign">
-            <p><%= activity.price %></p>
+            <p><%= ac.activity.price %></p>
           </span>
         </div>
       </div>
