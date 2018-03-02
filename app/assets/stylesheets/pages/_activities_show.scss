@@ -16,11 +16,19 @@
 			.activity-title {
 				grid-area: title;
 				align-self: center;
+				h1 {
+					font-size: 3rem;
+					text-shadow: 0 0 2px rgba(0,0,0,0.5);
+				}
 			}
 			.activity-age-group {
 				grid-area: age;
 				align-self: center;
 				justify-self: end;
+				h3 {
+					font-size: 2rem;
+					text-shadow: 0 0 2px rgba(0,0,0,0.5);
+				}
 			}
 			.activity-description {
 				grid-area: description;
@@ -57,11 +65,12 @@
 			padding: 8px 8px;
 			.activity-events-header {
 				display: grid;
+				margin: 0;
 				grid-template-columns: 1fr 3fr 1fr;
-				background: white;
-				margin-bottom: 5px;
 				h4 {
 				font-size: 16px;
+				line-height: 1;
+				margin-top: 10px;
 				}
 			}
 			.activity-events-body {
@@ -74,16 +83,16 @@
 				grid-column-gap: 2px;
 				.activity-events-body-date {
 					background: white;
-					padding: 5px 5px;
+					padding: 10px 5px;
 				}
 				.activity-events-body-details {
 					background: white;
-					padding: 5px 5px;
+					padding: 10px 5px;
 				}
 				.activity-events-body-button {
 					background: white;
 					border-radius: 2px;
-					padding: 5px 5px;
+					padding: 10px 5px;
 					a:hover {
 						text-decoration: none;
 					}
@@ -93,6 +102,8 @@
 						width: 150px;
 						margin: 0 auto;
 						.book-button {
+							background: $red;
+							border: none;
 							color: white;
 				  		padding: 10px 10px;
 				  		font-size: 16px;
