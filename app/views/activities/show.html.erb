@@ -1,4 +1,5 @@
-<div class="wrapper-activity-show">
+<div class="super-wrapper">
+<div class="wrapper-activity-show-header">
 	<div class="activity-header">
 		<div class="activity-title">
 			<h1><%= @activity.title %></h1>
@@ -9,11 +10,14 @@
 		<div class="activity-description">
 			<p><%= @activity.description %></p>
 		</div>
-		<div class="activity-photo">
-			<%= cl_image_tag @activity.photos.first.path %>
+		<div class="activity-photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
+
 		</div>
 	</div>
+</div>
 
+
+<div class="wrapper-activity-events">
 	<div class="activity-events">
 		<div class="activity-events-header">
 			<div class="activity-events-header-date">
@@ -32,27 +36,51 @@
 				<p><%= event.start_date %> - <%= event.end_date %></p>
 			</div>
 			<div class="activity-events-body-details">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, fugiat odit dolores voluptate tenetur debitis inventore itaque aspernatur veniam hic.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, fugiat odit dolores voluptate tenetur debitis inventore itaque aspernatur veniam hic.</p><br>
+				<p>Price: <%#= humanized_money_with_symbol(activity.price) %></p>
 			</div>
 			<div class="activity-events-body-button">
-				<button><%= link_to "BOOK", new_event_booking_path(event) %></button>
+				<%= link_to new_event_booking_path(event) do %>
+					<div class="activity-events-body-button-wrapper">
+				 		<p class="book-button">
+				 	<%= form_tag event_bookings_path(event) do %>
+          <%= hidden_field_tag 'event_id', event.id %>
+          <%# number_field_tag 'quantity' %>
+          <%= submit_tag 'Book', class: "book-button" %>
+          <% end %>
+				 		</p>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<% end %>
 	</div>
+</div>
 
-	<div class="activity-provider-event">
-		<div class="activity-provider-name">
-			<h2><%= @activity.user.first_name %></h2>
+<div class="wrapper-activity-show-footer">
+	<div class="activity-event-provider">
+		<div class="activity-event-provider-info">
+			<div class="activity-event-provider-name">
+				<h3>Name of the provider</h3>
+				<h2><%= @activity.user.first_name %></h2>
+			</div>
+			<hr>
+			<div class="activity-event-provider-address">
+				<h3>Address</h3>
+				<address><%= @activity.address %></address>
+			</div>
 		</div>
-		<div class="activity-provider-address">
-			<address><%= @activity.user.address %></address>
-		</div>
-		<div class="activity-event-map">
-			<p>Awesome map appears here</p>
-		</div>
+
+			<div
+	id="map"
+	data-markers="<%= @markers.to_json %>"
+	></div>
+
 	</div>
-	<div class="activity-review">
+
+	<div class="activity-event-provider-review">
 		<p>Be the first one to leave a review</p>
 	</div>
+</div>
+
 </div>
