@@ -1,8 +1,9 @@
 .super-wrapper {
+	color: $navy;
 	min-height: 100vh;
 	.wrapper-activity-show-header,
 	.wrapper-activity-show-footer {
-		width: 60%;
+		width: 50%;
 		margin: 0 auto;
 		.activity-header {
 			height: 60vh;
@@ -14,14 +15,20 @@
 				"description photo";
 			.activity-title {
 				grid-area: title;
-				border-bottom: 2px solid red;
 				align-self: center;
+				h1 {
+					font-size: 3rem;
+					text-shadow: 0 0 2px rgba(0,0,0,0.5);
+				}
 			}
 			.activity-age-group {
 				grid-area: age;
-				border-bottom: 2px solid blue;
 				align-self: center;
 				justify-self: end;
+				h3 {
+					font-size: 2rem;
+					text-shadow: 0 0 2px rgba(0,0,0,0.5);
+				}
 			}
 			.activity-description {
 				grid-area: description;
@@ -29,10 +36,10 @@
 			}
 			.activity-photo {
 				grid-area: photo;
-				justify-self: end;
+				justify-self: stretch;
+				align-seld: stretch;
 				background-size: cover;
 				background-position: center center;
-				width: 80%;
 			}
 		}
 
@@ -45,8 +52,11 @@
 		}
 		.activity-event-provider-review {
 			margin-top: 50px;
-			border: 2px solid pink;
 			height: 200px;
+		}
+		.static-address-map {
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			justify-self: end;
 		}
 	}
 
@@ -54,17 +64,18 @@
 		width: 100%;
 		background: rgba(180,180,180,0.2);
 		.activity-events {
-			width: 60%;
+			width: 50%;
 			margin: 30px auto;
 			height: 25%;
 			padding: 8px 8px;
 			.activity-events-header {
 				display: grid;
+				margin: 0;
 				grid-template-columns: 1fr 3fr 1fr;
-				background: white;
-				margin-bottom: 5px;
 				h4 {
 				font-size: 16px;
+				line-height: 1;
+				margin-top: 10px;
 				}
 			}
 			.activity-events-body {
@@ -77,16 +88,16 @@
 				grid-column-gap: 2px;
 				.activity-events-body-date {
 					background: white;
-					padding: 5px 5px;
+					padding: 10px 5px;
 				}
 				.activity-events-body-details {
 					background: white;
-					padding: 5px 5px;
+					padding: 10px 5px;
 				}
 				.activity-events-body-button {
 					background: white;
 					border-radius: 2px;
-					padding: 5px 5px;
+					padding: 10px 5px;
 					a:hover {
 						text-decoration: none;
 					}
@@ -96,6 +107,8 @@
 						width: 150px;
 						margin: 0 auto;
 						.book-button {
+							background: $red;
+							border: none;
 							color: white;
 				  		padding: 10px 10px;
 				  		font-size: 16px;
