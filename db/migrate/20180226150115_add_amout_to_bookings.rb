@@ -6,3 +6,5 @@ class AddAmoutToBookings < ActiveRecord::Migration[5.1]
     add_column :bookings, :payment, :jsonb
   end
 end
+
+

@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where((["title ILIKE ?"] * titles.size).join(' OR '), *titles.map { |title| "%#{title}%" }) unless titles.blank?
     addr = params[:address].split(' ') unless params[:address].blank?
     @activities = @activities.where((["address ILIKE ?"] * addr.size).join(' OR '), *addr.map { |address| "%#{address}%" }) unless addr.blank?
+
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
     @markers = @activities.map do |activity|
       next if activity.latitude.nil?
