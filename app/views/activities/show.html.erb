@@ -42,7 +42,13 @@
 			<div class="activity-events-body-button">
 				<%= link_to new_event_booking_path(event) do %>
 					<div class="activity-events-body-button-wrapper">
-				 		<p class="book-button">Book</p>
+				 		<p class="book-button">
+				 	<%= form_tag event_bookings_path(event) do %>
+          <%= hidden_field_tag 'event_id', event.id %>
+          <%# number_field_tag 'quantity' %>
+          <%= submit_tag 'Book', class: "book-button" %>
+          <% end %>
+				 		</p>
 					</div>
 				<% end %>
 			</div>
@@ -76,4 +82,5 @@
 		<p>Be the first one to leave a review</p>
 	</div>
 </div>
+
 </div>
