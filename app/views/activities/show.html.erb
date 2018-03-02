@@ -36,7 +36,7 @@
 				<p><%= event.start_date %></p>
 			</div>
 			<div class="activity-events-body-details">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, fugiat odit dolores voluptate tenetur debitis inventore itaque aspernatur veniam hic.</p><br>
+				<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p><br>
 				<p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
 			</div>
 			<div class="activity-events-body-button">
@@ -61,17 +61,18 @@
 	<div class="activity-event-provider">
 		<div class="activity-event-provider-info">
 			<div class="activity-event-provider-name">
-				<h3>Name of the provider</h3>
-				<h2>Kids' Paradise</h2>
+				<h2>Kids' Paradise</h2><br>
+				<address><%= @activity.address %></address>
+				<address><%= @activity.user.email %></address>
 			</div>
 			<div class="activity-event-provider-address">
-				<h3>Address</h3>
-				<address><%= @activity.address %></address>
+
+
 			</div>
 		</div>
 
-			<div class="static-address-map">
-				<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>
+			<div class="static-address-map" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>")'>
+
 			</div>
 
 	</div>
