@@ -62,7 +62,7 @@
   <div class="wrapper-weather">
     <!-- comment la -->
     <ul style='list-unstyled'>
-      <% results["daily"]["data"][0..2].each do |item| %>
+      <% results["daily"]["data"][1..3].each do |item| %>
       <li class="weather-box">
         <p>
           <%= Time.at(item["time"]).day %>.<%= Time.at(item["time"]).month %>.<%= Time.at(item["time"]).year %>
