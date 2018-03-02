@@ -68,13 +68,13 @@
           <%= Time.at(item["time"]).day %>.<%= Time.at(item["time"]).month %>.<%= Time.at(item["time"]).year %>
         </p>
         <% if item["icon"] == "partly_cloudy-day" %>
-        <%= image_tag "cloud.jpg", height: 35  %>
+        <%= image_tag "cloud.png", height: 45  %>
         <% elsif item["icon"] == "partly-cloudy-night" %>
-        <%= image_tag "cloud.jpg", height: 35  %>
+        <%= image_tag "cloud.png", height: 45  %>
         <% elsif item["icon"] == "clear-day" %>
-        <%= image_tag "sun.jpg", height: 35  %>
+        <%= image_tag "sun.png", height: 45  %>
         <% else %>
-        <%= image_tag "snow.jpg", height: 35  %>
+        <%= image_tag "snow.png", height: 45  %>
         <% end %>
         <p><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
         <p><%= item["summary"] %></p>
