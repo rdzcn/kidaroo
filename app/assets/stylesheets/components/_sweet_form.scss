@@ -3,7 +3,7 @@
 	max-width: 425px;
 
 }
-.container, .demo-1, .nl-blurred {
+.container-filters, .demo-1, .nl-blurred {
 	background-color: $orange;
 	color: white;
 }
@@ -192,7 +192,7 @@ input:focus::-moz-placeholder {
 	color: rgba(255,255,255,0.2);
 }
 
-input:-ms-input-placeholder {  
+input:-ms-input-placeholder {
 	color: rgba(255,255,255,0.8);
 }
 
