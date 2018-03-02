@@ -36,7 +36,8 @@
 			}
 			.activity-photo {
 				grid-area: photo;
-				justify-self: end;
+				justify-self: stretch;
+				align-seld: stretch;
 				background-size: cover;
 				background-position: center center;
 			}
@@ -52,6 +53,10 @@
 		.activity-event-provider-review {
 			margin-top: 50px;
 			height: 200px;
+		}
+		.static-address-map {
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			justify-self: end;
 		}
 	}
 

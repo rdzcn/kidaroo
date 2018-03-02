@@ -62,19 +62,17 @@
 		<div class="activity-event-provider-info">
 			<div class="activity-event-provider-name">
 				<h3>Name of the provider</h3>
-				<h2><%= @activity.user.first_name %></h2>
+				<h2>Kids' Paradise</h2>
 			</div>
-			<hr>
 			<div class="activity-event-provider-address">
 				<h3>Address</h3>
 				<address><%= @activity.address %></address>
 			</div>
 		</div>
 
-			<div
-	id="map"
-	data-markers="<%= @markers.to_json %>"
-	></div>
+			<div class="static-address-map">
+				<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>
+			</div>
 
 	</div>
 
