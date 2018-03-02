@@ -33,22 +33,22 @@
 		<% @activity.events.each do |event| %>
 		<div class="activity-events-body">
 			<div class="activity-events-body-date">
-				<p><%= event.start_date %> - <%= event.end_date %></p>
+				<p><%= event.start_date %></p>
 			</div>
 			<div class="activity-events-body-details">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, fugiat odit dolores voluptate tenetur debitis inventore itaque aspernatur veniam hic.</p><br>
-				<p>Price: <%#= humanized_money_with_symbol(activity.price) %></p>
+				<p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
 			</div>
 			<div class="activity-events-body-button">
 				<%= link_to new_event_booking_path(event) do %>
 					<div class="activity-events-body-button-wrapper">
-				 		<p class="book-button">
+
 				 	<%= form_tag event_bookings_path(event) do %>
           <%= hidden_field_tag 'event_id', event.id %>
           <%# number_field_tag 'quantity' %>
           <%= submit_tag 'Book', class: "book-button" %>
           <% end %>
-				 		</p>
+
 					</div>
 				<% end %>
 			</div>
@@ -62,19 +62,17 @@
 		<div class="activity-event-provider-info">
 			<div class="activity-event-provider-name">
 				<h3>Name of the provider</h3>
-				<h2><%= @activity.user.first_name %></h2>
+				<h2>Kids' Paradise</h2>
 			</div>
-			<hr>
 			<div class="activity-event-provider-address">
 				<h3>Address</h3>
 				<address><%= @activity.address %></address>
 			</div>
 		</div>
 
-			<div
-	id="map"
-	data-markers="<%= @markers.to_json %>"
-	></div>
+			<div class="static-address-map">
+				<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>
+			</div>
 
 	</div>
 
