@@ -1,10 +1,16 @@
-<div class="wrapper-index">
+<!-- <div class="wrapper-bootstrap-results">
+<div class="container">
+  <div class="row"> -->
+  <div class="wrapper-index">
 	<div class="index-search">
 		<%= render 'activities_list', activities: @activities%>
+		<%#= render 'bootstrap-activities-list', activities: @activities%>
 	</div>
 	<div
 	id="map"
 	data-markers="<%= @markers.to_json %>"
 	></div>
 </div>
+</div>
+<!-- </div> -->
 
