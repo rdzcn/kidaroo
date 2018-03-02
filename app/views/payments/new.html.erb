@@ -1,17 +1,34 @@
-<h1>Purchase of teddy <%= @booking.event.activity.sku %></h1>
-<%= form_tag booking_payments_path(@booking) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
+<div class="payment-new-main-container">
+ <div class="container">
+  <div class="row">
+
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="payment-new-card">
+        <h1>Proceed to payment for <%= @booking.event.activity.title %></h1>
+
+        <article>
+          <label class="amount">
+            <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
+          </label>
+        </article>
+
+        <hr class="payment-line">
+        <p><%= @booking.event.activity.title %></p>
+        <p> Your event begins at:  <b><%= @booking.event.start_date %> </b></p>
+
+        <%= form_tag booking_payments_path(@booking) do %>
 
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Booking"
-    data-email="<%= current_user.email %>"
-    data-description="Booking <%= @booking.event.activity.sku %>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="<%= @booking.amount.currency %>"></script>
-<% end %>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="My Booking"
+        data-email="<%= current_user.email %>"
+        data-amount="<%= @booking.amount_cents %>"
+        data-currency="<%= @booking.amount.currency %>"></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
