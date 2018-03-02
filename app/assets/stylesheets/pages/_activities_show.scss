@@ -1,8 +1,9 @@
 .super-wrapper {
+	color: $navy;
 	min-height: 100vh;
 	.wrapper-activity-show-header,
 	.wrapper-activity-show-footer {
-		width: 60%;
+		width: 50%;
 		margin: 0 auto;
 		.activity-header {
 			height: 60vh;
@@ -14,12 +15,10 @@
 				"description photo";
 			.activity-title {
 				grid-area: title;
-				border-bottom: 2px solid red;
 				align-self: center;
 			}
 			.activity-age-group {
 				grid-area: age;
-				border-bottom: 2px solid blue;
 				align-self: center;
 				justify-self: end;
 			}
@@ -32,7 +31,6 @@
 				justify-self: end;
 				background-size: cover;
 				background-position: center center;
-				width: 80%;
 			}
 		}
 
@@ -45,7 +43,6 @@
 		}
 		.activity-event-provider-review {
 			margin-top: 50px;
-			border: 2px solid pink;
 			height: 200px;
 		}
 	}
@@ -54,7 +51,7 @@
 		width: 100%;
 		background: rgba(180,180,180,0.2);
 		.activity-events {
-			width: 60%;
+			width: 50%;
 			margin: 30px auto;
 			height: 25%;
 			padding: 8px 8px;
