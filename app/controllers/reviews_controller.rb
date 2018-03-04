@@ -1,17 +1,22 @@
 class ReviewsController < ApplicationController
 
   def new
+    @booking = Booking.where(state: 'paid').find(params[:booking_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @review.booking = Booking.where(id: params[:booking_id])
+    @review.booking = Booking.find(params[:booking_id])
     if @review.save
       redirect_to dashboard_path
     else
       render :new
     end
+  end
+
+  def index
+
   end
 
   private

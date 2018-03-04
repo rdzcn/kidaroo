@@ -5,6 +5,7 @@ mount Attachinary::Engine => "/attachnary"
   root to: 'pages#home'
   get '/dashboard', to: 'users#dashboard'
   get '/dashboard/edit', to: 'users#edit'
+   # get "activities/:id", to: "activities#show" //crashes creating new activity
   resources :users
   # resources :events, only: [:index]
   resources :activities do
