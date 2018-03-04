@@ -1,0 +1,49 @@
+<div class="payment-new-main-container">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="payment-new-card review"><br>
+          <h2>Review this activity</h2>
+
+  <p>This will help other parents choose best activities</p>
+   <BR>
+        <%=  simple_form_for  [@booking, @review] do |f| %>
+        <p>
+          <%= f.label :stars, 'Rating of the provider', class: 'indent' %>
+          <div class= "radio-buttons-review">
+           1 <%= f.radio_button :provider_rating, '1' %>
+            <%= f.radio_button :provider_rating, '2' %>
+            <%= f.radio_button :provider_rating, '3' %>
+            <%= f.radio_button :provider_rating, '4' %>
+            <%= f.radio_button :provider_rating, '5' %> 5
+          </div>
+        </p>
+
+          <p>
+            <%= f.label :stars, 'Rating of the activity', class: 'indent' %>
+            <div class= "radio-buttons-review">
+             1 <%= f.radio_button :activity_rating, '1' %>
+              <%= f.radio_button :activity_rating, '2' %>
+              <%= f.radio_button :activity_rating, '3' %>
+              <%= f.radio_button :activity_rating, '4' %>
+              <%= f.radio_button :activity_rating, '5' %> 5
+            </div>
+          </p>
+          <div class="review-content">
+            <p> Write some more. Why do you give this amounts of stars? </p>
+           <%= f.input :content, label: false %>
+           <%= f.submit "add a review", class: "btn btn-primary" %>
+         </div>
+         </div>
+         <% end %>
+
+     </div>
+     </div>
+   </div>
+ </div>
+
+</div>
+
+
+

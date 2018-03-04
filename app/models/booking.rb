@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
-  has_one :review
+  has_one :review, dependent: :destroy
   belongs_to :event
   monetize :amount_cents
 
