@@ -1,85 +1,85 @@
-<div class="super-wrapper">
-<div class="wrapper-activity-show-header">
-	<div class="activity-header">
-		<div class="activity-title">
+<div class="show_page_wrapper">
+	<!-- Title, Age Group, Description and Photo-->
+	<!-- will be 50% in width; mobile 100%-->
+	<div class="wrapper_activity">
+		<div class="wrapper_activity_title">
 			<h1><%= @activity.title %></h1>
 		</div>
-		<div class="activity-age-group">
+		<div class="wrapper_activity_age">
 			<h3>Age group: <%= @activity.age_group %>+</h3>
 		</div>
-		<div class="activity-description">
+		<div class="wrapper_activity_description">
 			<p><%= @activity.description %></p>
 		</div>
-		<div class="activity-photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
+		<div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
 
 		</div>
 	</div>
-</div>
+	<!-- Events of the activity-->
+	<!-- will be 100% in width; mobile 100%-->
+	<div class="event_container">
+	  <% @activity.events.each do |event| %>
+	    <div class="wrapper_event wrapper_event_header">
+		    <div class="wrapper_event_dates">
+			    <p>Dates</p>
+		    </div>
+		    <div class="wrapper_event_details">
+			    <p>Details</p>
+		    </div>
+		    <div class="wrapper_event_button">
 
+		    </div>
+      </div>
+	    <div class="wrapper_event">
+		    <div class="wrapper_event_dates">
+			    <div class="wrapper_event_dates_text">
+  				  <p>Dates</p>
+			    </div>
+			    <div class="main_info">
+					  <p><%= event.start_date %></p>
+			    </div>
+		    </div>
+		    <div class="wrapper_event_details">
+			    <div class="wrapper_event_details_text">
+  				  <p>Details</p>
+			    </div>
+			    <div class="main_info">
+					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p  ><br>
+				  <p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
+			    </div>
+		    </div>
+		    <div class="wrapper_event_button">
+			    <div class="wrapper_event_button_text">
 
-<div class="wrapper-activity-events">
-	<div class="activity-events">
-		<div class="activity-events-header">
-			<div class="activity-events-header-date">
-				<h4>Dates</h4>
-			</div>
-			<div class="activity-events-header-details">
-				<h4>Details</h4>
-			</div>
-			<div class="activity-events-header-button">
-
-			</div>
-		</div>
-		<% @activity.events.each do |event| %>
-		<div class="activity-events-body">
-			<div class="activity-events-body-date">
-				<p><%= event.start_date %></p>
-			</div>
-			<div class="activity-events-body-details">
-				<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p><br>
-				<p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
-			</div>
-			<div class="activity-events-body-button">
-				<%= link_to new_event_booking_path(event) do %>
-					<div class="activity-events-body-button-wrapper">
-
-				 	<%= form_tag event_bookings_path(event) do %>
-          <%= hidden_field_tag 'event_id', event.id %>
-          <%# number_field_tag 'quantity' %>
-          <%= submit_tag 'Book', class: "book-button" %>
-          <% end %>
-
-					</div>
-				<% end %>
-			</div>
-		</div>
+			    </div>
+			    <%= link_to new_event_booking_path(event) do %>
+			    <div class="main_info">
+					  <%= form_tag event_bookings_path(event) do %>
+            <%= hidden_field_tag 'event_id', event.id %>
+            <%# number_field_tag 'quantity' %>
+            <%= submit_tag 'Book', class: "book-button" %>
+            <% end %>
+			    </div>
+			    <% end %>
+		    </div>
+	    </div>
 		<% end %>
 	</div>
-</div>
-
-<div class="wrapper-activity-show-footer">
-	<div class="activity-event-provider">
-		<div class="activity-event-provider-info">
-			<div class="activity-event-provider-name">
-				<h2>Kids' Paradise</h2><br>
+	<!-- Provider contact and map-->
+	<!-- will be 50% in width; mobile 100%-->
+	<div class="wrapper_info">
+		<div class="contact_details">
+			<h2>Kids' Paradise</h2><br>
 				<address><%= @activity.address %></address>
 				<address><%= @activity.user.email %></address>
-			</div>
-			<div class="activity-event-provider-address">
-
-
-			</div>
 		</div>
+		<div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>"); width: 500px; height: 400px;'>
 
-			<div class="static-address-map" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>")'>
-
-			</div>
-
+		</div>
 	</div>
-
-	<div class="activity-event-provider-review">
+	<!-- Review-->
+	<!-- will be 50% in width; mobile 100%-->
+	<div class="wrapper_review">
 		<p>Be the first one to leave a review</p>
 	</div>
-</div>
-
 </div>
