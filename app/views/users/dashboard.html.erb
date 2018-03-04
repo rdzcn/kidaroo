@@ -3,6 +3,14 @@
 <%= @user.email %> <br>
 <%= @user.role %> <br>
 
+<!-- add the link to dashboard to create review: put it into past events design - for the future events: no link -->
+
+
+
+<%= link_to "Review this activity", new_booking_review_path(@booking), class: "btn-medium"  %>
+
+<!-- the end - nothing more from this file: for conflict in git hub -->
+
 <div class="container-dashboard" style="width: 70%; margin:0 auto;">
 <% @books = @bookings.select { |booking| booking.event.start_date > Date.today } %>
 <% if @books %>
