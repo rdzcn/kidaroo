@@ -2,9 +2,9 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit]
 
   def index
-    district = []
-    cat = []
-    age = []
+    district = [" "]
+    cat = [" "]
+    age = [" "]
     Activity.all.each do |activity|
       district << activity.address
       cat << activity.category
@@ -13,9 +13,10 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
     @activities = @activities.where("category ILIKE ?", params[:category]) unless (params[:category].blank? || !cat.include?(params[:category]))
     @activities = @activities.where(age_group: params[:age_group]) unless (params[:age_group].blank? || !age.include?(params[:age_group]))
+    @activities = @activities.where("district ILIKE ?", params[:district]) unless params[:district].blank?
     titles = params[:title].split(' ') unless params[:title].blank?
     @activities = @activities.where((["title ILIKE ?"] * titles.size).join(' OR '), *titles.map { |title| "%#{title}%" }) unless titles.blank?
-    addr = params[:address].split(' ') unless (params[:address].blank? || !district.include?(params[:address]))
+    addr = params[:address].split(' ') unless params[:address].blank?
     @activities = @activities.where((["address ILIKE ?"] * addr.size).join(' OR '), *addr.map { |address| "%#{address}%" }) unless addr.blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
     @markers = @activities.map do |activity|
@@ -28,7 +29,6 @@ class ActivitiesController < ApplicationController
     end
     @markers = @markers.compact
     p @markers
-
   end
 
   def new
@@ -75,7 +75,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :price, :address, :category, :age_group, photos: [])
+    params.require(:activity).permit(:title, :description, :price, :address, :district, :category, :age_group, photos: [])
   end
 
   def set_activity
