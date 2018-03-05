@@ -107,20 +107,27 @@
       <p><%= item["summary"] %></p>
 
 
-      <% @activities.each do |activity| %>
+    <!--  <%# @activites.each do |activity| %>
+    <%#= activity.title %>
+     <%# end %> -->
+
+ <% @activities.each do |activity| %>
       <% events_today = activity.events.where("start_date > ?", Date.today) %>
       <% events_today.each do |event_today| %>
-      <%= link_to activity_path(event_today.activity) do %>
+     <!--  <%#= link_to activity_path(event_today.activity) do %> -->
        <%= event_today.activity.title.truncate(30) %><
+     <!--  <%# end %> -->
       <% end %>
       <% end %>
-      <% end %>
+
+
+
+
+
     </div>
     <% end %>
   </div>
 </div>
-
-
 
 
 
