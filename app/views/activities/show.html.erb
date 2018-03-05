@@ -25,8 +25,10 @@
 		    <div class="wrapper_event_details">
 			    <p>Details</p>
 		    </div>
+        <div class="wrapper_event_price">
+          <p>Price</p>
+        </div>
 		    <div class="wrapper_event_button">
-
 		    </div>
       </div>
       <% @activity.events.each do |event| %>
@@ -45,9 +47,16 @@
 			    </div>
 			    <div class="main_info">
 					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p ><br>
-				  <p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
-			    </div>
+        </div>
 		    </div>
+        <div class="wrapper_event_price">
+          <div class="wrapper_event_price_text">
+            <p>Price</p>
+          </div>
+          <div class="main_info">
+          <p><%= humanized_money_with_symbol(@activity.price) %></p>
+          </div>
+          </div>
 		    <div class="wrapper_event_button">
 		    	<div class="wrapper_event_button_text">
 						<p>Book</p>
