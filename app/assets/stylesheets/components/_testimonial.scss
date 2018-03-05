@@ -29,8 +29,8 @@
     transition: all .4s ease-in;
     vertical-align: middle;
 
-      background-size: cover;
-      background-position: center center;
+    background-size: cover;
+    background-position: center center;
 
 }
 #quote-carousel .carousel-indicators .active {
@@ -50,7 +50,13 @@
     margin-right: 10px;
 }
 
+.testimonial-container {
+    background-color: $orange;
+    color: $navy;
+}
+
 .img-responsive {
-display: fill;
+    display: fill;
 
 }
+
