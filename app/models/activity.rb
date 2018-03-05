@@ -20,7 +20,7 @@ class Activity < ApplicationRecord
     rating_list = self.reviews.map do |review|
       review.activity_rating
       end
-    rating_list.compact.sum / rating_list.compact.count unless rating_list.empty?
+    rating_list.empty? ? nil : rating_list.compact.sum / rating_list.compact.count
   end
 
 end

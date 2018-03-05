@@ -23,8 +23,11 @@ class User < ApplicationRecord
         ac.sum / ac.count unless ac.blank?
       end
     }
-    list_of_ratings.empty? ? nil : list_of_ratings.compact.sum / list_of_ratings.compact.count
-
+    if  list_of_ratings.compact.count == 0
+      nil
+    else
+      list_of_ratings.compact.sum / list_of_ratings.compact.count
+    end
   end
 end
 
