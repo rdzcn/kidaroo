@@ -8,3 +8,12 @@
   flex: 1;
   // margin-bottom: 40px;
 }
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 16px;
+  overflow-x: hidden;
+}
