@@ -28,6 +28,10 @@
     overflow: hidden;
     transition: all .4s ease-in;
     vertical-align: middle;
+
+      background-size: cover;
+      background-position: center center;
+
 }
 #quote-carousel .carousel-indicators .active {
     width: 128px;
@@ -44,4 +48,9 @@
     font-family: 'Fontawesome';
     float: left;
     margin-right: 10px;
+}
+
+.img-responsive {
+display: fill;
+
 }
