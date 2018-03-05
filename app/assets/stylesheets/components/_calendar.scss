@@ -1,0 +1,17 @@
+.calendar-cell {
+	// border: 2px solid red;
+	padding: 30px 20px;
+}
+
+.calandar-section {
+	h2 {
+		text-align: center;
+	}
+	background-color: $yellowhite;
+	color: $navy;
+}
+
+.calendar-list {
+	display: grid;
+	line-height: 2em;
+}
