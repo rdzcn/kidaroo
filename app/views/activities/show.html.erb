@@ -18,8 +18,7 @@
 	<!-- Events of the activity-->
 	<!-- will be 100% in width; mobile 100%-->
 	<div class="event_container">
-	  <% @activity.events.each do |event| %>
-	    <div class="wrapper_event wrapper_event_header">
+			<div class="wrapper_event wrapper_event_header">
 		    <div class="wrapper_event_dates">
 			    <p>Dates</p>
 		    </div>
@@ -30,6 +29,7 @@
 
 		    </div>
       </div>
+      <% @activity.events.each do |event| %>
 	    <div class="wrapper_event">
 		    <div class="wrapper_event_dates">
 			    <div class="wrapper_event_dates_text">
@@ -44,21 +44,21 @@
   				  <p>Details</p>
 			    </div>
 			    <div class="main_info">
-					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p  ><br>
+					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p ><br>
 				  <p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
 			    </div>
 		    </div>
 		    <div class="wrapper_event_button">
-			    <div class="wrapper_event_button_text">
-
+		    	<div class="wrapper_event_button_text">
+						<p>Book</p>
 			    </div>
-			    <%= link_to new_event_booking_path(event) do %>
+			    <%#= link_to new_event_booking_path(event) do %>
 			    <div class="main_info">
 					  <%= form_tag event_bookings_path(event) do %>
             <%= hidden_field_tag 'event_id', event.id %>
             <%# number_field_tag 'quantity' %>
             <%= submit_tag 'Book', class: "book-button" %>
-            <% end %>
+            <%# end %>
 			    </div>
 			    <% end %>
 		    </div>
