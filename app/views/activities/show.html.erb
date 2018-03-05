@@ -54,13 +54,18 @@
 			    </div>
 			    <%#= link_to new_event_booking_path(event) do %>
 			    <div class="main_info">
-					  <%= form_tag event_bookings_path(event) do %>
-            <%= hidden_field_tag 'event_id', event.id %>
-            <%# number_field_tag 'quantity' %>
-            <%= submit_tag 'Book', class: "book-button" %>
-            <%# end %>
+            <% if user_signed_in? %>
+  					  <%= form_tag event_bookings_path(event) do %>
+                <%= hidden_field_tag 'event_id', event.id %>
+                <%# number_field_tag 'quantity' %>
+                <%= submit_tag 'Book', class: "book-button" %>
+              <% end %>
+            <% else %>
+              <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
+              <% session[:return_to_activity_id] = @activity.id %>
+            <% end %>
 			    </div>
-			    <% end %>
+
 		    </div>
 	    </div>
 		<% end %>

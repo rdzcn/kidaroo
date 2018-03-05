@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     district = [" "]
