@@ -17,7 +17,9 @@
         <p> Your event begins at:  <b><%= @booking.event.start_date %> </b></p>
 
         <%= link_to "Get more inspiration", root_path, class: "btn-medium" %>
-
+        <% if @booking.event.start_date < Date.today %>
+          <%= link_to "Add a review",  new_booking_review_path(@booking), class: "btn-medium" %>
+        <% end %>
       </div>
     </div>
   </div>

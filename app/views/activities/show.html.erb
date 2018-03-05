@@ -4,6 +4,7 @@
 	<div class="wrapper_activity">
 		<div class="wrapper_activity_title">
 			<h1><%= @activity.title %></h1>
+     <p><%= @activity.average_rating %> stars</p>
 		</div>
 		<div class="wrapper_activity_age">
 			<h3>Age group: <%= @activity.age_group %>+</h3>
@@ -18,73 +19,82 @@
 	<!-- Events of the activity-->
 	<!-- will be 100% in width; mobile 100%-->
 	<div class="event_container">
-			<div class="wrapper_event wrapper_event_header">
-		    <div class="wrapper_event_dates">
-			    <p>Dates</p>
-		    </div>
-		    <div class="wrapper_event_details">
-			    <p>Details</p>
-		    </div>
-		    <div class="wrapper_event_button">
+   <div class="wrapper_event wrapper_event_header">
+    <div class="wrapper_event_dates">
+     <p>Dates</p>
+   </div>
+   <div class="wrapper_event_details">
+     <p>Details</p>
+   </div>
+   <div class="wrapper_event_button">
 
-		    </div>
-      </div>
-      <% @activity.events.each do |event| %>
-	    <div class="wrapper_event">
-		    <div class="wrapper_event_dates">
-			    <div class="wrapper_event_dates_text">
-  				  <p>Dates</p>
-			    </div>
-			    <div class="main_info">
-					  <p><%= event.start_date %></p>
-			    </div>
-		    </div>
-		    <div class="wrapper_event_details">
-			    <div class="wrapper_event_details_text">
-  				  <p>Details</p>
-			    </div>
-			    <div class="main_info">
-					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p ><br>
-				  <p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
-			    </div>
-		    </div>
-		    <div class="wrapper_event_button">
-		    	<div class="wrapper_event_button_text">
-						<p>Book</p>
-			    </div>
-			    <%#= link_to new_event_booking_path(event) do %>
-			    <div class="main_info">
-            <% if user_signed_in? %>
-  					  <%= form_tag event_bookings_path(event) do %>
-                <%= hidden_field_tag 'event_id', event.id %>
-                <%# number_field_tag 'quantity' %>
-                <%= submit_tag 'Book', class: "book-button" %>
-              <% end %>
-            <% else %>
-              <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
-              <% session[:return_to_activity_id] = @activity.id %>
-            <% end %>
-			    </div>
+   </div>
+ </div>
+ <% @activity.events.each do |event| %>
+ <div class="wrapper_event">
+  <div class="wrapper_event_dates">
+   <div class="wrapper_event_dates_text">
+    <p>Dates</p>
+  </div>
+  <div class="main_info">
+   <p><%= event.start_date %></p>
+ </div>
+</div>
+<div class="wrapper_event_details">
+ <div class="wrapper_event_details_text">
+  <p>Details</p>
+</div>
+<div class="main_info">
+ <p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p ><br>
+ <p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
+</div>
+</div>
+<div class="wrapper_event_button">
+ <div class="wrapper_event_button_text">
+  <p>Book</p>
+</div>
+<%#= link_to new_event_booking_path(event) do %>
+<div class="main_info">
+  <% if user_signed_in? %>
+  <%= form_tag event_bookings_path(event) do %>
+  <%= hidden_field_tag 'event_id', event.id %>
+  <%# number_field_tag 'quantity' %>
+  <%= submit_tag 'Book', class: "book-button" %>
+  <% end %>
+  <% else %>
+  <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
+  <% session[:return_to_activity_id] = @activity.id %>
+  <% end %>
+</div>
 
-		    </div>
-	    </div>
-		<% end %>
-	</div>
-	<!-- Provider contact and map-->
-	<!-- will be 50% in width; mobile 100%-->
-	<div class="wrapper_info">
-		<div class="contact_details">
-			<h2>Kids' Paradise</h2><br>
-				<address><%= @activity.address %></address>
-				<address><%= @activity.user.email %></address>
-		</div>
-		<div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>"); width: 500px; height: 400px;'>
+</div>
+</div>
+<% end %>
+</div>
+<!-- Provider contact and map-->
+<!-- will be 50% in width; mobile 100%-->
+<div class="wrapper_info">
+  <div class="contact_details">
+   <h2>Kids' Paradise</h2><br>
+   <address><%= @activity.address %></address>
+   <address><%= @activity.user.email %></address>
+   <p><%= @activity.user.provider_rating %> stars </p>
 
-		</div>
-	</div>
-	<!-- Review-->
-	<!-- will be 50% in width; mobile 100%-->
-	<div class="wrapper_review">
-		<p>Be the first one to leave a review</p>
-	</div>
+ </div>
+ <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>"); width: 500px; height: 400px;'>
+
+ </div>
+</div>
+
+<!-- Review-->
+<!-- will be 50% in width; mobile 100%-->
+<div class="wrapper_review">
+  <% @activity.events.each do |event| %>
+    <% event.reviews.each do |review| %>
+      <%= review.content %>
+      <%= review.activity_rating %>
+      <%= review.provider_rating %>
+      <% end %>
+  <% end %>
+</div>
 </div>

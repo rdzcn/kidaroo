@@ -16,5 +16,11 @@ class Activity < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  def average_rating
+    rating_list = self.reviews.map do |review|
+      review.activity_rating
+      end
+    rating_list.compact.sum / rating_list.compact.count unless rating_list.empty?
+  end
 
 end
