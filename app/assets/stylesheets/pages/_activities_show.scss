@@ -118,3 +118,17 @@
 	}
 }
 
+@media(max-width: 600px) {
+	.show_page_wrapper {
+		.wrapper_activity {
+			width: 90%;
+		}
+		.event_container {
+			.wrapper_event_header {
+				display: none;
+			}
+		}
+
+	}
+}
+
