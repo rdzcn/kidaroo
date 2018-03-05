@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305091215) do
+ActiveRecord::Schema.define(version: 20180305161359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,13 +62,6 @@ ActiveRecord::Schema.define(version: 20180305091215) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "dates", force: :cascade do |t|
-    t.date "start_date"
-    t.bigint "event_id"
-    t.date "end_date"
-    t.index ["event_id"], name: "index_dates_on_event_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -97,7 +90,9 @@ ActiveRecord::Schema.define(version: 20180305091215) do
     t.integer "activity_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,8 +121,8 @@ ActiveRecord::Schema.define(version: 20180305091215) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
-  add_foreign_key "dates", "events"
   add_foreign_key "events", "activities"
   add_foreign_key "events", "bookings"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "users"
 end
