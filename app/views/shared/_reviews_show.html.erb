@@ -1,0 +1,24 @@
+<div class="wrapper_review">
+  <% @activity.events.each do |event| %>
+  <%  event.reviews.each do |review| %>
+  <div class="row center-block card-row">
+    <div class="col-md-3 col-xs-4 card__image__container">
+    </div>
+    <div class="col-md-9 col-xs-8">
+      <div class="review_content">
+        <h2 class="card-header"><%= event.activity.user.first_name %></h2>
+        <p> <% review.activity_rating.times do %>
+            <i class="fa fa-star" style="color: #f99d78"> </i>
+            <% end %>
+          </p>
+      </div>
+        <div class="card__body__short-text">
+          <p class="card__body__text"><%= review.content %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+
