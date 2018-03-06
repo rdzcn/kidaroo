@@ -15,6 +15,7 @@ mount Attachinary::Engine => "/attachnary"
 
 	resources :events, only: [:show] do
 		resources :bookings, only: [:new, :create]
+    resources :messages, only: :create
 	end
 
 	resources :bookings, only: [:show, :update] do

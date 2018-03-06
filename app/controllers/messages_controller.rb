@@ -4,13 +4,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(request_params)
+    @message = Message.new(message_params)
     @message.user = current_user
-    @message.event = Event.find(params[:event_id])
+    @message.event = Event.find(params[:id])
     @message.save
-
   end
 
   def destroy
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
   end
 end
