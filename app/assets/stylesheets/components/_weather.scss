@@ -3,6 +3,10 @@
 .highlighted-activities {
 	background-color: $yellowhite;
 	color: $yellowhite;
+
+	h1 {
+		color: $orange;
+	}
 }
 
 .card-highlighted {
@@ -35,6 +39,10 @@ color: $orange;
 }
 
 .weather-box-container {
+	h1 {
+		color: $yellowhite;
+		padding-bottom: 10px;
+	}
 	.weather-box-card:first-child {
 		.weather-box {
 			margin-right: 35px;

@@ -1,13 +1,14 @@
 <div class="calandar-section">
-  <br>
-  <br>
-  <div class="col-xs-12">
-    <h2>WEATHER IN BERLIN</h2>
-    <p>for the next 3 days</p>
-  </div>
+
+
 
   <div class="container">
    <div class="row weather-box-container">
+     <div class="col-xs-12">
+      <h1>Weather in Berlin</h1>
+     <!--  <p>for the next 3 days</p> -->
+    </div>
+
     <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
     <% results = JSON.parse(content) %>
 
