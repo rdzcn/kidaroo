@@ -1,52 +1,51 @@
 <div class="banner">
 	<div class="banner-content">
 		<h1>Search for activities</h1>
-
+    
 		<div class="wrapper-filters">
-			<div class="nl-blurred">
-				<div class="container container-filters demo-1">
-					<div>
-						<%=form_tag(activities_path, method: "get", class: "nl-form", id: "") do %>
-						<div id="homepage-form">
-							<div id="home-first-line">
-								<span class="span-filters">I am searching for</span>
-								<%= select_tag(:category, options_for_select([['any kind of activity', ''],
-									['activities with animals', 'Animals'],
-									['arts activities', 'Arts'],
-									['cooking activities', 'Cooking'],
-									['games activities', 'Games'],
-									['indoors activities', 'Indoors'],
-									['outdoors activities', 'Outdoors'],
-									['sports activities', 'Sports']])) %>
+      <div class="nl-blurred">
+       <div class="container container-filters demo-1">
+        <div class="text-container">
+          <%=form_tag(activities_path, method: "get", class: "nl-form", id: "") do %>
+          <div id="homepage-form">
+            I am searching for
+            <%= select_tag(:category, options_for_select([['any kind of activity', ''],
+              ['activities with animals', 'Animals'],
+              ['arts activities', 'Arts'],
+              ['cooking activities', 'Cooking'],
+              ['games activities', 'Games'],
+              ['indoors activities', 'Indoors'],
+              ['outdoors activities', 'Outdoors'],
+              ['sports activities', 'Sports']])) %>
+        
+            for my child <br>
+            <%= select_tag(:age_group, options_for_select([
+              ['who is at any age', '0'],
+              ['who is a toddler', '1'],
+              ['who is in kindergarten', '2'],
+              ['who is a school child', '3'],
+              ['who is a teenager', '4'],
+              ['and our family', '5']])) %>
+           
+            <%= select_tag(:district, options_for_select([['anywhere in Berlin', ''],
+              ['in Charlottenburg', 'Charlottenburg'],
+              ['in Friedrichshain', 'Friedrichshain'],
+              ['in Kreuzberg', 'Kreuzberg'],
+              ['in Mitte', 'Mitte'],
+              ['in Neukölln', 'Neukölln'],
+              ['in Steglitz', 'Steglitz'],
+              ['in Schöneberg', 'Schöneberg'],
+              ['in Spandau', 'Spandau'],
+              ['in Prenzlauer Berg', 'Prenzlauer Berg'],
+              ['in Pankow', 'Pankow']])) %>
 
-								</div>
-								<div id="home-second-line">
-									<span class="span-filters">for my child</span>
-
-									<%= select_tag(:age_group, options_for_select([['who is a toddler', '1'],
-										['who is in kindergarten', '2'],
-										['who is a school child', '3'],
-										['who is a teenager', '4'],
-										['and our family', '5']])) %>
-
-									<%= select_tag(:district, options_for_select([['anywhere in Berlin', ''],
-										['in Charlottenburg', 'Charlottenburg'],
-										['in Friedrichshain', 'Friedrichshain'],
-										['in Kreuzberg', 'Kreuzberg'],
-										['in Mitte', 'Mitte'],
-										['in Neukölln', 'Neukölln'],
-										['in Steglitz', 'Steglitz'],
-										['in Schöneberg', 'Schöneberg'],
-										['in Spandau', 'Spandau'],
-										['in Prenzlauer Berg', 'Prenzlauer Berg'],
-										['in Pankow', 'Pankow']])) %>
-
+            <br><%= submit_tag "find activity", class: "nl-submit" %> <%= image_tag "spaceman-right.svg", height: 70 %>
+            <% end %>
 
 									</div>
 								</div>
 									<br>
 									<%= submit_tag "find activity >> ", class: "nl-submit" %> 
-									<%#= image_tag "spaceman-right.svg", height: 70 %>
 									<% end %>
 
 								</div>
