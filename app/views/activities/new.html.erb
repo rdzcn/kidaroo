@@ -6,7 +6,7 @@
         <%=  simple_form_for @activity do |f|%>
         <%= f.input :title, label: false, placeholder: "Title" %>
         <%= f.input :description, label: false, placeholder: "Description" %>
-        <%= f.input :category, label: false, prompt: "Category", collection: ["activities with animals", "arts activities", "cooking activities", "games activities", "indoors activities", "outdoors activities", "sports activities"]  %>
+        <%= f.input :category, label: false, prompt: "Category", collection: [["activities with animals", "animals"], ["arts activities", "atrs"], ["cooking activities", "cooking"], ["games activities", "games"], ["indoors activities", "indoors"], ["outdoors activities", "outdoors"], ["sports activities", "sports"]]  %>
         <%= f.input :age_group, label: false, placeholder: "Age Group" %>
         <%= f.input :address, label: false, placeholder: "Address" %>
         <%= f.input :district, label: false, prompt: "District", collection: ["Friedrichshain", "Kreuzberg", "Mitte", "Neukölln", "Steglitz", "Schöneberg", "Spandau", "Prenzlauer Berg", "Pankow"]%>

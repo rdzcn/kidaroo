@@ -13,7 +13,6 @@ class EventsController < ApplicationController
     else
       render :new
     end
-
   end
 
   private
