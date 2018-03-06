@@ -6,6 +6,7 @@ mount Attachinary::Engine => "/attachnary"
   root to: 'pages#home'
   get '/dashboard', to: 'users#dashboard'
   get '/dashboard/edit', to: 'users#edit'
+  get '/event/:id', to: 'messages#new'
 
   resources :users
   # resources :events, only: [:index]
@@ -15,7 +16,7 @@ mount Attachinary::Engine => "/attachnary"
 
 	resources :events, only: [:show] do
 		resources :bookings, only: [:new, :create]
-    resources :messages, only: :create
+    resources :messages, only: [:create]
 	end
 
 	resources :bookings, only: [:show, :update] do
