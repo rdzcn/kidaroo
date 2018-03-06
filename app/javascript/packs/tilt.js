@@ -10,4 +10,3 @@ VanillaTilt.init(document.querySelectorAll(".category"), {
     speed: 400
 });
 
-console.log('im in tilt')
