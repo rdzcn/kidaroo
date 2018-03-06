@@ -13,7 +13,10 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
