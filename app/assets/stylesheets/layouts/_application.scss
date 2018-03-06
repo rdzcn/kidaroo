@@ -8,7 +8,10 @@
   flex: 1;
   // margin-bottom: 40px;
 }
-
+.content-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 html, body {
   width: 100%;
   margin: 0;
@@ -16,4 +19,4 @@ html, body {
   line-height: 1;
   font-size: 16px;
   overflow-x: hidden;
-}
+} 

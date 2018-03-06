@@ -1,0 +1,48 @@
+// base for categories.html.erb & cards.html.erb
+
+.highlighted-activities {
+	background-color: $yellowhite;
+	color: $yellowhite;
+}
+
+.card-highlighted {
+	padding-bottom: 15px;
+}
+
+.weather-box {
+	padding: 33px;
+	background: white;
+	border-radius: 10%;
+	height: 15em;
+	position: absolute;
+}
+
+.weather-image {
+	position: relative;
+	left: 100px;
+
+}
+
+.weather-temperature {
+	font-size: 40px;
+}
+
+
+// categories.html.erb 
+
+.categories-container {
+color: $orange;
+}
+
+.weather-box-container {
+	.weather-box-card:first-child {
+		.weather-box {
+			margin-right: 35px;
+		}
+	}
+.weather-box-card:last-child {
+		.weather-box {
+			margin-left: 35px;
+		}
+	}
+}
