@@ -1,5 +1,5 @@
 //= require jquery
-//= require bootstrap-sprockets
+
 //= require rails-ujs
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
