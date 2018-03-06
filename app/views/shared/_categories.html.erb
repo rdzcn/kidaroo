@@ -1,16 +1,20 @@
 <div class="categories-container">
   <div class="container">
-    <br>
-    <h1>Categories</h1>
+    <div class="row">
+      <br>
 
-
-    <div class="col-xs-12 col-sm-4">
-      <%= link_to activities_path(category: "Sports") do %>
-      <div class="category category-sports">
-        <p>Sports</p>
+      <div class="col-xs-12">
+        <h1>Categories</h1>
       </div>
-      <% end %>
-    </div>
+
+
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to activities_path(category: "Sports") do %>
+        <div class="category category-sports">
+          <p>Sports</p>
+        </div>
+        <% end %>
+      </div>
 
       <div class="col-xs-12 col-sm-4">
         <%= link_to activities_path(category: "Arts") do %>
@@ -20,7 +24,7 @@
         <% end %>
       </div>
 
-       <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <%= link_to activities_path(category: "Cooking") do %>
         <div class="category category-cooking">
           <p>Cooking</p>
@@ -28,7 +32,7 @@
         <% end %>
       </div>
 
-       <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <%= link_to activities_path(category: "Animals") do %>
         <div class="category category-animals">
           <p>Animals</p>
@@ -36,7 +40,7 @@
         <% end %>
       </div>
 
-       <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <%= link_to activities_path(category: "Indoor") do %>
         <div class="category category-indoor">
           <p>Indoor</p>
@@ -44,15 +48,16 @@
         <% end %>
       </div>
 
-       <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <%= link_to activities_path(category: "Outdoor") do %>
         <div class="category category-outdoor">
           <p>Outdoor</p>
         </div>
         <% end %>
       </div>
-      </div>
     </div>
   </div>
+</div>
+
 
 

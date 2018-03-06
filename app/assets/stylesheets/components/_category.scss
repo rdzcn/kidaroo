@@ -1,19 +1,18 @@
 .category {
-  width: 250px;
+  width: 100%;
   height: 250px;
   background-size: cover;
-  background-position-x: -42px;
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   p {
     font-weight: bold;
     color: $yellowhite;
-    text-align: center;
-    margin-top: 44px;
-    padding: 61px;
-    padding-top: 102px;
-    padding-right: 85px;
     font-size: 40px;
+    text-shadow: 1px 2px $orange;
   }
   a:hover {
     color: $orange;
@@ -21,36 +20,29 @@
 }
 .category-sports {
   background-image: asset-url("sports.jpg");
-  background-position-x: -42px;
 }
 
 .category-cooking {
   background-image: asset-url("cooking.jpg");  
-  background-position-x: -42px;
 }
 
 .category-animals {
   background-image: asset-url("animals.jpg");  
-  background-position-x: -42px;
 }
 
 .category-outdoor {
   background-image: asset-url("outdoor.jpg");  
-  background-position-x: -42px;
 }
 
 .category-indoor {
   background-image: asset-url("indoor.jpg");  
-  background-position-x: -42px;
 }
 
 .category-game {
   background-image: asset-url("game.jpg");  
-  background-position-x: -42px;
 }
 
 .category-art {
   background-image: asset-url("art.jpg");  
-  background-position-x: -42px;
 }
 

@@ -6,12 +6,11 @@
 }
 
 .card-highlighted {
-	padding: 15px;
+	padding-bottom: 15px;
 }
 
 .weather-box {
 	padding: 33px;
-    margin: 15px;
 	background: white;
 	border-radius: 10%;
 	height: 15em;
@@ -33,4 +32,17 @@
 
 .categories-container {
 color: $orange;
+}
+
+.weather-box-container {
+	.weather-box-card:first-child {
+		.weather-box {
+			margin-right: 35px;
+		}
+	}
+.weather-box-card:last-child {
+		.weather-box {
+			margin-left: 35px;
+		}
+	}
 }

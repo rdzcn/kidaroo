@@ -1,39 +1,37 @@
 <div class="highlighted-activities">
   <div class="container">
     <div class="row">
-      <h1>Upcoming activities</h1>
-
-      <% @activities.each do |activity| %>
-      <% act = activity.events.where("start_date > ?", Date.today) %>
-      <% act.each do |ac| %>
-      <%= link_to activity_path(ac.activity) do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-highlighted">
-          <% if ac.activity.photos.first %>
-          <div class="card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path ac.activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
-            <% end %>
-            <div class="card-category">
-              <p>V<%= ac.activity.category.truncate(30) %></p>
-            </div>
-            <div class="card-description">
-              <h2><span><%= ac.activity.title.truncate(30) %></span></h2>
-              <p>V<%= ac.activity.address.truncate(30) %></p>
-            </div>
-
-            <% if ac.activity.user.avatar %>
-            <%= cl_image_tag ac.activity.user.avatar.path, class: "card-user" %>
-
-            <!-- <img class="card-user" url="url"> -->
-            <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/mitsen", class: "card-user" %>
-            <% end %>
+     <div class="col-xs-12"> <h1>Upcoming activities</h1>
+     </div>
+     <% @activities.each do |activity| %>
+     <% act = activity.events.where("start_date > ?", Date.today) %>
+     <% act.each do |ac| %>
+     <%= link_to activity_path(ac.activity) do %>
+     <div class="col-xs-12 col-sm-4">
+      <div class="card-highlighted">
+        <% if ac.activity.photos.first %>
+        <div class="card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path ac.activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
+          <% end %>
+          <div class="card-category">
+            <p>V<%= ac.activity.category.truncate(30) %></p>
           </div>
+          <div class="card-description">
+            <h2><span><%= ac.activity.title.truncate(30) %></span></h2>
+            <p>V<%= ac.activity.address.truncate(30) %></p>
+          </div>
+
+          <% if ac.activity.user.avatar %>
+          <%= cl_image_tag ac.activity.user.avatar.path, class: "card-user" %>
+          <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/mitsen", class: "card-user" %>
+          <% end %>
         </div>
       </div>
-      <% end %>
-      <% end %>
-      <% end %>
-      
     </div>
+    <% end %>
+    <% end %>
+    <% end %>
+
   </div>
+</div>
 </div>
