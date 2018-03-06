@@ -3,23 +3,10 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    district = [" "]
-    cat = [" "]
-    age = [" "]
-    Activity.all.each do |activity|
-      district << activity.address
-      cat << activity.category
-      age << activity.age_group
-    end
-    # @activities = Activity.all
     @activities = Activity.select("activities.*").joins(:events).where("events.start_date >= ?", Date.today)
-    @activities = @activities.where("category ILIKE ?", params[:category]) unless (params[:category].blank? || !cat.include?(params[:category]))
-    @activities = @activities.where(age_group: params[:age_group]) unless (params[:age_group].blank? || !age.include?(params[:age_group]))
+    @activities = @activities.where("category ILIKE ?", "%#{params[:category]}%") unless params[:category].blank?
+    @activities = @activities.where(age_group: params[:age_group]) unless params[:age_group].blank?
     @activities = @activities.where("district ILIKE ?", params[:district]) unless params[:district].blank?
-    titles = params[:title].split(' ') unless params[:title].blank?
-    @activities = @activities.where((["title ILIKE ?"] * titles.size).join(' OR '), *titles.map { |title| "%#{title}%" }) unless titles.blank?
-    addr = params[:address].split(' ') unless params[:address].blank?
-    @activities = @activities.where((["address ILIKE ?"] * addr.size).join(' OR '), *addr.map { |address| "%#{address}%" }) unless addr.blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
 
     @markers = @activities.map do |activity|
