@@ -88,11 +88,11 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 <!-- will be 50% in width; mobile 100%-->
 <div class="wrapper_info">
   <div class="contact_details">
-   <h2>Provider's name</h2><br>
+   <h2><%= @activity.user.first_name %></h2><br>
    <% @activity.user.provider_rating.times do %>
     <i class="fa fa-star" style="color: #f99d78"> </i>
    <% end %>
-   <p>Provider's address</p>
+   <p><%= @activity.address %></p>
  </div>
  <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>"); width: 500px; height: 400px;'>
  </div>
