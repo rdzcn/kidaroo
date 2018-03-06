@@ -2,9 +2,11 @@ class User < ApplicationRecord
   enum role: { customer: 0, provider: 1 }
   has_attachment :avatar
   has_many :activities # provider
+  has_many :messages # client and # provider
   has_many :bookings # client
   has_many :events, through: :bookings # client
   has_many :reviews, through: :bookings # client
+  has_many :events, through: :messages
   # has_many :somethings, through: :events, foreign_key: "activity_id", class_name: "Activity"
   has_many :plans, :through => :events, :source => :activity  #client
   # has_many :activities, through: :events
