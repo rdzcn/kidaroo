@@ -24,7 +24,7 @@ class User < ApplicationRecord
       end
     }
     if  list_of_ratings.compact.count == 0
-      nil
+      0
     else
       list_of_ratings.compact.sum / list_of_ratings.compact.count
     end
