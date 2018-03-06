@@ -1,17 +1,14 @@
 <div class="show_page_wrapper">
 	<!-- Title, Age Group, Description and Photo-->
 	<!-- will be 50% in width; mobile 100%-->
-	<div class="wrapper_activity">
-		<div class="wrapper_activity_title">
-			<h1><%= @activity.title %></h1>
-     <% rating = (3..5).to_a.sample %>
-     <% rating.times do %>
+  <div class="wrapper_activity">
+    <div class="wrapper_activity_title">
+     <h1><%= @activity.title %></h1>
+     <% @activity.average_rating.times do %>
      <i class="fa fa-star" style="color: #f99d78"> </i>
      <% end %>
-     <p><%= @activity.average_rating %> stars</p>
    </div>
    <div class="wrapper_activity_share_button">
-    <!-- <p>Share this activity with your friends</p> -->
     <%= render 'shared/share_button_social_media' %>
   </div>
   <div class="wrapper_activity_description">
@@ -20,7 +17,6 @@
    <p><%= @activity.description %></p>
  </div>
  <div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
-
  </div>
 </div>
 <!-- Events of the activity-->
@@ -46,7 +42,7 @@
     <p>Dates</p>
   </div>
   <div class="main_info date">
-    <p><%= event.start_date.strftime("%A %l %B ") %></p>
+    <p><%= event.start_date.strftime("%A %e %B ") %></p>
   </div>
 </div>
 <div class="wrapper_event_details">
@@ -74,18 +70,16 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 <%#= link_to new_event_booking_path(event) do %>
 <div class="main_info">
   <% if user_signed_in? %>
-  <%= form_tag event_bookings_path(event) do %>
-  <%= hidden_field_tag 'event_id', event.id %>
-  <%# number_field_tag 'quantity' %>
-  <%= submit_tag 'Book', class: "book-button" %>
-  <% end %>
+    <%= form_tag event_bookings_path(event) do %>
+      <%= hidden_field_tag 'event_id', event.id %>
+      <%# number_field_tag 'quantity' %>
+      <%= submit_tag 'Book', class: "book-button" %>
+      <% end %>
   <% else %>
-  <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
-  <% session[:return_to_activity_id] = @activity.id %>
+    <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
+    <% session[:return_to_activity_id] = @activity.id %>
   <% end %>
 </div>
-
-
 </div>
 </div>
 <% end %>
@@ -94,18 +88,13 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 <!-- will be 50% in width; mobile 100%-->
 <div class="wrapper_info">
   <div class="contact_details">
-   <h2>Kids' Paradise</h2><br>
-   <% rating.times do %>
-   <i class="fa fa-star" style="color: #f99d78"> </i>
+   <h2>Provider's name</h2><br>
+   <% @activity.user.provider_rating.times do %>
+    <i class="fa fa-star" style="color: #f99d78"> </i>
    <% end %>
-   <p><%= @activity.user.provider_rating %> real star rating </p>
-   <address><%= @activity.address %></address>
-   <% rating = (3..5).to_a.sample %>
-  <!--  <address><%= @activity.user.email %></address> -->
-
+   <p>Provider's address</p>
  </div>
  <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}" %>"); width: 500px; height: 400px;'>
-
  </div>
 </div>
 
@@ -113,12 +102,7 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 <!-- will be 50% in width; mobile 100%-->
 <div class="wrapper_review">
   <h2>Reviews</h2>
-  <% @activity.events.each do |event| %>
-  <% event.reviews.each do |review| %>
-  <%= review.content %>
-  <%= review.activity_rating %>
-  <%= review.provider_rating %>
-  <% end %>
-  <% end %>
+  <%= render 'shared/reviews_show' %>
 </div>
+
 </div>
