@@ -1,8 +1,4 @@
-
-<%= simple_form_for [@event, Message.new] do |f|%>
-<%= f.input :content, label: false, placeholder: "Your message" %>
-<%= f.button :submit, "Send", class: "btn-success" %>
-<% end %>
+<%= render 'messages/form', event: @event, message: @message %>
 
 <%= @event.activity.title %> <br>
 <%= @event.activity.price %> <br>
@@ -16,8 +12,12 @@
 <% end %>
 
 
-<ul>
+<ul id="messages">
   <% @event.messages.each do |message| %>
   <li><%= message.content %></li>
   <% end %>
 </ul>
+
+
+
+
