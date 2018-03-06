@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 20180305202529) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "dates", force: :cascade do |t|
+    t.date "start_date"
+    t.bigint "event_id"
+    t.date "end_date"
+    t.index ["event_id"], name: "index_dates_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -131,6 +138,7 @@ ActiveRecord::Schema.define(version: 20180305202529) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
+  add_foreign_key "dates", "events"
   add_foreign_key "events", "activities"
   add_foreign_key "events", "bookings"
   add_foreign_key "messages", "events"

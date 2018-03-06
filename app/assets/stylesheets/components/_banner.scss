@@ -1,6 +1,6 @@
 .banner {
   color: white;
-  text-align: center;
+  text-align: left;
   height: calc(100vh-300px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-image: asset-url("postman-hero.svg");
@@ -34,3 +34,4 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
