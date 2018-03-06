@@ -48,7 +48,7 @@
 			padding: 0.5rem;
 			width: 50%;
 			display: grid;
-			grid-template-columns: 1fr 2fr 1fr;
+			grid-template-columns: 1fr 2fr 1fr 1fr;
 			grid-gap: 0 5px;
 			.wrapper_event_dates {
 				display: grid;
@@ -62,6 +62,12 @@
 					display: none;
 				}
 			}
+      .wrapper_event_price {
+        display: grid;
+        .wrapper_event_price_text {
+          display: none;
+        }
+      }
 			.wrapper_event_button {
 				text-align: center;
 				display: grid;
@@ -126,6 +132,9 @@
 		.event_container {
 			.wrapper_event_header {
 				display: none;
+			}
+			.wrapper-event {
+				width: 100%;
 			}
 		}
 

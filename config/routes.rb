@@ -1,11 +1,12 @@
 
 Rails.application.routes.draw do
+
 mount Attachinary::Engine => "/attachnary"
   devise_for :users
   root to: 'pages#home'
   get '/dashboard', to: 'users#dashboard'
   get '/dashboard/edit', to: 'users#edit'
-   # get "activities/:id", to: "activities#show" //crashes creating new activity
+
   resources :users
   # resources :events, only: [:index]
   resources :activities do
@@ -14,6 +15,7 @@ mount Attachinary::Engine => "/attachnary"
 
 	resources :events, only: [:show] do
 		resources :bookings, only: [:new, :create]
+    resources :messages, only: :create
 	end
 
 	resources :bookings, only: [:show, :update] do

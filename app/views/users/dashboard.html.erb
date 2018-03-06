@@ -1,23 +1,77 @@
-<h1>Hallo</h1>
+<div class="tabs">
+  <a class="tab active" href="#">
+   <h3><i class="fas fa-user"></i></h3>
+   <p>Your Profile</p>
+ </a>
+
+ <a class="tab" href="#">
+  <h3><i class="far fa-calendar-alt"></i></h3>
+  <p>Past Events</p>
+</a>
+
+
+<a class="tab" href="#">
+ <h3><i class="far fa-calendar-alt"></i></h3>
+ <p>Future Events</p>
+</a>
+
+<%= link_to dashboard_edit_path do %>
+<div class="tab">
+  <h3><i class="far fa-calendar-alt"></i></h3>
+  <p>Change your data</p>
+</div>
+<% end %>
+</div>
+
+<div class="dashboard-content">
+<div class="greeting-dashboard">
 <%= @user.first_name %><br>
 <%= @user.email %> <br>
 <%= @user.role %> <br>
-
-<!-- add the link to dashboard to create review: put it into past events design - for the future events: no link -->
-
-
-
-<%#= link_to "Review this activity", new_booking_review_path(@booking), class: "btn-medium"  %>
-
-<!-- the end - nothing more from this file: for conflict in git hub -->
+</div>
 
 <div class="container-dashboard" style="width: 70%; margin:0 auto;">
 <% @books = @bookings.select { |booking| booking.event.start_date > Date.today } %>
-<% if @books %>
+<% if !@books.empty? %>
 <p>Upcoming Activities</p>
 <% end %>
 <% @books.each do |booking| %>
-    <%= link_to activity_path(booking.event.activity) do %>
+<%= link_to event_path(booking.event) do %>
+<div class="index-search-result-dashboard">
+  <% if booking.event.activity.photos.first %>
+  <div class="result-image-dashboard" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path booking.event.activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
+    <div class="results-rating-stars">
+      <% rating = (3..5).to_a.sample %>
+      <% rating.times do %>
+      <i class="fa fa-star" style="color: #f99d78"> </i>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <div class="result-title">
+    <span><%= booking.event.activity.title.truncate(30) %></span>
+  </div>
+  <div class="result-address">
+    <span class="fas fa-map-marker">
+    </span>
+    <span class="normal-text"><%= booking.event.activity.address.truncate(30) %>
+    </span>
+  </div>
+  <div class="result-description">
+    <p><%= booking.event.activity.description.truncate(179)%></p>
+  </div>
+</div>
+<% end %>
+<% end %>
+</div>
+
+<div class="container-dashboard" style="width: 70%; margin:0 auto;">
+<% @past = @bookings.select { |booking| booking.event.start_date < Date.today } %>
+<% if !@past.empty?  %>
+<p> Past Activities </p>
+<% end %>
+<% @past.each do |booking| %>
+    <%= link_to booking_path(booking) do %>
       <div class="index-search-result">
         <% if booking.event.activity.photos.first %>
           <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path booking.event.activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
@@ -46,12 +100,6 @@
 <% end %>
 </div>
 
- <div class="dashboard-buttons" style="text-align:center;">
-    <%= link_to "Edit Profile", dashboard_edit_path, class: "btn-medium" %>
-    <%= link_to "Search", root_path, class: "btn-medium"  %>
-  </div>
-
-
-
-
-
+<div class="dashboard-buttons" style="text-align:center;">
+</div>
+</div>
