@@ -112,8 +112,8 @@
 						background: $red;
 						border: none;
 						color: white;
-				  	padding: 10px 10px;
-				  	font-size: 16px;
+				  	padding: 16px 10px;
+				  	font-size: 23px;
 				  	font-weight: bold;
 				  	margin: 10px 0;
 				  	border-radius: 5px;
@@ -140,7 +140,14 @@
     }
     .price {
       p {
-        font-size: 15px;
+        font-size: 20px;
+        font-family: Helvetica;
+      }
+    }
+    .date {
+      p {
+        font-size: 20px;
+        font-family: Helvetica;
       }
     }
 
@@ -148,12 +155,24 @@
 		width: 50%;
 		display: flex;
 		justify-content: space-between;
-		.contact_details {
-
-		}
+		  .contact_details {
+        h2 {
+        font-family: Helvetica;
+        font-size: 30px;
+        margin-bottom: 0;
+      }
+      i {
+        font-size:30px;
+      }
+        address {
+        font-family: Helvetica;
+        font-size: 20px;
+      }
+    }
 		.map_details {
 			background-size: cover;
 			background-position: center center;
+      border-radius: 5px;
 		}
 	}
 	.wrapper_review {
