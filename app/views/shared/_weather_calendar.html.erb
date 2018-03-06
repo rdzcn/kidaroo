@@ -1,0 +1,50 @@
+  <!-- PLEASE LEAVE THIS MSTERPIECE HERE. WE AR ENOT USING IT FOR OUR PROJECT FOR NOW - BUT WHO KNOWS WHEN WE NEED SOMETHING LIKE IT AGAIN -->
+
+
+  <div class="calandar-section">
+    <br>
+    <br>
+    <h2>OUR CALENDAR</h2>
+    <div class="container">
+     <div class="row">
+
+      <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+      <% results = JSON.parse(content) %>
+
+      <% [0,1,2].each do |i|%>
+      <% item = results["daily"]["data"][i] %>
+
+      <div class="col-xs-12 col-sm-4">
+       <div class="calendar-cell text-center">
+        <big><%= Time.at(item["time"]).day %>.<%= Time.at(item["time"]).month %>.<%= Time.at(item["time"]).year %></big>
+        <hr>
+        <br><% if item["icon"] == "partly_cloudy-day" %>
+        <%= image_tag "cloud.png", height: 50  %>
+        <% elsif item["icon"] == "partly-cloudy-night" %>
+        <%= image_tag "cloud.png", height: 50  %>
+        <% elsif item["icon"] == "clear-day" %>
+        <%= image_tag "sun.png", height: 50  %>
+        <% else %>
+        <%= image_tag "snow.png", height: 50  %>
+        <% end %>
+        <p><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
+        <p><%= item["summary"] %></p>
+        <hr>
+
+        <div class="calendar-list">
+          <% @activities.each do |activity| %>
+          <% events_today = activity.events.where("start_date = ?", Date.today + i) %>
+          <% events_today.each do |event_today| %>
+          <%= link_to activity_path(event_today.activity) do %>
+          <%= event_today.activity.title.truncate(30) %>
+          <% end %>
+          <% end %>
+          <% end %>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>

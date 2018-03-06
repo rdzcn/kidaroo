@@ -4,11 +4,11 @@
 }
 
 .calandar-section {
-	h2 {
-		text-align: center;
-	}
+	text-align: left;
 	background-color: $yellowhite;
 	color: $navy;
+	padding: 20px;
+	height: 30em;
 }
 
 .calendar-list {

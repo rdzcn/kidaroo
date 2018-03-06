@@ -1,0 +1,27 @@
+.highlighted-activities {
+	background-color: $violet-light;
+	color: $yellowhite;
+}
+
+.card-highlighted {
+	padding: 15px;
+}
+
+.weather-box {
+	padding: 33px;
+    margin: 15px;
+	background: white;
+	border-radius: 10%;
+	height: 15em;
+	position: absolute;
+}
+
+.weather-image {
+	position: relative;
+	left: 100px;
+
+}
+
+.weather-temperature {
+	font-size: 40px;
+}
