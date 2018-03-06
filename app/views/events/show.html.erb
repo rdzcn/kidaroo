@@ -1,15 +1,8 @@
-<div class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <%=  simple_form_for [@message, @event] do |f|%>
-        <%= f.input :title, label: false, placeholder: "Title" %>
-        <%= f.button :submit, "Submit", class: "btn-success" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%= simple_form_for [@event, Message.new] do |f|%>
+<%= f.input :content, label: false, placeholder: "Your message" %>
+<%= f.button :submit, "Send", class: "btn-success" %>
+<% end %>
 
 <%= @event.activity.title %> <br>
 <%= @event.activity.price %> <br>
@@ -21,3 +14,10 @@
 <%= booking.user.avatar  %>
 <%= booking.user.first_name  %>
 <% end %>
+
+
+<ul>
+  <% @event.messages.each do |message| %>
+  <li><%= message.content %></li>
+  <% end %>
+</ul>
