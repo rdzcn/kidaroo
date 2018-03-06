@@ -2,12 +2,14 @@
   "name": "kidaroo",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.2",
+    "@rails/webpacker": "^3.3.0",
     "bootstrap": "3",
     "gmaps": "^0.4.24",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "tilt.js": "^1.2.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.0.0"
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^2.11.1"
   }
 }
