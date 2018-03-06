@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where(age_group: params[:age_group]) unless (params[:age_group] == '0')
     @activities = @activities.where("district ILIKE ?", params[:district]) unless params[:district].blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
+    p params
 
     @markers = @activities.map do |activity|
       next if activity.latitude.nil?
