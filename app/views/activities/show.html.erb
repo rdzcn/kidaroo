@@ -4,13 +4,20 @@
 	<div class="wrapper_activity">
 		<div class="wrapper_activity_title">
 			<h1><%= @activity.title %></h1>
+       <% rating = (3..5).to_a.sample %>
+        <% rating.times do %>
+        <i class="fa fa-star" style="color: #f99d78"> </i>
+        <% end %>
      <p><%= @activity.average_rating %> stars</p>
-		</div>
-		<div class="wrapper_activity_age">
+    </div>
+    <div class="wrapper_activity_share_button">
+      <!-- <p>Share this activity with your friends</p> -->
+      <%= render 'shared/share_button_social_media' %>
+    </div>
+    <div class="wrapper_activity_description">
 			<h3>Age group: <%= @activity.age_group %>+</h3>
-		</div>
-		<div class="wrapper_activity_description">
-			<p><%= @activity.description %></p>
+      <h3>Category: <%= @activity.category %></h3>
+      <p><%= @activity.description %></p>
 		</div>
 		<div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
 
@@ -39,22 +46,24 @@
   				  <p>Dates</p>
 			    </div>
 			    <div class="main_info">
-					  <p><%= event.start_date %></p>
+            <p><%= event.start_date.strftime("%A %l %B ") %></p>
 			    </div>
 		    </div>
 		    <div class="wrapper_event_details">
 			    <div class="wrapper_event_details_text">
   				  <p>Details</p>
 			    </div>
-			    <div class="main_info">
-					<p>Do not forget to bring your child(ren) to the activity. No running in the pool allowed. No sunglasses. </p ><br>
+			    <div class="main_info description">
+					<p>Do not forget to bring your child(ren) to the activity.
+          No sunglasses.
+          Parents can enjoy a drink and/or snack in our bar while your kids are having fun. </p ><br>
         </div>
 		    </div>
         <div class="wrapper_event_price">
           <div class="wrapper_event_price_text">
             <p>Price</p>
           </div>
-          <div class="main_info">
+          <div class="main_info price">
           <p><%= humanized_money_with_symbol(@activity.price) %></p>
           </div>
           </div>

@@ -18,18 +18,44 @@
 		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 		grid-row-gap: 2rem;
 		.wrapper_activity_title {
+      h1 {
+        font-size: 40px;
+        font-family: Helvetica;
+
+      }
+      i {
+        font-size:30px;
+      }
 
 		}
-		.wrapper_activity_age {
-
-		}
+    .wrapper_activity_share_button {
+      // p {
+      //   margin-top: 25px;
+      //   margin-bottom: -20px;
+      //   font-size: 20px;
+      //   font-weight: bold;
+      // }
+    }
 		.wrapper_activity_description {
+      margin-right: 30px;
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: lighter;
+        font-family: Helvetica;
+
+      }
+      p {
+        font-size: 25px;
+        font-family: Helvetica;
+      }
 
 		}
 		.wrapper_activity_photo {
 			background-size: cover;
 			background-position: center center;
 			height: 400px;
+      border-radius: 15px;
 		}
 	}
 	.event_container {
@@ -46,9 +72,9 @@
 		.wrapper_event {
 			margin: 0 auto;
 			padding: 0.5rem;
-			width: 50%;
+			width: 60%;
 			display: grid;
-			grid-template-columns: 1fr 2fr 1fr 1fr;
+			grid-template-columns: 2fr 4fr 1fr 2fr;
 			grid-gap: 0 5px;
 			.wrapper_event_dates {
 				display: grid;
@@ -74,9 +100,15 @@
 				.wrapper_event_button_text {
 					display: none;
 				}
+
+          }
 				.main_info {
+          background: white;
+          border-radius: 5px;
+          margin-bottom: 5px;
 					.book-button {
-						width: 50%;
+            font-family: Helvetica;
+						width: 60%;
 						background: $red;
 						border: none;
 						color: white;
@@ -93,14 +125,25 @@
 			}
 		}
 		.wrapper_event_header {
+      p {
+        font-size: 25px;
+        font-weight: bold;
+        font-family: Helvetica;
+      }
 
 		}
-		.main_info {
-			background: white;
-			border-radius: 5px;
-			margin-bottom: 5px;
-		}
-	}
+		.description {
+      p {
+        font-size: 20px;
+        font-family: Helvetica;
+      }
+    }
+    .price {
+      p {
+        font-size: 15px;
+      }
+    }
+
 	.wrapper_info {
 		width: 50%;
 		display: flex;
