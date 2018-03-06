@@ -10,18 +10,33 @@
 }
 
 
-#age_group, #district, #category {
+/* #age_group, #district, #category {
 	width: 31%;
 }
 
 #category {
 	width: 26%;
-}
-.span-filters {
-	flex: 0 0 auto;
-	margin-right: 10px;
+} */
+#home-first-line {
+	.span-filters {
+		flex: 0 0 auto;
+		margin-right: 10px;
+	}
+	#category {
+		flex: 0 1 30%;
+	}
+
 }
 
+#home-second-line {
+	.span-filters {
+		flex: 0 1 auto;
+		margin-right: 10px;
+	}
+	#age_group, #district {
+		flex: 0 0 30%;
+	}
+}
 
 
 .text-container {
@@ -323,24 +338,22 @@ input:focus::-ms-input-placeholder {
 	}
 }
 
-@media screen and (max-width: 25em) {
-
-	
+@media (max-width: 576px) {
 
 	#homepage-form {
 		#home-first-line,#home-second-line {
-			display: inline;
+			display: inline !important;
 		} 
 	}
 
-
+/* 
 	#age_group, #district, #category {
 		width: 31%;
 	}
 
 	#category {
 		width: 26%;
-	}
+	} */
 	.span-filters {
 		flex: 0 0 auto;
 		margin-right: 10px;

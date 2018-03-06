@@ -1,3 +1,5 @@
+// base for categories.html.erb & cards.html.erb
+
 .highlighted-activities {
 	background-color: $violet-light;
 	color: $yellowhite;
@@ -24,4 +26,11 @@
 
 .weather-temperature {
 	font-size: 40px;
+}
+
+
+// categories.html.erb 
+
+.categories-container {
+color: $yellowhite;
 }

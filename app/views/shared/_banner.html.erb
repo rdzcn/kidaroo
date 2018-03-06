@@ -2,8 +2,6 @@
 	<div class="banner-content">
 		<h1>Search for activities</h1>
 
-
-
 		<div class="wrapper-filters">
 			<div class="nl-blurred">
 				<div class="container container-filters demo-1">
@@ -25,13 +23,13 @@
 								<div id="home-second-line">
 									<span class="span-filters">for my child</span>
 
-									<%= select_tag(:age_group, options_for_select([['who is a toddler', '1', {:class => 'age-group'}],
+									<%= select_tag(:age_group, options_for_select([['who is a toddler', '1'],
 										['who is in kindergarten', '2'],
 										['who is a school child', '3'],
 										['who is a teenager', '4'],
 										['and our family', '5']])) %>
 
-									<%= select_tag(:district, options_for_select([['anywhere in Berlin', '', {:class => 'age-group'}],
+									<%= select_tag(:district, options_for_select([['anywhere in Berlin', ''],
 										['in Charlottenburg', 'Charlottenburg'],
 										['in Friedrichshain', 'Friedrichshain'],
 										['in Kreuzberg', 'Kreuzberg'],
