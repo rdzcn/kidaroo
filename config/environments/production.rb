@@ -84,6 +84,10 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  #redis
+  config.action_cable.url = "ws://www.kidaroo.club/cable"
+  config.action_cable.allowed_request_origins = [ "http://www.kidaroo.club", "https://www.kidaroo.club" ]
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

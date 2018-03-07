@@ -11,3 +11,4 @@ production:
   CLOUDINARY_URL: "cloudinary://716967834119596:PJ2G9EmcZRMZxunS7H2YTTQoldg@annamariapl"
   GOOGLE_API_SERVER_KEY: "AIzaSyCnYGkRoFg2Q-zq5hOl1lKG6YKxfnzNBcY"
   GOOGLE_API_BROWSER_KEY: "AIzaSyC-VYLhwHGhnPQ-7Zqo2mIc3n7iFu4UK1A"
+  REDISCLOUD_URL: "redis://rediscloud:AIu0RXSdOq9tVrlcSCscKuAHRzjw537z@redis-14231.c2.eu-west-1-3.ec2.cloud.redislabs.com:14231"
