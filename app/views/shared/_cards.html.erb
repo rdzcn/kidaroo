@@ -19,6 +19,9 @@
             <h2><span><%= ac.activity.title.truncate(30) %></span></h2>
             <p>V<%= ac.activity.address.truncate(30) %></p>
           </div>
+           <div class="card-date">
+            <h4><span class="card-date-box"><%= ac.start_date.strftime("%m %b") %></span></h4>
+          </div>
 
           <% if ac.activity.user.avatar %>
           <%= cl_image_tag ac.activity.user.avatar.path, class: "card-user" %>
