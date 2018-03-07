@@ -3,46 +3,56 @@
   height: 250px;
   background-size: cover;
   margin-bottom: 20px;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+
+   a:hover {
+    // color: $orange;
+    text-decoration: none;
+  }
 
   p {
     font-weight: bold;
-    color: $yellowhite;
+    color: white;
     font-size: 40px;
     text-shadow: 1px 2px $orange;
   }
-  a:hover {
-    color: $orange;
-  }
+ 
 }
 .category-sports {
-  background-image: asset-url("sports.jpg");
+  background: linear-gradient($navy, transparent), asset-url("sports.jpg") center no-repeat;
+  background-size: cover; 
 }
 
 .category-cooking {
-  background-image: asset-url("cooking.jpg");  
+  background: linear-gradient($navy, transparent), asset-url("cooking.jpg") center no-repeat;
+  background-size: cover; 
 }
 
 .category-animals {
-  background-image: asset-url("animals.jpg");  
+  background: linear-gradient($navy, transparent), asset-url("animals.jpg") center no-repeat;
+  background-size: cover;  
 }
 
 .category-outdoor {
-  background-image: asset-url("outdoor.jpg");  
+  background: linear-gradient($navy, transparent), asset-url("outdoor.jpg") center no-repeat;
+  background-size: cover; 
 }
 
 .category-indoor {
-  background-image: asset-url("indoor.jpg");  
+ background: linear-gradient($navy, transparent), asset-url("indoor.jpg") center no-repeat;
+  background-size: cover;   
 }
 
 .category-game {
-  background-image: asset-url("game.jpg");  
+background: linear-gradient($navy, transparent), asset-url("game.jpg") center no-repeat;
+  background-size: cover;  
 }
 
 .category-art {
-  background-image: asset-url("art.jpg");  
+ background: linear-gradient($navy, transparent), asset-url("art.jpg") center no-repeat;
+  background-size: cover; 
 }
 

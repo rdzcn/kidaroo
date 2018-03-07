@@ -1,8 +1,10 @@
 // base for categories.html.erb & cards.html.erb
 
 .highlighted-activities {
-	background-color: $yellowhite;
-	color: $yellowhite;
+	background-color: white;
+	color: white;
+	padding-top: 40px;
+	padding-bottom: 60px;
 
 	h1 {
 		color: $orange;
@@ -32,10 +34,9 @@
 }
 
 
-// categories.html.erb 
-
 .categories-container {
-color: $orange;
+padding-bottom: 30px;
+padding-top: 30px;
 }
 
 .weather-box-container {
@@ -48,7 +49,7 @@ color: $orange;
 			margin-right: 35px;
 		}
 	}
-.weather-box-card:last-child {
+	.weather-box-card:last-child {
 		.weather-box {
 			margin-left: 35px;
 		}
