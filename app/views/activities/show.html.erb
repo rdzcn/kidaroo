@@ -35,7 +35,8 @@
 <div class="wrapper_event_button">
 </div>
 </div>
-<% @activity.events.each do |event| %>
+<% evts = @activity.events.where( "start_date >= ? ", Date.today) %>
+<% evts.each do |event| %>
 <div class="wrapper_event">
   <div class="wrapper_event_dates">
    <div class="wrapper_event_dates_text">
