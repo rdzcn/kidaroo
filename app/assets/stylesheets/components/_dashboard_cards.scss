@@ -1,0 +1,124 @@
+.index-search-dashboard {
+    // grid-row-gap: 10px;
+    display: subgrid;
+    // display: flex;
+    // flex-direction: column;
+    .index-search-result-dashboard {
+      position: relative;
+      background-color: #dde1ff;
+      color: $navy;
+      height: 230px;
+      max-width: 800px;
+      margin-bottom: 20px;
+      padding: 0px 0px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      border-radius: 3px;
+      justify-items: stretch;
+      align-items: stretch;
+
+      display: grid;
+      grid-column-gap: 16px;
+      grid-template-columns: 1fr 15% 10%;
+      grid-template-rows: 30% 6% 1fr 10% 10%;
+      grid-template-areas:
+      "title title price"
+      "stars stars stars"
+      "description description description"
+      "address address address"
+      ". . .";
+      &:hover {
+        border: 2px solid $navy;
+      }
+
+      .result-info-dashboard  {
+        z-index: 2;
+        color: white;
+        text-shadow: 1px 1px 5px black;
+        padding-left: 30px;
+
+      }
+      .result-title-dashboard  {
+        align-self: center;
+        padding-top: 0.3rem;
+        font-size: 1.5rem;
+        grid-area: title;
+        font-weight: bold;
+        
+      }
+      .result-image-dashboard  {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.8;
+      }
+
+      .results-rating-stars-dashboard  {
+        grid-area: stars;
+        font-size: 1.2rem;
+      }
+      .result-description-dashboard  {
+        align-self: start;
+        grid-area: description;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 15px;
+        font-size: 1.15rem;
+        a {
+          padding-bottom: 0.3rem;
+        }
+      }
+      .result-address-dashboard  {
+        grid-area: address;
+        justify-self: stretch;
+        font-size: 1.3rem;
+        .normal-text {
+          font-weight: lighter;
+        }
+      }
+
+      .results-price-dashboard  {
+        grid-area: price;
+        font-size: 1.3rem;
+        // padding-top: 7px;
+        // padding-left: 0px !important;
+        // padding-right: 20px;
+        // background: white;
+      }
+    }
+  }
+
+@media (min-width: 992px) {
+    .index-search-dashboard  {
+      .index-search-result-dashboard  {
+        grid-template-columns: 2.2fr 1fr 15% 20%;
+        grid-template-rows: 30% 6% 1fr 10% 10%;
+        grid-template-areas:
+        "image title title price"
+        "image stars stars stars"
+        "image description description description"
+        "image address address address"
+        "image . . .";
+
+        .result-image-dashboard  {
+          display: block !important;
+          grid-area: image;
+          background-size: cover;
+          background-position: center center;
+          border-radius: 3px;
+          width: 100%;
+          height: 100%;
+        }
+
+        .result-info-dashboard  {
+          color: $navy;
+          text-shadow: none;
+        }
+        .results-price-dashboard  {
+          grid-area: price;
+          padding: 20px;
+        }
+      }
+    }
+  }
