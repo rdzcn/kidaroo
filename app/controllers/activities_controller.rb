@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @events = @activity.events
+   @events = @activity.events
    #authorize @activity
    #if @activity.latitude && @activity.longitude
    # @markers = [{
