@@ -1,41 +1,41 @@
 <% @activities.each do |activity| %>
-<%= link_to activity_path(activity) do %>
+  <%= link_to activity_path(activity) do %>
 
-<div class="index-search-result">
+  <div class="index-search-result">
 
-  <% if activity.photos.first %>
-    <div class="result-image" style="
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
-    </div>
+    <% if activity.photos.first %>
+      <div class="result-image" style="
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
+      </div>
+    <% end %>
+
+  <div class="result-title result-info">
+    <span><%= activity.title.truncate(30) %></span>
+  </div>
+
+  <div class="results-rating-stars result-info">
+    <% rating = (3..5).to_a.sample %>
+    <% rating.times do %>
+      <i class="fa fa-star" style="color: #f99d78"> </i>
+    <% end %>
+  </div>
+
+  <div class="result-description result-info">
+    <p><%= activity.description.truncate(179)%></p>
+  </div>
+
+  <div class="result-address result-info">
+    <span class="fas fa-map-marker">
+    </span>
+    <span class="normal-text"><%= activity.address.truncate(35) %>
+    </span>
+  </div>
+
+  <div class="results-price">
+   <p><%= humanized_money_with_symbol(activity.price) %></p>
+  </div>
+
+  </div>
   <% end %>
-
-<div class="result-title result-info">
-  <span><%= activity.title.truncate(30) %></span>
-</div>
-
-<div class="results-rating-stars result-info">
-  <% rating = (3..5).to_a.sample %>
-  <% rating.times do %>
-  <i class="fa fa-star" style="color: #f99d78"> </i>
-  <% end %>
-</div>
-
-<div class="result-description result-info">
-  <p><%= activity.description.truncate(179)%></p>
-</div>
-
-<div class="result-address result-info">
-  <span class="fas fa-map-marker">
-  </span>
-  <span class="normal-text"><%= activity.address.truncate(35) %>
-  </span>
-</div>
-
-<div class="results-price">
- <p><%= humanized_money_with_symbol(activity.price) %></p>
-</div>
-
-</div>
-<% end %>
 <% end %>
 
