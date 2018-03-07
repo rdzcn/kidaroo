@@ -15,6 +15,7 @@
 <ul class="messages">
   <% @event.messages.each do |message| %>
   <li class="message"><%= message.content %></li>
+  <li class="message"><%= message.user.first_name %></li>
   <% end %>
 </ul>
 
