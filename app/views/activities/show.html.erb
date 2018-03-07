@@ -4,9 +4,9 @@
   <div class="wrapper_activity">
     <div class="wrapper_activity_title">
      <h1><%= @activity.title %></h1>
-     <%# @activity.average_rating.times do %>
+     <% @activity.average_rating.times do %>
      <i class="fa fa-star" style="color: #f99d78"> </i>
-     <%# end %>
+     <% end %>
    </div>
    <div class="wrapper_activity_share_button">
     <%= render 'shared/share_button_social_media' %>
