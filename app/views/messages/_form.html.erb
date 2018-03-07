@@ -1,4 +1,4 @@
 <%= simple_form_for([event, message], remote: true) do |f|%>
-  <%= f.input :content, label: false, placeholder: "Your message" %>
-  <%= f.button :submit, "Send", class: "btn-success" %>
+  <%= f.input :content, label: false, placeholder: "Your message", input_html: {id: 'input-form'} %>
+  <%= f.button :submit, "Send", class: "btn-success", id: 'input-btn' %>
 <% end %>
