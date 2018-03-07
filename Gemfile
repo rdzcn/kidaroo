@@ -4,7 +4,7 @@ ruby '2.4.3'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
-gem 'redis'
+gem 'redis', '3.0.0'
 gem 'devise'
 gem 'carrierwave', '~> 1.2'
 
