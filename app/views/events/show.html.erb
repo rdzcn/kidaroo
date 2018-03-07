@@ -12,12 +12,46 @@
 <% end %>
 
 
-<ul id="messages">
+<ul class="messages">
   <% @event.messages.each do |message| %>
-  <li><%= message.content %></li>
+  <li class="message"><%= message.content %></li>
   <% end %>
 </ul>
 
 
+<%= content_for :after_js do %>
+  <script>
 
+    function clearInput() {
+      const inputForm = document.getElementById('input-form')
+      inputForm.value = ''
+    }
+
+    scrollLastMessageIntoView();
+    App['chat_room_<%= @event.id %>'] = App.cable.subscriptions.create(
+      {
+        channel: 'ChatRoomsChannel',
+        chat_room_id: <%= @event.id %>
+      },
+      {
+        connected: () => {
+          console.log('Connected')
+        },
+        received: (data) => {
+          console.log(data.current_user_id)
+          console.log(<%= current_user.id %>)
+          if (data.current_user_id === <%= current_user.id %>) {
+            clearInput()
+          }
+          const messagesContainer = document.querySelector('.messages');
+          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
+
+        }
+
+      }
+    )
+
+  </script>
+<% end %>
 
