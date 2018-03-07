@@ -1,18 +1,16 @@
 <% @activities.each do |activity| %>
-<% act = activity.events.where("start_date > ?", Date.today) %>
-<% act.each do |ac| %>
-<%= link_to activity_path(ac.activity) do %>
+<%= link_to activity_path(activity) do %>
 
 <div class="index-search-result">
 
-  <% if ac.activity.photos.first %>
+  <% if activity.photos.first %>
     <div class="result-image" style="
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path ac.activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path activity.photos.first.path, width: 600, height: 600, crop: :fit, :effect=>"colorize:1", :color=>"#dde1ff"  %>');">
     </div>
   <% end %>
 
 <div class="result-title result-info">
-  <span><%= ac.activity.title.truncate(30) %></span>
+  <span><%= activity.title.truncate(30) %></span>
 </div>
 
 <div class="results-rating-stars result-info">
@@ -23,21 +21,21 @@
 </div>
 
 <div class="result-description result-info">
-  <p><%= ac.activity.description.truncate(179)%></p>
+  <p><%= activity.description.truncate(179)%></p>
 </div>
 
 <div class="result-address result-info">
   <span class="fas fa-map-marker">
   </span>
-  <span class="normal-text"><%= ac.activity.address.truncate(35) %>
+  <span class="normal-text"><%= activity.address.truncate(35) %>
   </span>
 </div>
 
 <div class="results-price">
- <p><%= humanized_money_with_symbol(ac.activity.price) %></p>
+ <p><%= humanized_money_with_symbol(activity.price) %></p>
 </div>
 
 </div>
 <% end %>
 <% end %>
-<% end %>
+
