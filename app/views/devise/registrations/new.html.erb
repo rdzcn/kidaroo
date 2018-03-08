@@ -6,7 +6,7 @@
 <div class="form-inputs">
 	<%= f.select :role, collection: User.roles.keys.to_a %>
 	<%= f.input :email, required: true, label: false, placeholder: "email" %>
-	<%= f.input :password, required: true,, label: false, placeholder: "password #{@minimum_password_length} characters minimum"  %>
+	<%= f.input :password, required: true, label: false, placeholder: "password #{@minimum_password_length} characters minimum"  %>
 	<%= f.input :password_confirmation, required: true, label: false, placeholder: "confirm your password" %>
 </div>
 
