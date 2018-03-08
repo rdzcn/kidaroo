@@ -5,6 +5,13 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	.wrapper_activity_photo {
+		width: 100%;
+		background-size: cover;
+		background-position: center center;
+		height: 32rem;
+    border-radius: 15px;
+	}
 	.wrapper_activity {
 		p {
 			font-size: 1rem;
@@ -27,31 +34,17 @@
 
 		}
     .wrapper_activity_share_button {
-      // p {
-      //   margin-top: 25px;
-      //   margin-bottom: -20px;
-      //   font-size: 20px;
-      //   font-weight: bold;
-      // }
+
     }
 		.wrapper_activity_description {
-      margin-right: 1rem;
       h3 {
-				margin: 0.4rem;
-        font-weight: lighter;
-           }
+        font-size: 1.5rem;
+      }
       p {
         font-size: 1rem;
-          }
-
+      }
 		}
-		.wrapper_activity_photo {
-			background-size: cover;
-			background-position: center center;
-			height: 32rem;
-      border-radius: 15px;
-		}
-	}
+}
 	.event_container {
 		p {
 			padding: 1rem;

@@ -1,7 +1,10 @@
 <div class="show_page_wrapper">
-	<!-- Title, Age Group, Description and Photo-->
-	<!-- will be 50% in width; mobile 100%-->
+
+     <div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
+    </div>
+
   <div class="wrapper_activity">
+
     <div class="wrapper_activity_title">
      <h1><%= @activity.title %></h1>
      <% @activity.average_rating.times do %>
@@ -16,11 +19,8 @@
    <h3>Category: <%= @activity.category %></h3>
    <p><%= @activity.description %></p>
  </div>
- <div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
- </div>
 </div>
-<!-- Events of the activity-->
-<!-- will be 100% in width; mobile 100%-->
+
 <div class="event_container">
  <div class="wrapper_event wrapper_event_header">
   <div class="wrapper_event_dates">
@@ -85,8 +85,7 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 </div>
 <% end %>
 </div>
-<!-- Provider contact and map-->
-<!-- will be 50% in width; mobile 100%-->
+
 <div class="wrapper_info">
   <div class="contact_details">
    <h2><%= @activity.user.first_name %></h2><br>
@@ -99,8 +98,6 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
  </div>
 </div>
 
-<!-- Review-->
-<!-- will be 50% in width; mobile 100%-->
 <div class="wrapper_review">
   <h2>Reviews</h2>
   <%= render 'shared/reviews_show' %>
