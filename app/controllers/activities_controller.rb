@@ -34,6 +34,7 @@ class ActivitiesController < ApplicationController
       lng: @activity.longitude
       }]
    end
+    @markers = @markers.compact
   end
 
   def create
