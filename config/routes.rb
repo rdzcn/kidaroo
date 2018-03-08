@@ -6,6 +6,7 @@ mount Attachinary::Engine => "/attachnary"
   devise_for :users
   root to: 'pages#home'
   get '/dashboard', to: 'users#dashboard'
+  get '/mybookings', to: 'users#mybookings'
   get '/dashboard/edit', to: 'users#edit'
   get '/event/:id', to: 'messages#new'
 

@@ -7,6 +7,13 @@ def dashboard
   # authorize @user
 end
 
+def mybookings
+  @user = current_user
+  @bookings = Booking.where(user_id: current_user.id)
+  @activities = Activity.where(user_id: current_user.id)
+  # authorize @user
+end
+
 def edit
   @user = current_user
   # authorize @user
