@@ -1,4 +1,20 @@
 // bootstrap customised
+.btn-primary{
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 50px;
+  background: $navy;
+  font-weight: lighter;
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #3C5663;
+  border: none;
+}
+
 
 .search-button {
     padding: 0 20px;
@@ -15,15 +31,6 @@
     }
   }
 
-.btn-primary{
-	border-radius: 40px;
-	padding-right: 20px;
-	padding-left: 20px;
-	height: 50px;
-	font-size: 20px;
-}
-
-
 .btn-medium {
   color: #999999;
   border: 1px solid #999999;
@@ -38,20 +45,6 @@
   color: #999999;
 }
 
-.btn-yellow {
-  color: $orange;
-  border: 1px solid $orange;
-  padding: 10px 40px;
-  text-align: center;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-}
-.btn-yellow:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: $orange;
-}
 
 .btn-treehouse {
   color: white;

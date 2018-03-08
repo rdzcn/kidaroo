@@ -1,0 +1,47 @@
+         <div class="index-search-dashboard "> 
+          <li class='active' id="c-3">
+            <div class="tab-pane" id="3b" style="width: 100%; margin:0 auto;">
+              <% @books = @bookings.select { |booking| booking.event.start_date > Date.today } %>
+              <% if !@books.empty? %>
+              <% end %>
+              <% @books.each do |booking| %>
+              <div>
+
+                <div class="index-search-result-dashboard">
+                  <% if booking.event.activity.photos.first %>
+                  <div class="result-image-dashboard" style="background-image: url('<%= cl_image_path booking.event.activity.photos.first.path, width: 600, height: 600, crop: :fit %>');">
+                  </div>
+
+                  <div class="results-rating-stars-dashboard result-info-dashboard">
+                    <% rating = (3..5).to_a.sample %>
+                    <% rating.times do %>
+                    <i class="fa fa-star" style="color: #f99d78"> </i>
+                    <% end %>
+                  </div>
+                  <% end %>
+                  <div class="result-title-dashboard result-info-dashboard">
+                    <span><%= booking.event.activity.title.truncate(30) %></span>
+                  </div>
+                  <div class="result-address-dashboard result-info-dashboard">
+                    <span class="fas fa-map-marker">
+                    </span>
+                    <span class="normal-text"><%= booking.event.activity.address.truncate(30) %>
+                    </span>
+                  </div>
+
+
+                  <div class="results-price-dashboard">
+                    <%= humanized_money_with_symbol(booking.event.activity.price) %>
+                  </div>
+                  <div class="result-description-dashboard result-info-dashboard">
+                    <p><%= booking.event.activity.description.truncate(179)%></p>
+                  </div>
+
+                  <%= link_to "chat with other parents", event_path(booking.event), class: "btn btn-primary chat-btn" %>
+                </div>
+
+
+                <% end %>
+              </div>
+            </li>
+          </div>

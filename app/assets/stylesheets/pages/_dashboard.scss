@@ -1,4 +1,8 @@
 
+.booking-row {
+  display: flex;
+}
+
 #dashboard .nav-pills > li > a {
   border-radius: 4px 4px 0 0 ;
 }
@@ -9,9 +13,9 @@
 }
 
 #dashboard .tab-content {
-  color : white;
-  padding: 23px 15px;
-  margin-bottom: 20px;
+ color: $navy;
+ padding: 16px 0;
+ margin-bottom: 20px;
 }
 
 .tabs {
@@ -38,12 +42,23 @@
   margin-bottom: 0;
 }
 .tab {
-  background: $orange;
-  flex: 0 0 30%;
+  background: $navy;
+  flex: 0 0 25%;
   text-align: center;
-  padding: 20px 0;
-  // flex-grow: 1;
+  padding: 15px 0;
+  padding-top: 3px;
+  color: white;
 }
+
+.active {
+  background: white;
+  color: $navy;
+}
+
+.booking-tab {
+ flex: 0 0 50%;
+}
+
 .tab:first-child {
   border-radius: 10px 0 0 0;
 }
@@ -55,12 +70,8 @@
   color: $navydark;
 }
 
-.dashboard-content {
-  background-color: $navydark;
-  color: white;
-}
 .dashboard-main-content {
-  color: white;
+  color: $navy;
 }
 
 .result-image-dashboard {
@@ -73,7 +84,7 @@
 }
 
 .index-search-result-dashboard {
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 .greeting-dashboard {
@@ -84,5 +95,5 @@
   width: 100%;
   padding-top: 50px;
   padding-bottom: 20px;
-  background: $navydark;
+  background: white;
 }
