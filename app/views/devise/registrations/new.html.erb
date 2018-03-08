@@ -5,9 +5,9 @@
 
 <div class="form-inputs">
 	<%= f.select :role, collection: User.roles.keys.to_a %>
-	<%= f.input :email, required: true, autofocus: true %>
-	<%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-	<%= f.input :password_confirmation, required: true %>
+	<%= f.input :email, required: true, label: false, placeholder: "email" %>
+	<%= f.input :password, required: true,, label: false, placeholder: "password #{@minimum_password_length} characters minimum"  %>
+	<%= f.input :password_confirmation, required: true, label: false, placeholder: "confirm your password" %>
 </div>
 
 <div class="form-actions">
