@@ -15,83 +15,82 @@
         </div>
 
 
+
+
+
         <h2> Parents <br> who are online </h2>
-        <% users = [] %> 
-        <% @event.bookings.each do |booking| %> <br>
-        <% users << booking.user.email  %>
-        <% use=users.uniq  %>
-        <% use.each do |user| %>
-        <div id="center-div">
-          <div class="bubble">
-            <span class="bubble-outer-dot">
-              <span class="bubble-inner-dot"></span>
-            </span>
+        <br>
+
+
+
+        <% @event.bookings.to_a.uniq { |s| s.user_id }.each do |booking| %>
+
+        <div class="chat-user-box">
+          <div id="center-div">
+            <div class="bubble">
+              <span class="bubble-outer-dot">
+                <span class="bubble-inner-dot"></span>
+              </span>
+            </div>
           </div>
-        </div> <%= user %>
-
+          <h4 class="chat-user-align"> <%= booking.user.first_name %></h4>
+        </div>
         <% end %>
-        <% end %>
-
-
-   
-
-        </div>
-
-        <div class="card-message existing-messages">
-          <ul class="messages">
-            <% @event.messages.each do |message| %>
-            <li class="message <%= 'message-right' if message.user == current_user %>">
-              <p><%= message.content %></p>
-              <p><%= message.user.first_name %></p>
-            </li>
-
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="card-message descr-section">
-          <div class="card-content">
-            <%= render 'messages/form', event: @event, message: @message %>
-          </div>
-        </div>
 
       </div>
+
+      <div class="card-message existing-messages">
+        <ul class="messages">
+          <% @event.messages.each do |message| %>
+          <% user_is_messages_author = message.user == current_user ? true : false %>
+          <%= render 'messages/message',  message: message, user_is_messages_author: user_is_messages_author %>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="card-message descr-section">
+        <div class="card-content">
+          <%= render 'messages/form', event: @event, message: @message %>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
 
 
-  <%= content_for :after_js do %>
-  <script>
+<%= content_for :after_js do %>
+<script>
 
-    function clearInput() {
-      const inputForm = document.getElementById('input-form')
-      inputForm.value = ''
-    }
+  function clearInput() {
+    const inputForm = document.getElementById('input-form')
+    inputForm.value = ''
+  }
 
-    scrollLastMessageIntoView();
-    App['chat_room_<%= @event.id %>'] = App.cable.subscriptions.create(
-    {
-      channel: 'ChatRoomsChannel',
-      chat_room_id: <%= @event.id %>
+  scrollLastMessageIntoView();
+  App['chat_room_<%= @event.id %>'] = App.cable.subscriptions.create(
+  {
+    channel: 'ChatRoomsChannel',
+    chat_room_id: <%= @event.id %>
+  },
+  {
+    connected: () => {
+      console.log('Connected')
     },
-    {
-      connected: () => {
-        console.log('Connected')
-      },
-      received: (data) => {
-        console.log(data.current_user_id)
-        console.log(<%= current_user.id %>)
-        if (data.current_user_id === <%= current_user.id %>) {
-          clearInput()
-        }
-        const messagesContainer = document.querySelector('.messages');
-        messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-        scrollLastMessageIntoView();
-
+    received: (data) => {
+      console.log(data.current_user_id)
+      console.log(<%= current_user.id %>)
+      if (data.current_user_id === <%= current_user.id %>) {
+        clearInput()
       }
+      const messagesContainer = document.querySelector('.messages');
+      messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+      scrollLastMessageIntoView();
 
     }
-    )
 
-  </script>
-  <% end %>
+  }
+  )
+
+</script>
+<% end %>

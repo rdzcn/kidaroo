@@ -21,10 +21,22 @@
 .message {
   display: flex;
   margin-bottom: 10px;
+  .avatar-chat {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+  }
+
   &.right {
     flex-direction: row-reverse;
     .message-content {
       background-color: #F2F9FC;
+
+    }
+    .avatar-chat {
+      border-radius: 50%;
+      height: 70px;
+      width: 70px;
     }
   }
 }
@@ -33,6 +45,8 @@
   border-radius: 3px;
   margin: 0 10px;
   padding: 11px 10px 8px 10px;
+  margin-top: 33px;
+  margin-bottom: 20px;
 }
 
 #input_form {
@@ -63,4 +77,11 @@ input.input-form {
   h4 {
     margin: 0;
   }
+}
+.chat-user-align {
+  flex: 2;
+  text-align: left;
+  margin-bottom: 0;
+  padding-left: 30px;
+  
 }
