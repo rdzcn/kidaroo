@@ -9,7 +9,7 @@
 
                 <div class="index-search-result-dashboard">
                   <% if booking.event.activity.photos.first %>
-                  <div class="result-image-dashboard" style="background-image: url('<%= cl_image_path booking.event.activity.photos.first.path, width: 600, height: 600, crop: :fit %>');">
+                  <div class="result-image-dashboard" style="background-image: url('<%= cl_image_path booking.event.activity.photos.first.path, width: 500, height: 250 %>');">
                   </div>
 
                   <div class="results-rating-stars-dashboard result-info-dashboard">
@@ -34,7 +34,7 @@
                     <%= humanized_money_with_symbol(booking.event.activity.price) %>
                   </div>
                   <div class="result-description-dashboard result-info-dashboard">
-                    <p><%= booking.event.activity.description.truncate(179)%></p>
+                    <p><%= booking.event.activity.description.truncate(50)%></p>
                   </div>
 
                   <%= link_to "chat with other parents", event_path(booking.event), class: "btn btn-primary chat-btn" %>

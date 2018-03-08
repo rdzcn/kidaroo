@@ -1,14 +1,14 @@
 .index-search-dashboard {
     // grid-row-gap: 10px;
-    display: subgrid;
     // display: flex;
     // flex-direction: column;
+
     .index-search-result-dashboard {
       position: relative;
       background-color: white;
       color: $navy;
       height: 230px;
-      max-width: 800px;
+      width: 100%;
       margin-bottom: 20px;
       padding: 0px 0px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -43,7 +43,7 @@
         font-size: 1.5rem;
         grid-area: title;
         font-weight: bold;
-        
+
       }
       .result-image-dashboard  {
         display: block;
@@ -56,6 +56,7 @@
       .chat-btn {
         grid-area: chat-btn;
         margin: 12px;
+        width: 250px;
       }
       .results-rating-stars-dashboard  {
         grid-area: stars;
@@ -90,9 +91,9 @@
 
   @media (min-width: 992px) {
     .index-search-dashboard  {
-      width: 49.5%;
+      width: 100%;
       .index-search-result-dashboard  {
-        grid-template-columns: 50% auto auto auto;
+        grid-template-columns: 30% auto auto auto;
         grid-template-rows: 20% 6% 1fr 10% auto;
         grid-template-areas:
         "image title title price"
