@@ -28,12 +28,13 @@ class ActivitiesController < ApplicationController
   def show
    @events = @activity.events
    #authorize @activity
-   #if @activity.latitude && @activity.longitude
-   # @markers = [{
-   #   lat: @activity.latitude,
-   #   lng: @activity.longitude
-   #   }]
-   #end
+   if @activity.latitude && @activity.longitude
+    @markers = [{
+      lat: @activity.latitude,
+      lng: @activity.longitude
+      }]
+   end
+    @markers = @markers.compact
   end
 
   def create
