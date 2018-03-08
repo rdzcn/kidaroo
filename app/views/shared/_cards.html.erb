@@ -3,7 +3,7 @@
     <div class="row">
      <div class="col-xs-12"> <h1>Recommended activities</h1>
      </div>
-     <% @activities[0..2].each do |activity| %>
+     <% @activities.select {|activity| activity.average_rating >= 4 }[0..2].each do |activity| %>
      <%= link_to activity_path(activity) do %>
      <div class="col-xs-12 col-sm-4">
       <div class="card-highlighted">
@@ -15,9 +15,9 @@
           </div>
           <div class="card-description">
             <h2><span><%= activity.title.truncate(30) %></span></h2>
-            <p>V<%= activity.address.truncate(30) %></p>
+            <p><%= activity.address.truncate(30) %></p>
           </div>
-           <div class="card-date">
+          <div class="card-date">
           </div>
 
           <% if activity.user.avatar %>

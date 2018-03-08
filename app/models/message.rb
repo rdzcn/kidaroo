@@ -1,7 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :event
-
   after_create :broadcast_message
 
   private
