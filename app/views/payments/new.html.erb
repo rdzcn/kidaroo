@@ -1,12 +1,18 @@
 <div class="payment-new-main-container">
+  <div class="backgrond-payment"></div>
  <div class="container">
   <div class="row">
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="payment-new-card">
-        <h1>Proceed to payment for <%= @booking.event.activity.title %></h1>
+        <h1> Thank you for choosing Kidaroo </h1>
+        <h3>Your activity: </h3>
+        <p><%= @booking.event.activity.title.capitalize %></p>
+        <p><%= @booking.event.start_date.strftime("%A %e %B ") %></p>
+        <p><%= @booking.event.activity.price.to_i %> EUR</p>
 
-        <article>
+
+        <!-- <article>
           <label class="amount">
             <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
           </label>
@@ -14,7 +20,7 @@
 
         <hr class="payment-line">
         <p><%= @booking.event.activity.title %></p>
-        <p> Your event begins at:  <b><%= @booking.event.start_date %> </b></p>
+        <p> Your event begins at:  <b><%= @booking.event.start_date %> </b></p> -->
 
         <%= form_tag booking_payments_path(@booking) do %>
 
