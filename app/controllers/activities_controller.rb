@@ -6,9 +6,10 @@ class ActivitiesController < ApplicationController
     @activities = Activity.select("activities.*").joins(:events).where("events.start_date >= ?", Date.today).distinct
     @activities = @activities.where("category ILIKE ?", "%#{params[:category]}%") unless params[:category].blank?
     @activities = @activities.where(age_group: params[:age_group]) if params[:age_group].present? && params[:age_group] != ""
-    @activities = @activities.where("district ILIKE ?", params[:district]) unless params[:district].blank?
+    @activities = @activities.where("district ILIKE ?", params[:city]) unless params[:city].blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
     p params
+    raise
 
     @markers = @activities.map do |activity|
       next if activity.latitude.nil?
