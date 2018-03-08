@@ -8,7 +8,7 @@
 				<div class="container container-filters demo-1">
 
 						<%=form_tag(activities_path, method: "get", class: "nl-form", id: "") do %>
-						I am searching for
+						<span class="text-form-filters">I am searching for</span>
 						<span class="input-container">
 							<span class="placeholder">any kind of activity</span>
 							<span class="input selectbox select-box-bigger">
@@ -25,9 +25,9 @@
 							</span>
 						</span>
 						<br>
-
+            <span class="text-form-filters">for my child</span>
 						<span class="input-container">
-							<span class="placeholder">for my child</span>
+							<span class="placeholder">who is</span>
 							<span class="input selectbox select-box-bigger">
 								<select class="fancy-select hidden" name="age_group" id="age_group">
 									<option data-text="who is at any age" value="">who is at any age</option>
@@ -44,7 +44,7 @@
 
 
 
-						anywhere in <span class="input-container">
+						<span class="text-form-filters">anywhere in </span><span class="input-container">
 							<span class="placeholder">Berlin</span>
 							<span class="input selectbox select-box-bigger">
 								<select class="fancy-select hidden" name="city" id="city">
@@ -64,7 +64,7 @@
 						</span>
 
 					<div>
-						<%= submit_tag "find activity >> ", class: "nl-submit" %>
+						<span class="find-activity-btn"><%= submit_tag "find activity", class: "nl-submit" %></span>
 						<% end %>
 					</div>
 

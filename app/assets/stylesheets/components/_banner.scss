@@ -16,7 +16,6 @@
   background-position-x: -70px;
 }
 .banner h1 {
-  margin-left: 13px;
   font-size: 62px;
   font-weight: bold;
   text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
@@ -27,6 +26,12 @@
   margin-top: 50px;
   font-size: 25px;
   margin-bottom: 50px;
+}
+
+
+.text-form-filters {
+  font-family: Open Sans;
+  font-size: 45px;
 }
 
 
@@ -44,3 +49,12 @@
     border-radius: 10px;
 
 }
+
+.nl-blurred {
+   font-family: Open Sans;
+}
+
+.find-activity-btn {
+  font-family: Open Sans;
+}
+

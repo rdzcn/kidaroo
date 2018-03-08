@@ -1,7 +1,7 @@
 // this footer is not being used == > footer_stealed
 
 .footer {
-  background: $yellow; // $light-gray ?
+  background: #F6B174; // $light-gray ?
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -33,18 +33,34 @@
 
 }
 
+i {
+  color: $orange;
+}
+
+.footer-right {
+  a {
+  padding-right: 23px;
+  }
+}
+
+.footer-center p{
+  font-size: 14px;
+  font-weight: lighter;
+}
 
 .footer-links {
   display: flex;
   // display: inline;
   align-items: center;
 }
+
 .footer-links a {
   color: black;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  margin-left: -8px;
 }
 .footer-links a:hover {
   opacity: 1;
@@ -64,6 +80,6 @@
   font-weight: lighter;
 }
 .p-stonger {
-  font-weight: bold;
-  font-size: 22px;
+  // font-weight: bold;
+  // font-size: 22px;
 }
