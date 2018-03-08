@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where("district ILIKE ?", params[:city]) unless params[:city].blank?
     @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
     p params
-    raise
+
 
     @markers = @activities.map do |activity|
       next if activity.latitude.nil?
