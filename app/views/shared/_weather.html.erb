@@ -3,33 +3,34 @@
 
 
   <div class="container">
-   <div class="row weather-box-container">
-     <div class="col-xs-12">
-      <h1>Weather in Berlin</h1>
-     <!--  <p>for the next 3 days</p> -->
-    </div>
-
-    <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
-    <% results = JSON.parse(content) %>
-
-    <% results["daily"]["data"][0..2].each do |item| %>
-    <div class="col-xs-12 col-sm-4 weather-box-card">
-      <div class="weather-box">
-       <% Time.at(item["time"]).day%><%= Time.at(item["time"]).strftime("%A, %e %B") %>
-        <% if item["icon"] == "partly_cloudy-day" %>
-        <%= image_tag "cloud.png", class:"weather-image", height: 50  %>
-        <% elsif item["icon"] == "partly-cloudy-night" %>
-        <%= image_tag "cloud.png", class:"weather-image", height: 50  %>
-        <% elsif item["icon"] == "clear-day" %>
-        <%= image_tag "sun.png", class:"weather-image", height: 50  %>
-        <% else %>
-        <%= image_tag "snow.png", class:"weather-image", height: 50  %>
-        <% end %>
-        <p class="weather-temperature"><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
-        <p><%= item["summary"] %></p>
+    <div class="row weather-box-container">
+      <div class="col-xs-12">
+        <h1>Weather in Berlin</h1>
+       <!--  <p>for the next 3 days</p> -->
       </div>
     </div>
-    <% end %>
+    <div class="row">
+      <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/52.517,13.3889?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+      <% results = JSON.parse(content) %>
+      <% results["daily"]["data"][0..2].each do |item| %>
+        <div class="col-xs-12 col-sm-4 weather-box-card">
+          <div class="weather-box">
+           <%# Time.at(item["time"]).day %>
+            <% if item["icon"] == "partly_cloudy-day" %>
+            <%= image_tag "cloud.png", class:"weather-image", height: 50  %>
+            <% elsif item["icon"] == "partly-cloudy-night" %>
+            <%= image_tag "cloud.png", class:"weather-image", height: 50  %>
+            <% elsif item["icon"] == "clear-day" %>
+            <%= image_tag "sun.png", class:"weather-image", height: 50  %>
+            <% else %>
+            <%= image_tag "snow.png", class:"weather-image", height: 50  %>
+            <% end %>
+            <p><%= Time.at(item["time"]).strftime("%A, %e %B") %></p>
+            <p class="weather-temperature"><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
+            <p><%= item["summary"] %></p>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
 </div>
