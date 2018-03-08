@@ -5,15 +5,17 @@
         <div class="container-chat-image">
           <div class="messanger-activity-image" style="background-image: url('<%= @event.activity.photos.first.fullpath %>')">          
           </div>
-          <h2 class="chat-title"><%= @event.activity.title %> </h2>
+
+
+
+          <h2 class="chat-title">CHAT</h2>
+          <h4 class="chat-title"><%= @event.activity.title %></h4>
+          <p class="chat-title"><%= @event.start_date %></p>
 
         </div>
 
 
-
-
-
-        <h1> Parents taking part </h1>
+        <h2> Parents <br> who are online </h2>
         <% users = [] %> 
         <% @event.bookings.each do |booking| %> <br>
         <% users << booking.user.email  %>
@@ -27,26 +29,11 @@
           </div>
         </div> <%= user %>
 
-
-
-
-
-
-
         <% end %>
         <% end %>
 
 
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-        <p>
-          Please remember that "<%= @event.activity.title %>" starts on <%= @event.start_date %> <%#= @event.end_date %> 
-        </p>
-        <p>  
+   
 
         </div>
 
