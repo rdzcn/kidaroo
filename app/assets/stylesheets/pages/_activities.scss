@@ -21,10 +21,10 @@
     // flex-direction: column;
     .index-search-result {
       position: relative;
-      background-color: #dde1ff;
+      background-color: white;
       color: $navy;
       height: 230px;
-      max-width: 800px;
+      // max-width: 800px;
       margin-bottom: 20px;
       padding: 0px 0px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -35,22 +35,22 @@
       display: grid;
       grid-column-gap: 16px;
       grid-template-columns: 1fr 15% 10%;
-      grid-template-rows: 30% 6% 1fr 10% 10%;
+      grid-template-rows: 30% 6% 1fr 15%;
       grid-template-areas:
       "title title price"
       "stars stars stars"
       "description description description"
-      "address address address"
-      ". . .";
+      "address address address";
       &:hover {
-        border: 2px solid $navy;
+        background-color: $light-gray;
+
       }
 
       .result-info {
         z-index: 2;
         color: white;
         text-shadow: 1px 1px 5px black;
-        padding-left: 30px;
+        padding-left: 5px;
 
       }
       .result-title {
@@ -89,6 +89,7 @@
         grid-area: address;
         justify-self: stretch;
         font-size: 1.3rem;
+        padding-bottom: 10px;
         .normal-text {
           font-weight: lighter;
         }
@@ -97,10 +98,6 @@
       .results-price {
         grid-area: price;
         font-size: 1.3rem;
-        // padding-top: 7px;
-        // padding-left: 0px !important;
-        // padding-right: 20px;
-        // background: white;
       }
     }
   }
@@ -111,12 +108,12 @@
     font-size: 12px;
   }
   .wrapper-index {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 16px 16px;
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 6fr 6fr;
+    grid-template-columns: 8fr 5fr;
     #map {
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       height: 100vh;
@@ -127,14 +124,13 @@
     }
     .index-search {
       .index-search-result {
-        grid-template-columns: 2.2fr 1fr 15% 20%;
-        grid-template-rows: 30% 6% 1fr 10% 10%;
+        grid-template-columns: 3fr 3fr 15% 20%;
+        grid-template-rows: 30% 6% 1fr 15%;
         grid-template-areas:
         "image title title price"
         "image stars stars stars"
         "image description description description"
-        "image address address address"
-        "image . . .";
+        "image address address address";
 
         .result-image {
           display: block !important;
@@ -159,81 +155,3 @@
   }
 
 }
-
-
-// @media (max-width: 768px) {
-//   .wrapper-index {
-//     display: grid;
-//     grid-column-gap: 5px;
-//     grid-template-columns: 100%; //just one column
-//     grid-template-rows: 40% 60%; //map - 40%, list- 60%
-//     #map {
-//       box-shadow: 0 0 10px rgba(0,0,0,0.3);
-//       height: 100%;
-//       width: 100%;
-//       // flex: 0 0 450px;
-//       position: sticky !important; /* !important to override Gmaps inline CSS */
-//       top: 0 !important;
-//     }
-//     .index-search {
-//       display: subgrid;
-//       .index-search-result {
-//         display: grid;
-//         grid-column-gap: 16px;
-//         grid-template-columns: 2.2fr 0.5fr;
-//         grid-template-rows: 15% 15% 1.5fr 15%;
-//         grid-template-areas:
-//         "title title"
-//         "stars stars"
-//         "description description"
-//         "address price";
-
-
-
-
-//         .result-title {
-//           align-self: center;
-//           padding-top: 0.2rem;
-//           font-size: 1.5rem;
-//           grid-area: title;
-//           font-weight: bold;
-//         }
-
-//         .results-rating-stars {
-//           grid-area: stars;
-//           font-size: 1rem;
-//         }
-//         .result-description {
-//           align-self: start;
-//           grid-area: description;
-//           padding-top: 15px;
-//           padding-bottom: 15px;
-//           font-size: 1.1rem;
-//           a {
-//             padding-bottom: 0.3rem;
-//           }
-//         }
-//         .result-address {
-//           grid-area: address;
-//           justify-self: stretch;
-//           font-size: 1.3rem;
-//           .normal-text {
-//             font-weight: lighter;
-//           }
-//         }
-
-//         .results-price {
-//           grid-area: price;
-//           font-size: 1.4rem;
-//           p {
-//             padding-top: 7px;
-//             padding-left: 7px;
-//             background: white;
-//           }
-//         }
-//       }
-//     }
-
-
-//   }
-// }
