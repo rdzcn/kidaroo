@@ -282,7 +282,7 @@ input:focus::-ms-input-placeholder {
 	text-transform: uppercase;
 	cursor: pointer;
 	position: relative;
-	background: #76C3BD; // $navy
+	background: #48677B; // $navy
 	color: #fff;
 	padding: 0 1em 0 0;
 	font-size: 40%;
@@ -354,10 +354,10 @@ input:focus::-ms-input-placeholder {
 	#homepage-form {
 		#home-first-line,#home-second-line {
 			display: inline !important;
-		} 
+		}
 	}
 
-/* 
+/*
 	#age_group, #district, #category {
 		width: 31%;
 	}
