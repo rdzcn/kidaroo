@@ -1,6 +1,9 @@
 #quote-carousel {
     padding: 0 10px 30px 10px;
     margin-top: 60px;
+    p {
+      line-height: 20px;
+    }
 }
 #quote-carousel .carousel-control {
     background: none;
@@ -51,8 +54,12 @@
 }
 
 .testimonial-container {
-    background-color: $yellowhite;
-    color: $navy;
+    background-color: white;
+    h3 {
+      font-size: 30px;
+      margin-bottom: -28px;
+      color: #FF976E;
+    }
 }
 
 .img-responsive {
