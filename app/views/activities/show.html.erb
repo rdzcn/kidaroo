@@ -103,7 +103,13 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
   <%= render 'shared/reviews_show' %>
 </div>
 
+<!--
 <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=1200x600&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}&key=AIzaSyDf8p_X3_9cxHXPk266pq65mxTqdmEzPiI" %>");'>
  </div>
+-->
 
+  <div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
 </div>
