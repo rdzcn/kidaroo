@@ -1,24 +1,17 @@
-<!-- <div class="dashboard-content">
-<div class="greeting-dashboard">
-<%#= @user.first_name %><br>
-<%#= @user.email %> <br>
-<%#= @user.role %> <br>
-</div> -->
-
 <div class="dashboard-wrapper-main">
   <div id="dashboard" class="container">
     <ul  class="nav nav-pills">
-      <li class="tab" id="t-1">Your profile<h3><i class="fas fa-user"></i></h3></li>
-      <li class="tab" id="t-2">Past Bookings<h3><i class="far fa-calendar-alt"></i></h3></li>
-      <li class="tab" id="t-3">Future Bookings<h3><i class="far fa-calendar-alt"></i></h3></li>
-      <li class="tab" id="t-4">Update your details<h3><i class="fas fa-wrench"></i></h3></li>
+<!--       <li class="tab" id="t-1">Your profile<h3><i class="fas fa-user"></i></h3></li> -->
+      <li class="tab booking-tab" id="t-3"><h1><i class="far fa-calendar-alt"></i></h1>FUTURE BOOKINGS</li>
+      <li class="tab booking-tab" id="t-2"><h1><i class="far fa-calendar-alt"></i></h1>PAST BOOKINGS</li>
+<!--       <li class="tab" id="t-4">Update your details<h3><i class="fas fa-wrench"></i></h3></li> -->
     </ul>
       <div class="tab-content wrapper-index-dashboard ">
         <ul class="list-unstyled">
-          <%= render 'profile' %>
+          <%#= render 'profile' %>
           <%= render 'past_bookings' %>
           <%= render 'future_bookings' %>
-          <%= render 'edit' %>
+          <%#= render 'edit' %>
       </ul class="list-unstyled">
     </div>
   </div>

@@ -5,7 +5,7 @@
     // flex-direction: column;
     .index-search-result-dashboard {
       position: relative;
-      background-color: #dde1ff;
+      background-color: white;
       color: $navy;
       height: 230px;
       max-width: 800px;
@@ -17,7 +17,7 @@
       align-items: stretch;
 
       display: grid;
-      grid-column-gap: 16px;
+      // grid-column-gap: 16px;
       grid-template-columns: 1fr 15% 10%;
       grid-template-rows: 30% 6% 1fr 10% 10%;
       grid-template-areas:
@@ -25,9 +25,9 @@
       "stars stars stars"
       "description description description"
       "address address address"
-      ". . .";
+      "chat-btn chat-btn chat-btn";
       &:hover {
-        border: 2px solid $navy;
+        background-color: $light-gray;
       }
 
       .result-info-dashboard  {
@@ -53,7 +53,10 @@
         z-index: 1;
         opacity: 0.8;
       }
-
+      .chat-btn {
+        grid-area: chat-btn;
+        margin: 12px;
+      }
       .results-rating-stars-dashboard  {
         grid-area: stars;
         font-size: 1.2rem;
@@ -81,25 +84,22 @@
       .results-price-dashboard  {
         grid-area: price;
         font-size: 1.3rem;
-        // padding-top: 7px;
-        // padding-left: 0px !important;
-        // padding-right: 20px;
-        // background: white;
       }
     }
   }
 
-@media (min-width: 992px) {
+  @media (min-width: 992px) {
     .index-search-dashboard  {
+      width: 49.5%;
       .index-search-result-dashboard  {
-        grid-template-columns: 2.2fr 1fr 15% 20%;
-        grid-template-rows: 30% 6% 1fr 10% 10%;
+        grid-template-columns: 50% auto auto auto;
+        grid-template-rows: 20% 6% 1fr 10% auto;
         grid-template-areas:
         "image title title price"
         "image stars stars stars"
         "image description description description"
         "image address address address"
-        "image . . .";
+        "image . chat-btn .";
 
         .result-image-dashboard  {
           display: block !important;
@@ -117,7 +117,14 @@
         }
         .results-price-dashboard  {
           grid-area: price;
-          padding: 20px;
+          padding: 14px;
+          padding-left: 14px;
+          padding-right: 8px;
+          justify-self: right;
+          background-color: $navy;
+          overflow: hidden;
+          color: white;
+          border-radius: 0px 0px 0px 40px;
         }
       }
     }
