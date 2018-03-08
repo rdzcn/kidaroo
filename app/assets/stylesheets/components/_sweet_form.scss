@@ -47,14 +47,19 @@
 .container-filters, .demo-1, .nl-blurred {
 	// background-color: $orange;
 	color: white;
+
 	// height: 100vh;
+}
+.container-filters {
+	padding-left: 0px !important;
 }
 
 .nl-form {
-	margin: 0.3em auto 0 auto;
+	margin: 20px 0;
 	font-size: 2em;
 	line-height: 1.5;
 	width: 100%;
+	max-width: 100% !important;
 }
 
 .nl-form ul {
@@ -173,6 +178,12 @@
 	font-variant: normal;
 	text-transform: none;
 	-webkit-font-smoothing: antialiased;
+}
+
+.nl-submit {
+	a:hover {
+		background: #6CB2AC;
+	}
 }
 
 .nl-dd ul li.nl-dd-checked:before {
