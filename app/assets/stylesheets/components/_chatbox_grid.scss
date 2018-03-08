@@ -1,0 +1,48 @@
+.grid {
+	display: grid;
+	margin-top: 40px;
+	grid-template-columns: 400px 1fr 1fr 1fr;
+	grid-template-rows: 33% 34%;
+}
+
+.profile-section {
+	grid-row: 1 / span 3;
+	grid-column: 1 / span 1;
+	padding: 150px;
+}
+
+.descr-section {
+	grid-row: 3 / span 1;
+	grid-column: 2 / span 3;
+}
+
+.existing-messages {
+	grid-row: 2 / span 1;
+	grid-column: 2 / span 3;
+}
+
+//
+
+// .padded {
+//   padding: 30px 0;
+// }
+
+.card-message {
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 10px;
+}
+
+.btn-green {
+	background-color: #4CCAAC;
+	color: white;
+}
+
+.btn-green:hover {
+	background-color: #37B686;
+	color: white;
+}

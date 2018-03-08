@@ -1,3 +1,9 @@
+.messager-wrapper {
+
+ background: #496978;
+ background: -webkit-linear-gradient(to top, #f99d78, #496978); 
+}
+
 .messages {
   font-size: 14px;
   color: #868686;
@@ -8,6 +14,8 @@
   border-bottom-width: 0;
   max-height: calc(100vh - 70px - 45px - 61px - 30px);
   overflow: scroll;
+  width: 100%;
+  
 }
 
 .message {

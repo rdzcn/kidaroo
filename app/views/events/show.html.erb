@@ -1,58 +1,113 @@
-<%= render 'messages/form', event: @event, message: @message %>
+<div class="messager-wrapper">
+  <div class="container text-center">
 
-<%= @event.activity.title %> <br>
-<%= @event.activity.price %> <br>
-<%= @event.activity.user.email %> <br>
-<%= @event.start_date %> <br>
-<%= @event.end_date %> <br>
-<% @event.bookings.each do |booking| %> <br>
-<%= booking.user.email  %>
-<%= booking.user.avatar  %>
-<%= booking.user.first_name  %>
-<% end %>
+    <div class="grid">
+
+      <div class="card-message profile-section">
+        <div class="card-content">
+
+          <h2><%= @event.activity.title %> </h2>
+
+<!--  <div class="xxx-image-xxx" style="url('<%#= cl_image_path event.activity.photos.first.path, width: 600, height: 600 %>');">
+</div> -->
+
+ Please remember that "<%= @event.activity.title %>" starts on <%= @event.start_date %> <%#= @event.end_date %> 
 
 
-<ul class="messages">
-  <% @event.messages.each do |message| %>
-  <li class="message"><%= message.content %></li>
-  <li class="message"><%= message.user.first_name %></li>
+
+
+details:
+<li> <%= @event.activity.price %> </li>
+<li> <%= @event.activity.user.email %>
+
+
+  <% @event.bookings.each do |booking| %> <br>
+  <%= booking.user.email  %>
+  <%= booking.user.avatar  %>
+  <%= booking.user.first_name  %>
   <% end %>
-</ul>
 
 
-<%= content_for :after_js do %>
-  <script>
+  <a href="#" class="btn btn-primary">Get in touch</a>
+</div>
+</div>
 
-    function clearInput() {
-      const inputForm = document.getElementById('input-form')
-      inputForm.value = ''
-    }
+    <!--   <div class="card-message contributions-section">
+          <div class="card-content">
+            <h3>3,536</h3>
+            <p>contributions</p>
+        </div>
+      </div>
 
-    scrollLastMessageIntoView();
-    App['chat_room_<%= @event.id %>'] = App.cable.subscriptions.create(
-      {
-        channel: 'ChatRoomsChannel',
-        chat_room_id: <%= @event.id %>
-      },
-      {
-        connected: () => {
-          console.log('Connected')
-        },
-        received: (data) => {
-          console.log(data.current_user_id)
-          console.log(<%= current_user.id %>)
-          if (data.current_user_id === <%= current_user.id %>) {
-            clearInput()
-          }
-          const messagesContainer = document.querySelector('.messages');
-          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-          scrollLastMessageIntoView();
+      <div class="card-message followers-section">
+          <div class="card-content">
+            <h3>758</h3>
+            <p>followers</p>
 
+        </div>
+      </div>
+
+      <div class="card-message repositories-section">
+          <div class="card-content">
+            <h3>119</h3>
+            <p>repositories</p>
+          </div>
+
+      </div>
+    -->
+    <div class="card-message existing-messages">
+
+      <ul class="messages">
+        <% @event.messages.each do |message| %>
+        <li class="message"><%= message.content %></li>
+        <li class="message"><%= message.user.first_name %></li>
+        <% end %>
+      </ul>
+
+
+      <%= content_for :after_js do %>
+      <script>
+
+        function clearInput() {
+          const inputForm = document.getElementById('input-form')
+          inputForm.value = ''
         }
 
-      }
-    )
+        scrollLastMessageIntoView();
+        App['chat_room_<%= @event.id %>'] = App.cable.subscriptions.create(
+        {
+          channel: 'ChatRoomsChannel',
+          chat_room_id: <%= @event.id %>
+        },
+        {
+          connected: () => {
+            console.log('Connected')
+          },
+          received: (data) => {
+            console.log(data.current_user_id)
+            console.log(<%= current_user.id %>)
+            if (data.current_user_id === <%= current_user.id %>) {
+              clearInput()
+            }
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
 
-  </script>
-<% end %>
+          }
 
+        }
+        )
+
+      </script>
+      <% end %>
+
+    </div>
+
+    <div class="card-message descr-section">
+      <div class="card-content">
+        <%= render 'messages/form', event: @event, message: @message %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
