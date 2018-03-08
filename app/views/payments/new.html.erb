@@ -5,7 +5,9 @@
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="payment-new-card">
-        <h1> Thank you for choosing Kidaroo </h1>
+        <h1> Thank you for choosing</h1>
+        <%= image_tag "logo.png", class: "logo-confirmation" %>
+
         <h3>Your activity: </h3>
         <p><%= @booking.event.activity.title.capitalize %></p>
         <p><%= @booking.event.start_date.strftime("%A %e %B ") %></p>

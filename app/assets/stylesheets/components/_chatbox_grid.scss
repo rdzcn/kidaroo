@@ -2,7 +2,7 @@
 	display: grid;
 	margin-top: 40px;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows:  40% 1fr;
+	grid-template-rows:  minmax(400px, auto) 0.8fr;
 }
 
 .profile-section {
@@ -14,9 +14,10 @@
 .descr-section {
 	grid-row: 2 / span 1;
 	grid-column: 2 / span 1;
-  padding: 0px 0 !important;
+  padding: 30px;
   margin: 0px 0px;
 }
+
 
 .existing-messages {
 	grid-row: 1 / span 1;
@@ -39,10 +40,10 @@
 	flex-direction: column;
 }
 
-.btn-green {
-	background-color: #4CCAAC;
-	color: white;
-}
+// .btn-green {
+// 	background-color: #4CCAAC;
+// 	color: white;
+// }
 
 .btn-green:hover {
 	background-color: #37B686;
@@ -60,8 +61,8 @@
 	height: 100%;
   width: 100%;
   background-size: cover;
-	filter: brightness(0.4);
-	z-index: 0;
+  filter: brightness(0.4);
+  z-index: 0;
 }
 
 .chat-title {
@@ -80,6 +81,22 @@
 
 
 
+.card-content {
+  .simple_form {
+    display: flex;
+  }
+  .form-control {
+    width: 228%;
+  }
+  .btn-primary {
+    position: relative;
+    left: 50%;
+  }
+}
+
+
+
+
 
 
 
@@ -90,6 +107,9 @@
   display: block; 
   position: absolute;
   cursor: pointer; 
+  display: flex;
+  flex: 1;
+  margin-top: 17px;
 }
 
 .bubble:hover:after {
@@ -124,7 +144,7 @@
 }
 
 .bubble .bubble-inner-dot {
- 
+
   display: block;
   text-align: center;
   opacity: 1;

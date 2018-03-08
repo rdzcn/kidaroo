@@ -43,7 +43,7 @@
         <ul class="messages">
           <% @event.messages.each do |message| %>
           <% user_is_messages_author = message.user == current_user ? true : false %>
-          <%= render 'messages/message',  message: message, user_is_messages_author: user_is_messages_author %>
+          <%= render 'messages/message',  message: message, user_id: message.user.id, user_is_message_author: user_is_messages_author %>
           <% end %>
         </ul>
       </div>
