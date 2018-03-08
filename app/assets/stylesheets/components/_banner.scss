@@ -12,6 +12,8 @@
   justify-content: center;
   background-size: 113% auto;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position-x: -70px;
 }
 .banner h1 {
   margin-left: 13px;
@@ -21,11 +23,11 @@
 }
 
 .banner h3 {
-    text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
-    font-size: 25px;
-    margin-bottom: 50px;
-  }
+  text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
 
 
 .banner p {

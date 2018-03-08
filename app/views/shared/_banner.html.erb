@@ -6,54 +6,70 @@
 
 			<div class="nl-blurred">
 				<div class="container container-filters demo-1">
-					<div>
+
 						<%=form_tag(activities_path, method: "get", class: "nl-form", id: "") do %>
-						<div id="homepage-form">
-							<div id="home-first-line">
-								<span class="span-filters">I am searching for</span>
-								<%= select_tag(:category, options_for_select([['any kind of activity', ''],
-									['activities with animals', 'Animals'],
-									['arts activities', 'Arts'],
-									['cooking activities', 'Cooking'],
-									['games activities', 'Games'],
-									['indoors activities', 'Indoors'],
-									['outdoors activities', 'Outdoors'],
-									['sports activities', 'Sports']])) %>
+						I am searching for
+						<span class="input-container">
+							<span class="placeholder">any kind of activity</span>
+							<span class="input selectbox select-box-bigger">
+								<select class="fancy-select hidden" name="category" id="category">
+									<option data-text="any kind of activity" value="">any kind of activity</option>
+									<option data-text="activities with animals" value="Animals">activities with animals</option>
+									<option data-text="arts activities" value="Arts">arts activities</option>
+									<option data-text="cooking activities" value="Cooking">cooking activities</option>
+									<option data-text="games activities" value="Games">games activities</option>
+									<option data-text="indoors activities" value="Indoors">indoors activities</option>
+									<option data-text="outdoors activitie" value="Outdoors">outdoors activities</option>
+									<option data-text="sports activities" value="Sports">sports activities</option>
+								</select>
+							</span>
+						</span>
+						<br>
 
-								</div>
-								<div id="home-second-line">
-									<span class="span-filters">for my child</span>
+						<span class="input-container">
+							<span class="placeholder">for my child</span>
+							<span class="input selectbox select-box-bigger">
+								<select class="fancy-select hidden" name="age_group" id="age_group">
+									<option data-text="who is at any age" value="">who is at any age</option>
+									<option data-text="who is a toddler" value="1">who is a toddler</option>
+									<option data-text="who is in kindergarten" value="2">who is in kindergarten</option>
+									<option data-text="who is a school child" value="3">who is a school child</option>
+									<option data-text="who is a teenager" value="4">who is a teenager</option>
+									<option data-text="and our family" value="5">and our family</option> 
+									<!-- I am not sure about "and our whole family." Daddy? -->
+								</select>
+							</span>
 
-									<%= select_tag(:age_group, options_for_select([
-                    ['who is at any age', nil],
-                    ['who is a toddler', '1'],
-                    ['who is in kindergarten', '2'],
-                    ['who is a school child', '3'],
-                    ['who is a teenager', '4'],
-                    ['and our family', '5']])) %>
-
-									<%= select_tag(:district, options_for_select([['anywhere in Berlin', ''],
-										['in Charlottenburg', 'Charlottenburg'],
-										['in Friedrichshain', 'Friedrichshain'],
-										['in Kreuzberg', 'Kreuzberg'],
-										['in Mitte', 'Mitte'],
-										['in Neukölln', 'Neukölln'],
-										['in Steglitz', 'Steglitz'],
-										['in Schöneberg', 'Schöneberg'],
-										['in Spandau', 'Spandau'],
-										['in Prenzlauer Berg', 'Prenzlauer Berg'],
-										['in Pankow', 'Pankow']])) %>
+						</span>
 
 
-									</div>
-								</div>
-               <br>
-               <%= submit_tag "find activity >> ", class: "nl-submit" %> 
-               <% end %>
 
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
+						anywhere in <span class="input-container">
+							<span class="placeholder">Berlin</span>
+							<span class="input selectbox select-box-bigger">
+								<select class="fancy-select hidden" name="city" id="city">
+									<option data-text="Berlin" value="">Berlin</option>
+									<option data-text="Charlottenburg" value="Charlottenburg">Charlottenburg</option>
+									<option data-text="Kreuzberg" value="Kreuzberg">Kreuzberg</option>
+									<option data-text="Mitte" value="Mitte">Mitte</option>
+									<option data-text="Neukölln" value="Neukölln">Neukölln</option>
+									<option data-text="Steglitz" value="Steglitz">Steglitz</option> 
+									<option data-text="Schöneberg" value="Schöneberg">Schöneberg</option> 
+									<option data-text="Spandau" value="Spandau">Spandau</option> 
+									<option data-text="Prenzlauer Berg" value="Prenzlauer Berg">Prenzlauer Berg</option> 
+									<option data-text="Pankow" value="Pankow">Pankow</option> 
+
+								</select>
+							</span>
+						</span>
+					</span>
+					<div>
+						<%= submit_tag "find activity >> ", class: "nl-submit" %> 
+						<% end %>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
