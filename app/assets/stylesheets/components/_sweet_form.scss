@@ -47,14 +47,19 @@
 .container-filters, .demo-1, .nl-blurred {
 	// background-color: $orange;
 	color: white;
+
 	// height: 100vh;
+}
+.container-filters {
+	padding-left: 0px !important;
 }
 
 .nl-form {
-	margin: 0.3em auto 0 auto;
+	margin: 20px 0;
 	font-size: 2em;
 	line-height: 1.5;
 	width: 100%;
+	max-width: 100% !important;
 }
 
 .nl-form ul {
@@ -175,6 +180,12 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.nl-submit {
+	a:hover {
+		background: #6CB2AC;
+	}
+}
+
 .nl-dd ul li.nl-dd-checked:before {
 	content: "\e000";
 	position: absolute;
@@ -271,7 +282,7 @@ input:focus::-ms-input-placeholder {
 	text-transform: uppercase;
 	cursor: pointer;
 	position: relative;
-	background: #76C3BD; // $navy
+	background: #48677B; // $navy
 	color: #fff;
 	padding: 0 1em 0 0;
 	font-size: 40%;
@@ -343,10 +354,10 @@ input:focus::-ms-input-placeholder {
 	#homepage-form {
 		#home-first-line,#home-second-line {
 			display: inline !important;
-		} 
+		}
 	}
 
-/* 
+/*
 	#age_group, #district, #category {
 		width: 31%;
 	}

@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @activities = Activity.select("activities.*").joins(:events).where("events.start_date >= ?", Date.today)
+    @activities = Activity.select("activities.*").joins(:events).where("events.start_date >= ?", Date.today).distinct
     @activities = @activities.where("category ILIKE ?", "%#{params[:category]}%") unless params[:category].blank?
     @activities = @activities.where(age_group: params[:age_group]) if params[:age_group].present? && params[:age_group] != ""
     @activities = @activities.where("district ILIKE ?", params[:district]) unless params[:district].blank?
@@ -28,12 +28,13 @@ class ActivitiesController < ApplicationController
   def show
    @events = @activity.events
    #authorize @activity
-   #if @activity.latitude && @activity.longitude
-   # @markers = [{
-   #   lat: @activity.latitude,
-   #   lng: @activity.longitude
-   #   }]
-   #end
+   if @activity.latitude && @activity.longitude
+    @markers = [{
+      lat: @activity.latitude,
+      lng: @activity.longitude
+      }]
+   end
+    @markers = @markers.compact
   end
 
   def create

@@ -34,7 +34,7 @@
         z-index: 2;
         color: white;
         text-shadow: 1px 1px 5px black;
-        padding-left: 30px;
+        padding-left: 15px;
 
       }
       .result-title-dashboard  {
@@ -59,7 +59,7 @@
       }
       .results-rating-stars-dashboard  {
         grid-area: stars;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       .result-description-dashboard  {
         align-self: start;
@@ -67,7 +67,7 @@
         padding-top: 15px;
         padding-bottom: 15px;
         padding-right: 15px;
-        font-size: 1.15rem;
+        font-size: 1.0rem;
         a {
           padding-bottom: 0.3rem;
         }
@@ -75,7 +75,7 @@
       .result-address-dashboard  {
         grid-area: address;
         justify-self: stretch;
-        font-size: 1.3rem;
+        font-size: 1.0rem;
         .normal-text {
           font-weight: lighter;
         }
@@ -83,7 +83,7 @@
 
       .results-price-dashboard  {
         grid-area: price;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
     }
   }

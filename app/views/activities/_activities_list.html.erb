@@ -1,5 +1,5 @@
 <% @activities.each do |activity| %>
-<%= link_to activity_path(activity) do %>
+ <%= link_to activity_path(activity) do %>
 
 <div class="index-search-result">
   <% if activity.photos.first %>
@@ -12,28 +12,27 @@
 </div>
 
 <div class="results-rating-stars result-info">
-  <% rating = (3..5).to_a.sample %>
-  <% rating.times do %>
+  <% activity.average_rating.times do %>
   <i class="fa fa-star" style="color: #f99d78"> </i>
   <% end %>
-</div>
+  </div>
 
-<div class="result-description result-info">
-  <p><%= activity.description.truncate(179)%></p>
-</div>
+  <div class="result-description result-info">
+    <p><%= activity.description.truncate(179)%></p>
+  </div>
 
-<div class="result-address result-info">
-  <span class="fas fa-map-marker">
-  </span>
-  <span class="normal-text"><%= activity.address.truncate(35) %>
-  </span>
-</div>
+  <div class="result-address result-info">
+    <span class="fas fa-map-marker">
+    </span>
+    <span class="normal-text"><%= activity.address.truncate(35) %>
+    </span>
+  </div>
 
-<div class="results-price">
- <p><%= humanized_money_with_symbol(activity.price) %></p>
-</div>
+  <div class="results-price">
+   <p><%= humanized_money_with_symbol(activity.price) %></p>
+  </div>
 
-</div>
-<% end %>
+  </div>
+  <% end %>
 <% end %>
 

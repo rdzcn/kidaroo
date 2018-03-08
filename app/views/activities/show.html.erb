@@ -1,27 +1,27 @@
 <div class="show_page_wrapper">
-	<!-- Title, Age Group, Description and Photo-->
-	<!-- will be 50% in width; mobile 100%-->
+
+     <div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
+    </div>
+
   <div class="wrapper_activity">
+
     <div class="wrapper_activity_title">
-     <h1><%= @activity.title %></h1>
-     <% @activity.average_rating.times do %>
-     <i class="fa fa-star" style="color: #f99d78"> </i>
-     <% end %>
-   </div>
-   <div class="wrapper_activity_share_button">
-    <%= render 'shared/share_button_social_media' %>
-  </div>
+      <h1><%= @activity.title %>  </h1>
+        <% @activity.average_rating.times do %>
+          <i class="fa fa-star" style="color: #f99d78"> </i>
+        <% end %>
+    </div>
+    <div class="wrapper_activity_share_button">
+      <h3><%= @activity.age_group %>+</h3>
+      <%#= render 'shared/share_button_social_media' %>
+    </div>
   <div class="wrapper_activity_description">
-   <h3>Age group: <%= @activity.age_group %>+</h3>
-   <h3>Category: <%= @activity.category %></h3>
    <p><%= @activity.description %></p>
  </div>
- <div class="wrapper_activity_photo" style="background-image: url(<%= cl_image_path @activity.photos.first.path%>);">
- </div>
 </div>
-<!-- Events of the activity-->
-<!-- will be 100% in width; mobile 100%-->
+
 <div class="event_container">
+ <!--
  <div class="wrapper_event wrapper_event_header">
   <div class="wrapper_event_dates">
    <p>Dates</p>
@@ -35,6 +35,7 @@
 <div class="wrapper_event_button">
 </div>
 </div>
+-->
 <% evts = @activity.events.where( "start_date >= ? ", Date.today) %>
 <% evts.each do |event| %>
 <div class="wrapper_event">
@@ -77,7 +78,7 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
       <%= submit_tag 'Book', class: "book-button" %>
       <% end %>
   <% else %>
-    <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
+    <%= link_to "Sign in", new_user_session_path, class: "book-button" %>
     <% session[:return_to_activity_id] = @activity.id %>
   <% end %>
 </div>
@@ -85,8 +86,7 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
 </div>
 <% end %>
 </div>
-<!-- Provider contact and map-->
-<!-- will be 50% in width; mobile 100%-->
+
 <div class="wrapper_info">
   <div class="contact_details">
    <h2><%= @activity.user.first_name %></h2><br>
@@ -95,15 +95,21 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
    <% end %>
    <p><%= @activity.address %></p>
  </div>
- <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}&key=AIzaSyDf8p_X3_9cxHXPk266pq65mxTqdmEzPiI" %>"); width: 500px; height: 400px;'>
- </div>
+
 </div>
 
-<!-- Review-->
-<!-- will be 50% in width; mobile 100%-->
 <div class="wrapper_review">
   <h2>Reviews</h2>
   <%= render 'shared/reviews_show' %>
 </div>
 
+<!--
+<div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=1200x600&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}&key=AIzaSyDf8p_X3_9cxHXPk266pq65mxTqdmEzPiI" %>");'>
+ </div>
+-->
+
+  <div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
 </div>

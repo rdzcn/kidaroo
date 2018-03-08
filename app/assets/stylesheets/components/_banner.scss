@@ -12,19 +12,22 @@
   justify-content: center;
   background-size: 113% auto;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position-x: -70px;
 }
 .banner h1 {
+  margin-left: 13px;
   font-size: 62px;
   font-weight: bold;
   text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .banner h3 {
-    text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
-    font-size: 25px;
-    margin-bottom: 50px;
-  }
+  text-shadow: 3px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
 
 
 .banner p {
@@ -35,3 +38,9 @@
   margin-bottom: 30px;
 }
 
+.nl-submit {
+  font-family: Open Sans;
+    background: #48677B;
+    border-radius: 10px;
+
+}
