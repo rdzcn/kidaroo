@@ -2,61 +2,78 @@
   <div class="container text-center">
     <div class="grid">
       <div class="card-message profile-section">
-        <div class="card-content">
-
-          <h2><%= @event.activity.title %> </h2>
-
-          <div class="messanger-activity-image"> 
-            <%= cl_image_tag(@event.activity.photos.first.path) %>
+        <div class="container-chat-image">
+          <div class="messanger-activity-image" style="background-image: url('<%= @event.activity.photos.first.fullpath %>')">          
           </div>
-          <p>
-            Please remember that "<%= @event.activity.title %>" starts on <%= @event.start_date %> <%#= @event.end_date %> 
-          </p>
-          <p>  
-          details:
-          </p>
-          <ul class="list-untsyled">
-            <li> <%= @event.activity.price %> </li>
-            <li> <%= @event.activity.user.email %></li>
-          </ul>
-          <% @event.bookings.each do |booking| %>
-            <p>
-              <%= booking.user.email  %>
-            </p>
-              <%= cl_image_tag booking.user.avatar  %>  
-            <p>
-              <%= booking.user.first_name  %>
-            </p>
-          <% end %>
+          <h2 class="chat-title"><%= @event.activity.title %> </h2>
 
-          <a href="#" class="btn btn-primary">Get in touch</a>
         </div>
-      </div>
 
-      <div class="card-message existing-messages">
-        <ul class="messages">
-          <% @event.messages.each do |message| %>
+
+
+
+
+        <h1> Parents taking part </h1>
+        <% users = [] %> 
+        <% @event.bookings.each do |booking| %> <br>
+        <% users << booking.user.email  %>
+        <% use=users.uniq  %>
+        <% use.each do |user| %>
+        <div id="center-div">
+          <div class="bubble">
+            <span class="bubble-outer-dot">
+              <span class="bubble-inner-dot"></span>
+            </span>
+          </div>
+        </div> <%= user %>
+
+
+
+
+
+
+
+        <% end %>
+        <% end %>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <p>
+          Please remember that "<%= @event.activity.title %>" starts on <%= @event.start_date %> <%#= @event.end_date %> 
+        </p>
+        <p>  
+
+        </div>
+
+        <div class="card-message existing-messages">
+          <ul class="messages">
+            <% @event.messages.each do |message| %>
             <li class="message <%= 'message-right' if message.user == current_user %>">
               <p><%= message.content %></p>
               <p><%= message.user.first_name %></p>
             </li>
-            
-          <% end %>
-        </ul>
-      </div>
 
-      <div class="card-message descr-section">
-        <div class="card-content">
-          <%= render 'messages/form', event: @event, message: @message %>
+            <% end %>
+          </ul>
         </div>
-      </div>
 
+        <div class="card-message descr-section">
+          <div class="card-content">
+            <%= render 'messages/form', event: @event, message: @message %>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
 
-<%= content_for :after_js do %>
+  <%= content_for :after_js do %>
   <script>
 
     function clearInput() {
@@ -90,4 +107,4 @@
     )
 
   </script>
-<% end %>
+  <% end %>
