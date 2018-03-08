@@ -3,16 +3,17 @@
 // 	position: relative;
 // }
 
-// /*.cards-container {
-// 	display: flex;
-// 	flex: 1 0 650px;
-// }*/
+// // /*.cards-container {
+// // 	display: flex;
+// // 	flex: 1 0 650px;
+// // }*/
 
 // #map {
-	// flex: 0 0 450px;
-	// height: 100vh;
-	// position: sticky !important; /* !important to override Gmaps inline CSS */
-	// top: 0 !important;
+// 	// flex: 0 0 450px;
+// 	// height: 100vh;
+//   position: -webkit-sticky;
+// 	position: sticky !important; /* !important to override Gmaps inline CSS */
+// 	top: 0 !important;
 // }
 
 // // YOU HAVE TO : in HTML put things in map-main-container that shoule be displayed as flex.
