@@ -7,7 +7,7 @@
 	flex-direction: column;
 	.wrapper_activity {
 		p {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			letter-spacing: 1px;
 		}
 		width: 60%;
@@ -19,12 +19,10 @@
 		grid-row-gap: 2rem;
 		.wrapper_activity_title {
       h1 {
-        font-size: 2.5rem;
-        font-family: Helvetica;
-
+        font-size: 2rem;
       }
       i {
-        font-size:1.5rem;
+        font-size:1rem;
       }
 
 		}
@@ -41,13 +39,10 @@
       h3 {
 				margin: 0.4rem;
         font-weight: lighter;
-        font-family: Helvetica;
-
-      }
+           }
       p {
-        font-size: 2rem;
-        font-family: Helvetica;
-      }
+        font-size: 1rem;
+          }
 
 		}
 		.wrapper_activity_photo {
@@ -62,7 +57,7 @@
 			padding: 1rem;
 		}
 		margin: 2rem 0;
-		padding-bottom: 1.5rem;
+		padding-bottom: 1rem;
 		width: 100%;
 		background: rgba(180,180,180,0.2);
 		display: grid;
@@ -106,8 +101,7 @@
           border-radius: 5px;
           margin-bottom: 5px;
 					.book-button {
-            font-family: Helvetica;
-						width: 60%;
+            		width: 60%;
 						background: $red;
 						border: none;
 						color: white;
@@ -125,29 +119,25 @@
 		}
 		.wrapper_event_header {
       p {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: bold;
-        font-family: Helvetica;
-      }
+          }
 
 		}
 		.description {
       p {
-        font-size: 1.5rem;
-        font-family: Helvetica;
-      }
+        font-size: 1rem;
+          }
     }
     .price {
       p {
-        font-size: 1.5rem;
-        font-family: Helvetica;
-      }
+        font-size: 1rem;
+          }
     }
     .date {
       p {
-        font-size: 1.5rem;
-        font-family: Helvetica;
-      }
+        font-size: 1rem;
+          }
     }
 
 	.wrapper_info {
@@ -156,18 +146,16 @@
 		justify-content: space-between;
 		  .contact_details {
         h2 {
-        font-family: Helvetica;
-        font-size: 2.5rem;
+            font-size: 2.5rem;
         margin-bottom: 0;
       }
       i {
         font-size:2.5rem;
       }
         p {
-        font-family: Helvetica;
-        font-size: 1.5rem;
-        margin-top: 1rem;
-      }
+          font-size: 1rem;
+          margin-top: 1rem;
+        }
     }
 		.map_details {
 			background-size: cover;
@@ -180,16 +168,12 @@
 		// text-align: center;
 		padding: 2rem 0;
 		p {
-			font-size: 18px;
-      font-family: Helvetica;
-		}
-	}
+			font-size: 1rem;
+      	}
 
-  .wrapper_review {
 
-  }
 }
-
+}
 
 @media all and (min-width: 1024px) and (max-width: 1280px) {
 	.show_page_wrapper {
