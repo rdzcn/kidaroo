@@ -8,9 +8,8 @@
 	.wrapper_activity_photo {
 		width: 100%;
 		background-size: cover;
-		background-position: center center;
-		height: 32rem;
-    border-radius: 15px;
+		background-position: center top;
+		height: 400px;
 	}
 	.wrapper_activity {
 		p {
@@ -26,7 +25,7 @@
 		grid-row-gap: 2rem;
 		.wrapper_activity_title {
       h1 {
-        font-size: 2rem;
+        font-size: 32px;
       }
       i {
         font-size:1rem;
@@ -34,7 +33,12 @@
 
 		}
     .wrapper_activity_share_button {
-
+			justify-self: end;
+			h3 {
+				background: $navy;
+				padding: 0 30px;
+				color: white;
+			}
     }
 		.wrapper_activity_description {
       h3 {
@@ -53,16 +57,23 @@
 		padding-bottom: 1rem;
 		width: 100%;
 		background: rgba(180,180,180,0.2);
-		display: grid;
-		grid-template-rows: 3rem;
-		grid-auto-rows: 14rem;
+		display: flex;
+		flex-direction: columns;
+		.wrapper_event_header {
+			display: none;
+      p {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+		}
 		.wrapper_event {
 			margin: 0 auto;
-			padding: 0.5rem;
+			padding: 2rem 0;
 			width: 60%;
 			display: grid;
 			grid-template-columns: 2fr 4fr 1fr 2fr;
-			grid-gap: 0 0.5rem;
+			grid-gap: 0;
+
 			.wrapper_event_dates {
 				display: grid;
 				.wrapper_event_dates_text {
@@ -88,20 +99,22 @@
 					display: none;
 				}
 
-          }
+      }
 				.main_info {
           background: white;
-          border-radius: 5px;
-          margin-bottom: 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+          padding: 16px 0;
 					.book-button {
-            		width: 60%;
 						background: $red;
 						border: none;
 						color: white;
-				  	padding: 16px 10px;
-				  	font-size: 2rem;
+				  	padding: 8px;
+				  	font-size: 1.5rem;
 				  	font-weight: bold;
 				  	margin: 10px 0;
+				  	padding: 8px 16px;
 				  	border-radius: 5px;
 				  	&:hover {
 				  		background: #f00;
@@ -110,27 +123,25 @@
 				}
 			}
 		}
-		.wrapper_event_header {
-      p {
-        font-size: 1rem;
-        font-weight: bold;
-          }
 
-		}
 		.description {
       p {
         font-size: 1rem;
+        line-height: 1.3;
+        margin: 0;
           }
     }
     .price {
       p {
         font-size: 1rem;
+        margin: 0;
           }
     }
     .date {
       p {
         font-size: 1rem;
-          }
+        margin: 0;
+      }
     }
 
 	.wrapper_info {
@@ -168,15 +179,9 @@
 }
 }
 
+/*
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-	.show_page_wrapper {
-		.wrapper_activity {
-			width: 60%;
-    }
-  }
-  html {
-  	font-size: 12px;
-  }
+
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -211,3 +216,4 @@
 	}
 }
 
+*/

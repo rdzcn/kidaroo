@@ -6,22 +6,23 @@
   <div class="wrapper_activity">
 
     <div class="wrapper_activity_title">
-     <h1><%= @activity.title %></h1>
-     <% @activity.average_rating.times do %>
-     <i class="fa fa-star" style="color: #f99d78"> </i>
-     <% end %>
-   </div>
-   <div class="wrapper_activity_share_button">
-    <%= render 'shared/share_button_social_media' %>
-  </div>
+      <h1><%= @activity.title %>  </h1>
+      <% @activity.average_rating.times do %>
+        <i class="fa fa-star" style="color: #f99d78"> </i>
+      <% end %>
+    </div>
+    <div class="wrapper_activity_share_button">
+      <h3><%= @activity.age_group %>+</h3>
+      <%#= render 'shared/share_button_social_media' %>
+    </div>
   <div class="wrapper_activity_description">
-   <h3>Age group: <%= @activity.age_group %>+</h3>
-   <h3>Category: <%= @activity.category %></h3>
+
    <p><%= @activity.description %></p>
  </div>
 </div>
 
 <div class="event_container">
+ <!--
  <div class="wrapper_event wrapper_event_header">
   <div class="wrapper_event_dates">
    <p>Dates</p>
@@ -35,6 +36,7 @@
 <div class="wrapper_event_button">
 </div>
 </div>
+-->
 <% evts = @activity.events.where( "start_date >= ? ", Date.today) %>
 <% evts.each do |event| %>
 <div class="wrapper_event">
@@ -77,7 +79,7 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
       <%= submit_tag 'Book', class: "book-button" %>
       <% end %>
   <% else %>
-    <%= link_to "sign in and book", new_user_session_path, class: "book-button" %>
+    <%= link_to "Sign in", new_user_session_path, class: "book-button" %>
     <% session[:return_to_activity_id] = @activity.id %>
   <% end %>
 </div>
