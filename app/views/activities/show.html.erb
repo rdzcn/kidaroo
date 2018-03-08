@@ -7,16 +7,15 @@
 
     <div class="wrapper_activity_title">
       <h1><%= @activity.title %>  </h1>
-      <% @activity.average_rating.times do %>
-        <i class="fa fa-star" style="color: #f99d78"> </i>
-      <% end %>
+        <% @activity.average_rating.times do %>
+          <i class="fa fa-star" style="color: #f99d78"> </i>
+        <% end %>
     </div>
     <div class="wrapper_activity_share_button">
       <h3><%= @activity.age_group %>+</h3>
       <%#= render 'shared/share_button_social_media' %>
     </div>
   <div class="wrapper_activity_description">
-
    <p><%= @activity.description %></p>
  </div>
 </div>
@@ -96,13 +95,15 @@ Parents can enjoy a drink and/or snack in our bar while your kids are having fun
    <% end %>
    <p><%= @activity.address %></p>
  </div>
- <div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=500x400&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}&key=AIzaSyDf8p_X3_9cxHXPk266pq65mxTqdmEzPiI" %>"); width: 500px; height: 400px;'>
- </div>
+
 </div>
 
 <div class="wrapper_review">
   <h2>Reviews</h2>
   <%= render 'shared/reviews_show' %>
 </div>
+
+<div class="map_details" style='background-image: url("<%= "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=1200x600&sensor=false&maptype=roadmap&markers=color:red|#{@activity.address}&key=AIzaSyDf8p_X3_9cxHXPk266pq65mxTqdmEzPiI" %>");'>
+ </div>
 
 </div>
