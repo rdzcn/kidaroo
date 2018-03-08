@@ -25,21 +25,24 @@
 	padding: 33px;
 	background: white;
 	border-radius: 10px;
-	height: 13em;
+	height: 8em;
   margin-top: -11px;
-	position: absolute;
+	position: relative;
   padding-left: 22px;
   padding-top: 18px;
+  p {
+    font-size: 18px;
+  }
 }
 
 .weather-image {
-	position: relative;
-	left: 100px;
+	position: absolute;
+	right: 25px;
 
 }
 
 .weather-temperature {
-	font-size: 25px;
+	font-size: 20px;
 }
 
 
