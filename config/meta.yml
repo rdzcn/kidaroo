@@ -1,0 +1,5 @@
+meta_product_name: "Kidaroo"
+meta_title: "Kidaroo-explore and book children's activities"
+meta_description: "ou are just few clicks away from booking an activity for your children in Berlin. Have a look at the categories and enjoy a day full of fun"
+meta_image: "postman-hero.svg"                       # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

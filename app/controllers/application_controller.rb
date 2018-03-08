@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options
+  { host: ENV["www.kidaroo.club"] || "localhost:3000" }
+  end
+
   protected
 
   def configure_permitted_parameters
