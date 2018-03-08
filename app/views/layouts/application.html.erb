@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'public/packs/png' %>
   <!-- Facebook Open Graph data -->
   <meta property="og:title" content="KIDAROO-explore and book children activities" />
   <meta property="og:type" content="website" />
@@ -24,10 +25,11 @@
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'public/packs/png' %>
   <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   <meta name="description" content="You are just few clicks away from booking an activity for your children in Berlin. Have a look at the categories and enjoy a day full of fun!"
+
 </head>
+
 <body class="site">
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
