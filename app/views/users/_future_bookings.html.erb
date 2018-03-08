@@ -1,7 +1,7 @@
-         <div class="index-search-dashboard "> 
+         <div class="index-search-dashboard ">
           <li class='active' id="c-3">
             <div class="tab-pane" id="3b" style="width: 100%; margin:0 auto;">
-              <% @books = @bookings.select { |booking| booking.event.start_date > Date.today } %>
+              <% @books = @bookings.select { |booking| booking.event.start_date >= Date.today } %>
               <% if !@books.empty? %>
               <% end %>
               <% @books.each do |booking| %>
