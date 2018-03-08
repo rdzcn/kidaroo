@@ -75,11 +75,11 @@
   },
   {
     connected: () => {
-      console.log('Connected')
+      // console.log('Connected')
     },
     received: (data) => {
-      console.log(data.current_user_id)
-      console.log(<%= current_user.id %>)
+      // console.log(data.current_user_id)
+      // console.log(<%= current_user.id %>)
       if (data.current_user_id === <%= current_user.id %>) {
         clearInput()
       }

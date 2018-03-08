@@ -68,6 +68,7 @@
 .chat-title {
 	color: white;
 	z-index: 1;
+  text-shadow: 6px 4px 3px black; // look much better as our navy
 }
 
 .container-chat-image {
@@ -91,6 +92,11 @@
   .btn-primary {
     position: relative;
     left: 50%;
+    background-color: #4CCAAC; //  it must stand out to be viasble!!!! :::::: it is nicer than our navy - hover to check ;-) 
+    font-size: bold;
+  }
+  .btn-primary:hover {
+    background: $navy;
   }
 }
 
