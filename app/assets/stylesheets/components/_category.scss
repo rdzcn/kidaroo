@@ -1,4 +1,14 @@
+.categories-container {
+  h1 {
+    font-size: 40px;
+    color: #FFB472;
+  }
+}
+
+
+
 .category {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
   width: 100%;
   height: 250px;
   background-size: cover;
@@ -6,53 +16,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
+  border-radius: 5px;
+  &:hover {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+    p {
+      opacity: 1;
+      a {
+        text-decoration: none;
+      }
 
+    }
+  }
 
+  h1 {
+    font-size: 40px;
+  }
   p {
+      text-decoration: underline;
     font-weight: bold;
     color: white;
     font-size: 40px;
-    text-shadow: 1px 2px $orange;
-       &:hover, &:active, &:focus, &:visited {
-    text-decoration: none !important;
-  }
+    // text-shadow: 1px 2px $orange;
+    opacity: 0;
 
-  }
- 
+    }
+    a {
+      text-decoration: none;
+    }
+    // &:hover {
+    //   opacity: 1;
+    //   text-decoration: none;
+    //   z-index: 3;
+    // }
+  //      &:hover, &:active, &:focus, &:visited {
+  //   text-decoration: none !important;
+
+  // }
+
+
 }
 .category-sports {
-  background: linear-gradient($navy, transparent), asset-url("sports.jpg") center no-repeat;
-  background-size: cover; 
+  background: asset-url("sports.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-cooking {
-  background: linear-gradient($navy, transparent), asset-url("cooking.jpg") center no-repeat;
-  background-size: cover; 
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("cooking.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-animals {
-  background: linear-gradient($navy, transparent), asset-url("animals.jpg") center no-repeat;
-  background-size: cover;  
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("animals.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-outdoor {
-  background: linear-gradient($navy, transparent), asset-url("outdoor.jpg") center no-repeat;
-  background-size: cover; 
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("outdoor.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-indoor {
- background: linear-gradient($navy, transparent), asset-url("indoor.jpg") center no-repeat;
-  background-size: cover;   
+ background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("indoor.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-game {
-background: linear-gradient($navy, transparent), asset-url("game.jpg") center no-repeat;
-  background-size: cover;  
+background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("game.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .category-art {
- background: linear-gradient($navy, transparent), asset-url("art.jpg") center no-repeat;
-  background-size: cover; 
+ background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("art.jpg") center no-repeat;
+  background-size: cover;
 }
 
