@@ -3,12 +3,18 @@
 .highlighted-activities {
 	background-color: white;
 	color: white;
-	padding-top: 40px;
-	padding-bottom: 60px;
+	padding-top: 20px;
+	padding-bottom: 40px;
 
 	h1 {
-		color: $orange;
+		color: #FFB472;
+    font-size: 40px;
+    margin-top: 12.5px;
 	}
+}
+
+.highlighted-activities .card {
+  border-radius: 5px;
 }
 
 .card-highlighted {
@@ -18,9 +24,12 @@
 .weather-box {
 	padding: 33px;
 	background: white;
-	border-radius: 10%;
-	height: 15em;
+	border-radius: 10px;
+	height: 13em;
+  margin-top: -11px;
 	position: absolute;
+  padding-left: 22px;
+  padding-top: 18px;
 }
 
 .weather-image {
@@ -30,7 +39,7 @@
 }
 
 .weather-temperature {
-	font-size: 40px;
+	font-size: 25px;
 }
 
 
@@ -41,17 +50,20 @@ padding-top: 30px;
 
 .weather-box-container {
 	h1 {
-		color: $yellowhite;
+		color: #FFB472;
 		padding-bottom: 10px;
+    font-size: 40px;
 	}
-	.weather-box-card:first-child {
-		.weather-box {
-			margin-right: 35px;
-		}
-	}
-	.weather-box-card:last-child {
-		.weather-box {
-			margin-left: 35px;
-		}
-	}
+	// .weather-box-card:first-child {
+	// 	.weather-box {
+	// 		margin-right: 35px;
+	// 	}
+	// }
+
+
+	// .weather-box-card:last-child {
+	// 	.weather-box {
+	// 		margin-left: 35px;
+	// 	}
+	// }
 }
