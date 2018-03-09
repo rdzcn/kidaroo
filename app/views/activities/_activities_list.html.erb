@@ -2,10 +2,8 @@
  <%= link_to activity_path(activity) do %>
 
 <div class="index-search-result">
-
   <% if activity.photos.first %>
-    <div class="result-image" style="
-  background-image: url('<%= cl_image_path activity.photos.first.path, width: 600, height: 600, crop: :fit%>');">
+    <div class="result-image" style="background-image: url('<%= cl_image_path activity.photos.first.path, width: 600, height: 600, crop: :fit%>');">
     </div>
   <% end %>
 
