@@ -26,6 +26,12 @@
   flex-flow: column;
   justify-content: space-evenly;
   border-radius: 5px;
+  .logo-confirmation {
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    padding-bottom: 15%;
+}
 }
 
 .backgrond-payment {
@@ -36,6 +42,9 @@
   left: 0;
   right: 0;
   background: asset-url("postman-hero.svg") center center;
+  // ########################### ATTENTION ###########################################'
+  background-size: cover; ////// did you delete this on purpose??? on my computer loooks better with
+  // ############################### ATTENTION ######################################
   opacity: .7;
   width: 100%;
   height: 100%;

@@ -1,30 +1,20 @@
 <div class="messager-wrapper">
   <div class="container text-center">
-    <div class="grid">
-      <div class="card-message profile-section">
+    <div class="grid-chat">
+      <div class="card-message info-section">
+
         <div class="container-chat-image">
           <div class="messanger-activity-image" style="background-image: url('<%= @event.activity.photos.first.fullpath %>')">          
           </div>
-
-
-
-          <h2 class="chat-title">CHAT</h2>
-          <h4 class="chat-title"><%= @event.activity.title %></h4>
-          <p class="chat-title"><%= @event.start_date %></p>
-
+            <h2 class="chat-title">CHAT</h2>
+            <h4 class="chat-title"><%= @event.activity.title %></h4>
+            <p class="chat-title"><%= @event.start_date %></p>
         </div>
-
-
-
-
 
         <h2> Parents <br> who are online </h2>
         <br>
 
-
-
         <% @event.bookings.to_a.uniq { |s| s.user_id }.each do |booking| %>
-
         <div class="chat-user-box">
           <div id="center-div">
             <div class="bubble">
@@ -43,12 +33,12 @@
         <ul class="messages">
           <% @event.messages.each do |message| %>
           <% user_is_messages_author = message.user == current_user ? true : false %>
-          <%= render 'messages/message',  message: message, user_is_messages_author: user_is_messages_author %>
+          <%= render 'messages/message',  message: message, user_id: message.user.id, user_is_message_author: user_is_messages_author %>
           <% end %>
         </ul>
       </div>
 
-      <div class="card-message descr-section">
+      <div class="card-message chat-input-section">
         <div class="card-content">
           <%= render 'messages/form', event: @event, message: @message %>
         </div>
@@ -59,9 +49,11 @@
 </div>
 
 
+
+
+
 <%= content_for :after_js do %>
 <script>
-
   function clearInput() {
     const inputForm = document.getElementById('input-form')
     inputForm.value = ''
@@ -75,11 +67,11 @@
   },
   {
     connected: () => {
-      console.log('Connected')
+      // console.log('Connected')
     },
     received: (data) => {
-      console.log(data.current_user_id)
-      console.log(<%= current_user.id %>)
+      // console.log(data.current_user_id)
+      // console.log(<%= current_user.id %>)
       if (data.current_user_id === <%= current_user.id %>) {
         clearInput()
       }
@@ -91,6 +83,5 @@
 
   }
   )
-
 </script>
 <% end %>

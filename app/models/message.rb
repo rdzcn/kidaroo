@@ -9,7 +9,7 @@ class Message < ApplicationRecord
     ActionCable.server.broadcast("chat_room_#{self.event.id}", {
       message_partial: ApplicationController.renderer.render(
         partial: "messages/message",
-        locals: { message: self, user_is_messages_author: false }
+        locals: { message: self, user_is_message_author: true}
       ),
       current_user_id: self.user.id
     })

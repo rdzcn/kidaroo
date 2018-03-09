@@ -1,6 +1,10 @@
-<div class="message <%= user_is_messages_author ? "right" : "" %>">
+<div class="message <%= user_is_message_author ? "right" : "" %>">
   <% if message.user.avatar %>
     <%= cl_image_tag(message.user.avatar.public_id, class: "avatar-chat") %>
   <% end %>
-  <div class="message-content"><%= message.content %></div>
+
+  <div class="message-content"><%= message.content %>
+  	<div class="chat-user-name"> <%= message.user.first_name %> </div>
+  </div>
+ 
 </div>

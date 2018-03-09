@@ -6,8 +6,7 @@
 
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="payment-new-card">
-<!--       <h4>Status: <%= @booking.state %></h4>
--->
+<!--       <h4>Status: <%= @booking.state %></h4>-->
           <h1>Your reservation is confirmed!</h1>
           <h2>We hope you enjoy your activity</h2>
        <!--  <article>
@@ -16,9 +15,9 @@
           </label>
         </article> -->
         <div class="payment-line">
-        <p><%= link_to "Go to my dashboard", dashboard_path, class: "btn-medium" %></p>
+        <p><%= link_to "Go to my dashboard", dashboard_path, class: "btn-medium-desperation " %></p>
         <% if @booking.event.start_date < Date.today %>
-        <%= link_to "Add a review",  new_booking_review_path(@booking), class: "btn-medium" %>
+        <%= link_to "Add a review",  new_booking_review_path(@booking), class: "btn-medium-desperation " %>
         <% end %>
       </div>
     </div>
