@@ -3,7 +3,7 @@
     <div class="row">
      <div class="col-xs-12"> <h1>Recommended activities</h1>
      </div>
-     <% @activities.select {|activity| activity.average_rating >= 4 }[0..2].each do |activity| %>
+     <% @activities.select {|activity| activity.average_rating >= 4 }.last(3).each do |activity| %>
      <%= link_to activity_path(activity) do %>
      <div class="col-xs-12 col-sm-4">
       <div class="card-highlighted">
