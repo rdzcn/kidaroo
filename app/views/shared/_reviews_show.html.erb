@@ -2,7 +2,7 @@
   <% event.reviews.each do |review| %>
   <div class="row center-block card-row">
     <div class="col-md-2">
-    <%= cl_image_tag review.booking.user.avatar.path, :width=>150, :height=>150, :crop=>"scale" %>
+    <%= cl_image_tag review.booking.user.avatar.path, :width=>120, :height=>120, :crop=>"scale",  :radius => 10 %>
     </div>
     <div class="col-md-9 col-xs-8">
       <div class="review_content">
