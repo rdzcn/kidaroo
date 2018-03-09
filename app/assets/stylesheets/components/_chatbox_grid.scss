@@ -1,63 +1,3 @@
-@media (max-width: 600px) {
-
-  .grid-chat {
-    display: grid;
-    margin-top: 40px;
-    grid-template-columns: 100%;
-    grid-template-rows:  1fr auto auto;
-
-    .container {
-      margin-right: 0;
-      margin-left: 0;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-
-
-    .info-section {
-      display: none;
-    }
-
-    .existing-messages {
-      grid-row: 1 / span 1;
-      grid-column: 1 / span 1;
-    }
-
-    .chat-input-section {
-      grid-row: 2 / span 1;
-      grid-column: 1 / span 1;
-    }
-
-
-
-
-    .card-content {
-      .simple_form {
-        display: flex;
-      }
-      .form-control {
-        width: 228%;
-      }
-      .btn-primary {
-        position: relative;
-        left: 50%;
-    // background-color: #4CCAAC; //  it must stand out to be viasble!!!! :::::: it is nicer than our navy - hover to check ;-) 
-    background-color: #ea816f; //  it must stand out to be viasble!!!! :::::: it is nicer than our navy - hover to check ;-) 
-    font-size: bold;
-  }
-  .btn-primary:hover {
-   filter: brightness(1.1);
- }
-}
-
-}
-}
-
-
-
-
-
-
 @media (min-width: 992px) {
 
   .grid-chat {
@@ -162,17 +102,61 @@
    filter: brightness(1.1);
  }
 }
+}
+
+
+
+// @media (max-width: 600px) {
+
+//   .grid-chat {
+//     display: grid;
+//     margin-top: 40px;
+//     grid-template-columns: 100%;
+//     grid-template-rows:  1fr auto auto;
+
+//     .container {
+//       margin-right: 0;
+//       margin-left: 0;
+//       padding-left: 0px;
+//       padding-right: 0px;
+//     }
+
+
+//     .info-section {
+//       display: none;
+//     }
+
+//     .existing-messages {
+//       grid-row: 1 / span 1;
+//       grid-column: 1 / span 1;
+//     }
+
+//     .chat-input-section {
+//       grid-row: 2 / span 1;
+//       grid-column: 1 / span 1;
+//     }
 
 
 
 
+//     .card-content {
+//       .simple_form {
+//         display: flex;
+//       }
+//       .form-control {
+//         width: 228%;
+//       }
+//       .btn-primary {
+//         position: relative;
+//         left: 50%;
+//     // background-color: #4CCAAC; //  it must stand out to be viasble!!!! :::::: it is nicer than our navy - hover to check ;-) 
+//     background-color: #ea816f; //  it must stand out to be viasble!!!! :::::: it is nicer than our navy - hover to check ;-) 
+//     font-size: bold;
+//   }
+//   .btn-primary:hover {
+//    filter: brightness(1.1);
+//  }
+// }
 
-
-
-
-
-
-
-
-
-
+// }
+// }
