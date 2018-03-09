@@ -1,4 +1,4 @@
-         <div class="index-search-dashboard "> 
+         <div class="index-search-dashboard ">
           <li class='hidden' id="c-2">
             <div class="tab-pane" id="3b" style="width: 100%; margin:0 auto;">
               <% @books = @bookings.select { |booking| booking.event.start_date < Date.today } %>
@@ -13,7 +13,7 @@
                   </div>
 
                   <div class="results-rating-stars-dashboard result-info-dashboard">
-                    <% rating = (3..5).to_a.sample %>
+                    <% rating = booking.event.activity.average_rating %>
                     <% rating.times do %>
                     <i class="fa fa-star" style="color: #f99d78"> </i>
                     <% end %>
