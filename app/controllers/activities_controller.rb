@@ -20,6 +20,7 @@ class ActivitiesController < ApplicationController
       }
     end
     @markers = @markers.compact
+    @no_footer = true
   end
 
   def new
