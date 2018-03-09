@@ -1,5 +1,10 @@
+
+.main-wrapper {
+  height: calc(100vh - 70px);
+}
+
 .wrapper-index {
-  min-height: 100vh;
+  /* min-height: 100vh;*/ 
   width: 100%;
   margin: 0 auto;
   padding: 10px 5px;
@@ -108,21 +113,23 @@
     font-size: 16px;
   }
   .wrapper-index {
+    height: calc(100vh - 86px);
     width: 100%;
     margin: 0 auto;
-    padding: 16px 16px;
+    padding: 16px 0px 16px 16px;
     display: grid;
     grid-column-gap: 10px;
     grid-template-columns: 8fr 5fr;
     #map {
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      height: 100vh;
+      height: calc(100vh - 86px);
       width: 100%;
       flex: 0 0 450px;
       position: sticky !important; /* !important to override Gmaps inline CSS */
       top: 0 !important;
     }
     .index-search {
+      overflow: auto;
       .index-search-result {
         grid-template-columns: 3fr 3fr 15% 20%;
         grid-template-rows: 30% 6% 1fr 15%;
