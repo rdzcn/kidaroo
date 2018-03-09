@@ -12,6 +12,8 @@
   .container {
     margin-top: 30px;
   }
+
+
   .card-row {
     width: 100%;
     border: 1px solid #ccc;
@@ -32,16 +34,19 @@
 
   }
   .card__image__container {
-    // background-image: url('https://avatars0.githubusercontent.com/u/25131957?s=400&v=4');
     height:120px;
     width: 120px;
     border-radius: 10px;
-    // margin-left: 10px;
+
+    margin-left: 10px;
     padding: 16px;
     margin: 10px;
     background-size: cover;
     background-position: center center;
+
   }
+
+
   .card__body__short-text {
     max-height: 120px
   }
