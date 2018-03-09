@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @message = Message.new
+    @no_footer = true
   end
 
   private
