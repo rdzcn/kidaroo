@@ -2,15 +2,15 @@ class UsersController < ApplicationController
 
 def dashboard
   @user = current_user
-  @bookings = current_user.bookings
-  @activities = current_user.activities
+  @bookings = @user.bookings
+  @activities = @user.activities
   # authorize @user
 end
 
 def mybookings
   @user = current_user
-  @bookings = current_user.bookings
-  @activities = current_user.activities
+  @bookings = @user.bookings
+  @activities = @user.activities
   # authorize @user
 end
 
