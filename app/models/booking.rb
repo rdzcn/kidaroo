@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
   belongs_to :event
   monetize :amount_cents
 
+  scope :paid, -> { where(state: 'paid') }
+
   # def total_amount_cents
   #   amount_cents * quantity
   # end
