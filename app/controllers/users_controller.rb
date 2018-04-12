@@ -2,15 +2,15 @@ class UsersController < ApplicationController
 
 def dashboard
   @user = current_user
-  @bookings = Booking.where(user_id: current_user.id)
-  @activities = Activity.where(user_id: current_user.id)
+  @bookings = current_user.bookings
+  @activities = current_user.activities
   # authorize @user
 end
 
 def mybookings
   @user = current_user
-  @bookings = Booking.where(user_id: current_user.id)
-  @activities = Activity.where(user_id: current_user.id)
+  @bookings = current_user.bookings
+  @activities = current_user.activities
   # authorize @user
 end
 
