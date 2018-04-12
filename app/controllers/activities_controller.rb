@@ -12,15 +12,13 @@ class ActivitiesController < ApplicationController
       .with_city(params[:city])
       .with_latitude_and_longitude(params[:address])
 
-    @markers = @activities.map do |activity|
-      next if activity.latitude.nil?
-      {
-        lat: activity.latitude,
-        lng: activity.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/activities/map_box", locals: { activity: activity }) }
-      }
+    @markers = @activities.reduce([]) do |array, activity|
+      unless activity.latitude.nil?
+        array.push({lat: activity.latitude, lng: activity.longitude})
+      end
+
+      array
     end
-    @markers = @markers.compact
     @no_footer = true
   end
 
