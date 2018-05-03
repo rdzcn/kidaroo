@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
     @activities = Activity
       .with_events
       .starting_from_today
-      .distinct
+      .district
       .with_category(params[:category])
       .with_age_group(params[:age_group])
       .with_city(params[:city])
