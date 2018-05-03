@@ -3,23 +3,22 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @activities = Activity.select("activities.*").joins(:events).where("events.start_date >= ?", Date.today).distinct
-    @activities = @activities.where("category ILIKE ?", "%#{params[:category]}%") unless params[:category].blank?
-    @activities = @activities.where(age_group: params[:age_group]) if params[:age_group].present? && params[:age_group] != ""
-    @activities = @activities.where("district ILIKE ?", params[:city]) unless params[:city].blank?
-    @activities = @activities.where.not(latitude: nil, longitude: nil) unless params[:address].blank?
-    p params
+    @activities = Activity
+      .with_events
+      .starting_from_today
+      .district
+      .with_category(params[:category])
+      .with_age_group(params[:age_group])
+      .with_city(params[:city])
+      .with_latitude_and_longitude(params[:address])
 
+    @markers = @activities.reduce([]) do |array, activity|
+      unless activity.latitude.nil?
+        array.push({lat: activity.latitude, lng: activity.longitude})
+      end
 
-    @markers = @activities.map do |activity|
-      next if activity.latitude.nil?
-      {
-        lat: activity.latitude,
-        lng: activity.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/activities/map_box", locals: { activity: activity }) }
-      }
+      array
     end
-    @markers = @markers.compact
     @no_footer = true
   end
 
@@ -36,7 +35,6 @@ class ActivitiesController < ApplicationController
       lng: @activity.longitude
       }]
    end
-    @markers = @markers.compact
   end
 
   def create

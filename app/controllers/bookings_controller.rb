@@ -2,7 +2,7 @@
 class BookingsController < ApplicationController
 
   def show
-    @booking = Booking.where(state: 'paid').find(params[:id])
+    @booking = Booking.paid.find(params[:id])
     # authorize @booking
   end
 

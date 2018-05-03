@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def new
-    @booking = Booking.where(state: 'paid').find(params[:booking_id])
+    @booking = Booking.paid.find(params[:booking_id])
     @review = Review.new
   end
 
